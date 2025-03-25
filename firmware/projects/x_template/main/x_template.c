@@ -19,7 +19,7 @@
  * |:----------:|:-----------------------------------------------|
  * | 12/09/2023 | Document creation		                         |
  *
- * @author Albano Peñalva (albano.penalva@uner.edu.ar)
+ * @author Felipe M. Petracchi (felipe.petracchi@ingenieria.uner.edu.ar)
  *
  */
 
