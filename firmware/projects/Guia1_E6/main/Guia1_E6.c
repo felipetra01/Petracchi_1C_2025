@@ -36,13 +36,13 @@ typedef struct {
 	io_t  dir;		/**< Pin direction '0': IN, '1': OUT */
 } gpioConf_t;
 
-static const gpioConf_t bcd_mapping[3] = {		// Mapea cada digito a su GPIO activador correspondiente
+const gpioConf_t bcd_mapping[3] = {		// Mapea cada digito a su GPIO activador correspondiente
     {GPIO_9, GPIO_OUTPUT},   // Digito 1 (LSB)--> GPIO_9
     {GPIO_18, GPIO_OUTPUT},  // Digito 2 -------> GPIO_18
     {GPIO_19, GPIO_OUTPUT},  // Digito 3 (MSB)--> GPIO_19
 };
 
-static const gpioConf_t lcd_mapping[4] = {	// Mapea los bits de cada digito a los pines GPIO
+const gpioConf_t lcd_mapping[4] = {	// Mapea los bits de cada digito a los pines GPIO
     {GPIO_20, GPIO_OUTPUT},  // b0 -> GPIO_20
     {GPIO_21, GPIO_OUTPUT},  // b1 -> GPIO_21
     {GPIO_22, GPIO_OUTPUT},  // b2 -> GPIO_22
@@ -53,7 +53,6 @@ static const gpioConf_t lcd_mapping[4] = {	// Mapea los bits de cada digito a lo
 
 int8_t  convertToBcdArray (uint32_t num, uint8_t digitos, uint8_t * bcd_number)
 {
-    //uint8_t aux = 0;
 	// Verifica que el número de dígitos no exceda el tamaño del arreglo
 	if (digitos > 3) {
 		return -1; // Error: número de dígitos inválido
@@ -66,7 +65,7 @@ int8_t  convertToBcdArray (uint32_t num, uint8_t digitos, uint8_t * bcd_number)
 	return 0; // Éxito
 }
 
-void bcd_to_gpio(uint8_t bcd, gpioConf_t *config)
+void bcd_to_gpio(uint8_t bcd, const gpioConf_t *config)
 {
     // Configura cada GPIO según el bit correspondiente en el BCD
     for (uint8_t i = 0; i < 4; i++) {
@@ -79,25 +78,37 @@ void bcd_to_gpio(uint8_t bcd, gpioConf_t *config)
     }
 }
 
-int8_t mostrar_numero(uint32_t numero, uint8_t digitos, gpioConf_t *bcd_config, gpioConf_t *lcd_config)
+int8_t mostrar_numero(uint32_t numero, uint8_t digitos, const gpioConf_t *bcd_config, const gpioConf_t *lcd_config)
 {
+    printf("Número a mostrar: %ld\n", numero); // Imprime el número a mostrar
+
     uint8_t bcd_digits[3];  // Arreglo para almacenar hasta 3 dígitos BCD
 
     // Convierte el número a un arreglo de dígitos BCD
-    convertToBcdArray(numero, digitos, &bcd_digits);
+    convertToBcdArray(numero, digitos, bcd_digits);
+
+    // Printear el número BCD
+    /*
+    printf("Número BCD: ");
+    for (uint8_t i = 0; i < digitos; i++) {
+        printf("%d ", bcd_digits[i]); // Imprime el dígito BCD
+    }
+    */
 
     // Configura cada dígito en el display
     for (uint8_t i = 0; i < digitos; i++) {
-        //GPIOOff(lcd_config[i].pin);  // Apaga el dígito inicialmente
-        
+        printf("\nConfigurando dígito %d: %d\n", i, bcd_digits[i]); // Imprime el dígito BCD
+                
         // Configura los GPIOs según el valor BCD del dígito
-        bcd_to_gpio(bcd_digits[i], &lcd_config);
-        
+        bcd_to_gpio(bcd_digits[i], lcd_config);
+
+        printf("Dígito configurado %d: %d\n", i, bcd_digits[i]); // Imprime el dígito BCD
+
         // Enciende el dígito correspondiente en el LCD
         GPIOOn(bcd_config[i].pin);
         GPIOOff(bcd_config[i].pin);
     }
-    
+    printf("Número mostrado en el display\n");
     return 0;
 }
 
