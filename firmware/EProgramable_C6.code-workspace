@@ -83,7 +83,17 @@
             "ili9341.h": "c",
             "soc_caps.h": "c",
             "mpu6050.h": "c",
-            "i2c_mcu.h": "c"
+            "i2c_mcu.h": "c",
+            "bitset": "c",
+            "rope": "c",
+            "slist": "c",
+            "initializer_list": "c",
+            "ranges": "c",
+            "span": "c",
+            "stacktrace": "c",
+            "regex": "c",
+            "valarray": "c",
+            "ratio": "c"
         },
     },
     "tasks": {

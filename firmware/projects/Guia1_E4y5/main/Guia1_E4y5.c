@@ -1,23 +1,29 @@
-/*! @mainpage Template
+/*! @mainpage Guia1_E4y5 - Petracchi, F. M.
  *
- * @section genDesc General Description
+ * @section genDesc Descripción General
  *
- * This section describes how the program works.
- *
- * <a href="https://drive.google.com/...">Operation Example</a>
- *
+ * Este programa convierte un número decimal a su representación BCD y muestra su <b>primer dígito<\b> en un
+ * display LCD utilizando pines GPIO del ESP32.
+ * 
  * @section hardConn Hardware Connection
  *
  * |    Peripheral  |   ESP32   	|
  * |:--------------:|:--------------|
- * | 	PIN_X	 	| 	GPIO_X		|
- *
- *
+ * | 	D1  	 	| 	GPIO_20		|
+ * | 	D2  	 	| 	GPIO_21		|
+ * | 	D3  	 	| 	GPIO_22		|
+ * | 	D4  	 	| 	GPIO_23		|
+ * | 	SEL1  	 	| 	GPIO_19		|
+ * | 	SEL2  	 	| 	GPIO_18		|
+ * | 	SEL3  	 	| 	GPIO_9		|
+ * | 	Vcc(+5V)	| 	+5V		    |
+ * | 	GND	    	| 	GND		    /
+ * 
  * @section changelog Changelog
  *
  * |   Date	    | Description                                    |
  * |:----------:|:-----------------------------------------------|
- * | 12/09/2023 | Document creation		                         |
+ * | 28/03/2025 | Document creation		                         |
  *
  * @author Felipe M. Petracchi (felipe.petracchi@ingenieria.uner.edu.ar)
  *
@@ -36,7 +42,7 @@ typedef struct {
 	io_t  dir;		/**< Pin direction '0': IN, '1': OUT */
 } gpioConf_t;
 
-static const gpioConf_t bcd_mapping[4] = {	// Arreglo para almacenar la configuración de los pines GPIO
+const gpioConf_t bcd_mapping[4] = {	// Arreglo para almacenar la configuración de los pines GPIO
     {GPIO_20, 1},  // b0 -> GPIO_20
     {GPIO_21, 1},  // b1 -> GPIO_21
     {GPIO_22, 1},  // b2 -> GPIO_22
@@ -44,7 +50,14 @@ static const gpioConf_t bcd_mapping[4] = {	// Arreglo para almacenar la configur
 };
 /*==================[internal functions declaration]=========================*/
 
-int8_t  convertToBcdArray (uint32_t data, uint8_t digits, uint8_t * bcd_number)
+/**
+ * @brief Convierte un número decimal a su representación BCD.
+ * @param data Número decimal a convertir.
+ * @param digits Número de dígitos a convertir.
+ * @param bcd_number Arreglo para almacenar el número BCD resultante.
+ * @return 0 si la conversión fue exitosa, -1 si hubo un error.
+ */
+int8_t convertToBcdArray (uint32_t data, uint8_t digits, uint8_t * bcd_number)
 {
 	int8_t i = 0;
 	uint8_t binario = 0;
@@ -63,7 +76,13 @@ int8_t  convertToBcdArray (uint32_t data, uint8_t digits, uint8_t * bcd_number)
 	return 0; // Éxito
 }
 
-void bcd_to_gpio(uint8_t bcd, const gpioConf_t *config)
+/**
+ * @brief Configura los GPIOs según el valor BCD de un dígito dado.
+ * @param bcd Valor de 0-9 a configurar en los GPIOs
+ * @param config Puntero a la configuración de los GPIOs
+ * @note La función utiliza GPIOOn() y GPIOOff() para encender y apagar los pines según el valor BCD
+ */
+void BCDToGPIO(uint8_t bcd, const gpioConf_t *config)
 {
     // Configura cada GPIO según el bit correspondiente en el BCD
     for (int i = 0; i < 4; i++) {
@@ -94,6 +113,6 @@ void app_main(void){
 		printf("Error: número de dígitos inválido\n");
 	}
 	
-	bcd_to_gpio(bcd_number[0], bcd_mapping); // Enciende los LEDs
+	BCDToGPIO(bcd_number[0], bcd_mapping); // Enciende los LEDs
 }
 /*==================[end of file]============================================*/

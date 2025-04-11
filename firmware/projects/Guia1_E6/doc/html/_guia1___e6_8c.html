@@ -1,0 +1,437 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="es">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.13.2"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Proyecto 1: Referencia del archivo C:/Repositorios/Petracchi_1C_2025/firmware/projects/Guia1_E6/main/Guia1_E6.c</title>
+<link rel="icon" href="icon.ico" type="image/x-icon" />
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+  $(function() { init_search(); });
+/* @license-end */
+</script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectlogo"><img alt="Logo" src="fiuner.png"/></td>
+  <td id="projectalign">
+   <div id="projectname">Proyecto 1<span id="projectnumber">&#160;1.0</span>
+   </div>
+   <div id="projectbrief">Ejercicios 6 (incluyendo 4 y 5) del Proyecto 1 de Electrónica Programable</div>
+  </td>
+    <td>        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <span id="MSearchSelect"                onmouseover="return searchBox.OnSearchSelectShow()"                onmouseout="return searchBox.OnSearchSelectHide()">&#160;</span>
+          <input type="text" id="MSearchField" value="" placeholder="Buscar" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.svg" alt=""/></a>
+          </span>
+        </div>
+</td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Generado por Doxygen 1.13.2 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() { codefold.init(0); });
+/* @license-end */
+</script>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function(){initNavTree('_guia1___e6_8c.html',''); initResizable(true); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Cargando...</div>
+<div class="SRStatus" id="Searching">Buscando...</div>
+<div class="SRStatus" id="NoMatches">Nada coincide</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="summary">
+<a href="#nested-classes">Estructuras de datos</a> &#124;
+<a href="#define-members">defines</a> &#124;
+<a href="#func-members">Funciones</a> &#124;
+<a href="#var-members">Variables</a>  </div>
+  <div class="headertitle"><div class="title">Referencia del archivo Guia1_E6.c</div></div>
+</div><!--header-->
+<div class="contents">
+<div class="textblock"><code>#include &lt;stdio.h&gt;</code><br />
+<code>#include &lt;stdint.h&gt;</code><br />
+<code>#include &lt;<a class="el" href="gpio__mcu_8h_source.html">gpio_mcu.h</a>&gt;</code><br />
+</div>
+<p><a href="_guia1___e6_8c_source.html">Ir al código fuente de este archivo.</a></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="nested-classes" name="nested-classes"></a>
+Estructuras de datos</h2></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structgpio_conf__t.html">gpioConf_t</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="define-members" name="define-members"></a>
+defines</h2></td></tr>
+<tr class="memitem:ac80a3592e72fd96b772ee47a7d8e0d0a" id="r_ac80a3592e72fd96b772ee47a7d8e0d0a"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac80a3592e72fd96b772ee47a7d8e0d0a">DEBUG_MODE</a>&#160;&#160;&#160;0</td></tr>
+<tr class="memdesc:ac80a3592e72fd96b772ee47a7d8e0d0a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Modo de depuración.  <br /></td></tr>
+<tr class="separator:ac80a3592e72fd96b772ee47a7d8e0d0a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
+Funciones</h2></td></tr>
+<tr class="memitem:a7e5168d2e47035c77609916b8bbd06b1" id="r_a7e5168d2e47035c77609916b8bbd06b1"><td class="memItemLeft" align="right" valign="top">int8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a7e5168d2e47035c77609916b8bbd06b1">inicializarGPIOs</a> (const <a class="el" href="structgpio_conf__t.html">gpioConf_t</a> *config)</td></tr>
+<tr class="memdesc:a7e5168d2e47035c77609916b8bbd06b1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Inicializa múltiples GPIOs según la configuración proporcionada.  <br /></td></tr>
+<tr class="separator:a7e5168d2e47035c77609916b8bbd06b1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad50aae2901d50a8210fadb014fc38fcf" id="r_ad50aae2901d50a8210fadb014fc38fcf"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad50aae2901d50a8210fadb014fc38fcf">convertToBcdArray</a> (uint32_t num, uint8_t digitos, uint8_t *bcd_number)</td></tr>
+<tr class="memdesc:ad50aae2901d50a8210fadb014fc38fcf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Convierte un número decimal a su representación BCD en un arreglo.  <br /></td></tr>
+<tr class="separator:ad50aae2901d50a8210fadb014fc38fcf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a331380dc1cea26755bb7a5fdd553e1ef" id="r_a331380dc1cea26755bb7a5fdd553e1ef"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a331380dc1cea26755bb7a5fdd553e1ef">BCDToGPIO</a> (uint8_t bcd, const <a class="el" href="structgpio_conf__t.html">gpioConf_t</a> *config)</td></tr>
+<tr class="memdesc:a331380dc1cea26755bb7a5fdd553e1ef"><td class="mdescLeft">&#160;</td><td class="mdescRight">Configura los GPIOs según el valor BCD de un dígito dado.  <br /></td></tr>
+<tr class="separator:a331380dc1cea26755bb7a5fdd553e1ef"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab166fff279028eef361c1746d2562c57" id="r_ab166fff279028eef361c1746d2562c57"><td class="memItemLeft" align="right" valign="top">int8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab166fff279028eef361c1746d2562c57">mostrarNumero</a> (uint32_t numero, uint8_t digitos, const <a class="el" href="structgpio_conf__t.html">gpioConf_t</a> *bcd_config, const <a class="el" href="structgpio_conf__t.html">gpioConf_t</a> *lcd_config)</td></tr>
+<tr class="memdesc:ab166fff279028eef361c1746d2562c57"><td class="mdescLeft">&#160;</td><td class="mdescRight">Muestra un número en un display BCD utilizando GPIOs.  <br /></td></tr>
+<tr class="separator:ab166fff279028eef361c1746d2562c57"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a630544a7f0a2cc40d8a7fefab7e2fe70" id="r_a630544a7f0a2cc40d8a7fefab7e2fe70"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a630544a7f0a2cc40d8a7fefab7e2fe70">app_main</a> (void)</td></tr>
+<tr class="separator:a630544a7f0a2cc40d8a7fefab7e2fe70"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="var-members" name="var-members"></a>
+Variables</h2></td></tr>
+<tr class="memitem:a3c1c2f8e95529b09096569c9caff0e4e" id="r_a3c1c2f8e95529b09096569c9caff0e4e"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="structgpio_conf__t.html">gpioConf_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a3c1c2f8e95529b09096569c9caff0e4e">diggit_mapping</a> [3]</td></tr>
+<tr class="memdesc:a3c1c2f8e95529b09096569c9caff0e4e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Mapea cada digito a su GPIO activador correspondiente.  <br /></td></tr>
+<tr class="separator:a3c1c2f8e95529b09096569c9caff0e4e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afef936ad9a26c95e7ce8163207dbf996" id="r_afef936ad9a26c95e7ce8163207dbf996"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="structgpio_conf__t.html">gpioConf_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#afef936ad9a26c95e7ce8163207dbf996">lcd_mapping</a> [4]</td></tr>
+<tr class="memdesc:afef936ad9a26c95e7ce8163207dbf996"><td class="mdescLeft">&#160;</td><td class="mdescRight">Mapea los bits para representar un digito BCD sus correspondientes pines GPIO.  <br /></td></tr>
+<tr class="separator:afef936ad9a26c95e7ce8163207dbf996"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<h2 class="groupheader">Documentación de «define»</h2>
+<a id="ac80a3592e72fd96b772ee47a7d8e0d0a" name="ac80a3592e72fd96b772ee47a7d8e0d0a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac80a3592e72fd96b772ee47a7d8e0d0a">&#9670;&#160;</a></span>DEBUG_MODE</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define DEBUG_MODE&#160;&#160;&#160;0</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Modo de depuración. </p>
+<p>1 para habilitar "printf()"s de depuración, 0 para deshabilitar. </p>
+
+<p class="definition">Definición en la línea <a class="el" href="_guia1___e6_8c_source.html#l00047">47</a> del archivo <a class="el" href="_guia1___e6_8c_source.html">Guia1_E6.c</a>.</p>
+
+</div>
+</div>
+<h2 class="groupheader">Documentación de funciones</h2>
+<a id="a630544a7f0a2cc40d8a7fefab7e2fe70" name="a630544a7f0a2cc40d8a7fefab7e2fe70"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a630544a7f0a2cc40d8a7fefab7e2fe70">&#9670;&#160;</a></span>app_main()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void app_main </td>
+          <td>(</td>
+          <td class="paramtype">void</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definición en la línea <a class="el" href="_guia1___e6_8c_source.html#l00202">202</a> del archivo <a class="el" href="_guia1___e6_8c_source.html">Guia1_E6.c</a>.</p>
+
+<p class="reference">Hace referencia a <a class="el" href="_guia1___e6_8c_source.html#l00068">diggit_mapping</a>, <a class="el" href="_guia1___e6_8c_source.html#l00096">inicializarGPIOs()</a>, <a class="el" href="_guia1___e6_8c_source.html#l00080">lcd_mapping</a> y <a class="el" href="_guia1___e6_8c_source.html#l00153">mostrarNumero()</a>.</p>
+
+</div>
+</div>
+<a id="a331380dc1cea26755bb7a5fdd553e1ef" name="a331380dc1cea26755bb7a5fdd553e1ef"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a331380dc1cea26755bb7a5fdd553e1ef">&#9670;&#160;</a></span>BCDToGPIO()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void BCDToGPIO </td>
+          <td>(</td>
+          <td class="paramtype">uint8_t</td>          <td class="paramname"><span class="paramname"><em>bcd</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="structgpio_conf__t.html">gpioConf_t</a> *</td>          <td class="paramname"><span class="paramname"><em>config</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Configura los GPIOs según el valor BCD de un dígito dado. </p>
+<dl class="params"><dt>Parámetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">bcd</td><td>Valor de 0-9 a configurar en los GPIOs </td></tr>
+    <tr><td class="paramname">config</td><td>Puntero a la configuración de los GPIOs </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section note"><dt>Nota</dt><dd>La función utiliza <a class="el" href="group___g_i_o_p.html#gaba62250f2b0e73a98b6f35fb6078fdb1" title="Change GPIO state to high.">GPIOOn()</a> y <a class="el" href="group___g_i_o_p.html#ga30ed9d97406129b9b6390154a7479d70" title="Change GPIO state to low.">GPIOOff()</a> para encender y apagar los pines según el valor BCD </dd></dl>
+
+<p class="definition">Definición en la línea <a class="el" href="_guia1___e6_8c_source.html#l00127">127</a> del archivo <a class="el" href="_guia1___e6_8c_source.html">Guia1_E6.c</a>.</p>
+
+<p class="reference">Hace referencia a <a class="el" href="gpio__mcu_8c_source.html#l00086">GPIOOff()</a> y <a class="el" href="gpio__mcu_8c_source.html#l00081">GPIOOn()</a>.</p>
+
+<p class="reference">Referenciado por <a class="el" href="_guia1___e6_8c_source.html#l00153">mostrarNumero()</a>.</p>
+
+</div>
+</div>
+<a id="ad50aae2901d50a8210fadb014fc38fcf" name="ad50aae2901d50a8210fadb014fc38fcf"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad50aae2901d50a8210fadb014fc38fcf">&#9670;&#160;</a></span>convertToBcdArray()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void convertToBcdArray </td>
+          <td>(</td>
+          <td class="paramtype">uint32_t</td>          <td class="paramname"><span class="paramname"><em>num</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint8_t</td>          <td class="paramname"><span class="paramname"><em>digitos</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint8_t *</td>          <td class="paramname"><span class="paramname"><em>bcd_number</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Convierte un número decimal a su representación BCD en un arreglo. </p>
+<dl class="params"><dt>Parámetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">num</td><td>Número decimal de tipo uint32_t a convertir </td></tr>
+    <tr><td class="paramname">digitos</td><td>Cantidad de dígitos decimales a procesar </td></tr>
+    <tr><td class="paramname">bcd_number</td><td>Puntero al arreglo donde se almacenarán los dígitos BCD </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section note"><dt>Nota</dt><dd>Los dígitos se almacenan del menos significativo al más significativo. </dd>
+<dd>
+El arreglo bcd_number debe tener suficiente espacio para almacenar todos los dígitos </dd></dl>
+
+<p class="definition">Definición en la línea <a class="el" href="_guia1___e6_8c_source.html#l00112">112</a> del archivo <a class="el" href="_guia1___e6_8c_source.html">Guia1_E6.c</a>.</p>
+
+<p class="reference">Referenciado por <a class="el" href="_guia1___e6_8c_source.html#l00153">mostrarNumero()</a>.</p>
+
+</div>
+</div>
+<a id="a7e5168d2e47035c77609916b8bbd06b1" name="a7e5168d2e47035c77609916b8bbd06b1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7e5168d2e47035c77609916b8bbd06b1">&#9670;&#160;</a></span>inicializarGPIOs()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int8_t inicializarGPIOs </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="structgpio_conf__t.html">gpioConf_t</a> *</td>          <td class="paramname"><span class="paramname"><em>config</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Inicializa múltiples GPIOs según la configuración proporcionada. </p>
+<dl class="params"><dt>Parámetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">config</td><td>Puntero a un arreglo de estructuras <a class="el" href="structgpio_conf__t.html">gpioConf_t</a> que contiene la configuración de los GPIOs Cada elemento del array debe especificar el pin y su dirección </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Devuelve</dt><dd>int8_t Retorna 0 si la inicialización fue exitosa </dd></dl>
+<dl class="section note"><dt>Nota</dt><dd>La función utiliza <a class="el" href="group___g_i_o_p.html#ga10240d283f64bd1b09fca664fda27964" title="GPIO initialization.">GPIOInit()</a> para configurar cada GPIO individualmente </dd></dl>
+
+<p class="definition">Definición en la línea <a class="el" href="_guia1___e6_8c_source.html#l00096">96</a> del archivo <a class="el" href="_guia1___e6_8c_source.html">Guia1_E6.c</a>.</p>
+
+<p class="reference">Hace referencia a <a class="el" href="gpio__mcu_8c_source.html#l00067">GPIOInit()</a>.</p>
+
+<p class="reference">Referenciado por <a class="el" href="_guia1___e6_8c_source.html#l00202">app_main()</a>.</p>
+
+</div>
+</div>
+<a id="ab166fff279028eef361c1746d2562c57" name="ab166fff279028eef361c1746d2562c57"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab166fff279028eef361c1746d2562c57">&#9670;&#160;</a></span>mostrarNumero()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int8_t mostrarNumero </td>
+          <td>(</td>
+          <td class="paramtype">uint32_t</td>          <td class="paramname"><span class="paramname"><em>numero</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint8_t</td>          <td class="paramname"><span class="paramname"><em>digitos</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="structgpio_conf__t.html">gpioConf_t</a> *</td>          <td class="paramname"><span class="paramname"><em>bcd_config</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="structgpio_conf__t.html">gpioConf_t</a> *</td>          <td class="paramname"><span class="paramname"><em>lcd_config</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Muestra un número en un display BCD utilizando GPIOs. </p>
+<p>Esta función toma un número decimal, lo convierte a BCD (Binary-Coded Decimal) y lo muestra en un display LCD. El display se controla mediante GPIOs configurados para los dígitos BCD y para la selección de dígitos en el LCD. </p><dl class="params"><dt>Parámetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">numero</td><td>Número decimal (0-999) de tipo uint32_t a mostrar </td></tr>
+    <tr><td class="paramname">digitos</td><td>Cantidad de dígitos a mostrar (1-3) </td></tr>
+    <tr><td class="paramname">bcd_config</td><td>Puntero a la configuración de GPIOs para selección de dígitos </td></tr>
+    <tr><td class="paramname">lcd_config</td><td>Puntero a la configuración de GPIOs para los segmentos del LCD </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Devuelve</dt><dd>int8_t Retorna 0 si la operación fue exitosa, -1 si hubo un error </dd></dl>
+<dl class="section note"><dt>Nota</dt><dd>La función verifica que el número de dígitos sea válido antes de procesar </dd>
+<dd>
+En modo DEBUG, la función imprime información detallada del proceso </dd></dl>
+
+<p class="definition">Definición en la línea <a class="el" href="_guia1___e6_8c_source.html#l00153">153</a> del archivo <a class="el" href="_guia1___e6_8c_source.html">Guia1_E6.c</a>.</p>
+
+<p class="reference">Hace referencia a <a class="el" href="_guia1___e6_8c_source.html#l00127">BCDToGPIO()</a>, <a class="el" href="_guia1___e6_8c_source.html#l00112">convertToBcdArray()</a>, <a class="el" href="_guia1___e6_8c_source.html#l00068">diggit_mapping</a>, <a class="el" href="gpio__mcu_8c_source.html#l00086">GPIOOff()</a> y <a class="el" href="gpio__mcu_8c_source.html#l00081">GPIOOn()</a>.</p>
+
+<p class="reference">Referenciado por <a class="el" href="_guia1___e6_8c_source.html#l00202">app_main()</a>.</p>
+
+</div>
+</div>
+<h2 class="groupheader">Documentación de variables</h2>
+<a id="a3c1c2f8e95529b09096569c9caff0e4e" name="a3c1c2f8e95529b09096569c9caff0e4e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3c1c2f8e95529b09096569c9caff0e4e">&#9670;&#160;</a></span>diggit_mapping</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const <a class="el" href="structgpio_conf__t.html">gpioConf_t</a> diggit_mapping[3]</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<b>Valor inicial:</b><div class="fragment"><div class="line">= {</div>
+<div class="line">    {<a class="code hl_enumvalue" href="group___g_i_o_p.html#ggaf65604147d0244c9b13cfdc865ad5393a8bdaec9182fb8ab2106d5c67f3eabd2d">GPIO_9</a>, <a class="code hl_enumvalue" href="group___g_i_o_p.html#gga423620ef7d69894833f70cfc395caaa9aa248e73c1faee9c6f072fd91569cf516">GPIO_OUTPUT</a>},   </div>
+<div class="line">    {<a class="code hl_enumvalue" href="group___g_i_o_p.html#ggaf65604147d0244c9b13cfdc865ad5393a0e8bab7ea873c22eb90aa81116208917">GPIO_18</a>, <a class="code hl_enumvalue" href="group___g_i_o_p.html#gga423620ef7d69894833f70cfc395caaa9aa248e73c1faee9c6f072fd91569cf516">GPIO_OUTPUT</a>},  </div>
+<div class="line">    {<a class="code hl_enumvalue" href="group___g_i_o_p.html#ggaf65604147d0244c9b13cfdc865ad5393aa2918c94bcf473e7ff31138b6333f847">GPIO_19</a>, <a class="code hl_enumvalue" href="group___g_i_o_p.html#gga423620ef7d69894833f70cfc395caaa9aa248e73c1faee9c6f072fd91569cf516">GPIO_OUTPUT</a>},  </div>
+<div class="line">}</div>
+<div class="ttc" id="agroup___g_i_o_p_html_gga423620ef7d69894833f70cfc395caaa9aa248e73c1faee9c6f072fd91569cf516"><div class="ttname"><a href="group___g_i_o_p.html#gga423620ef7d69894833f70cfc395caaa9aa248e73c1faee9c6f072fd91569cf516">GPIO_OUTPUT</a></div><div class="ttdeci">@ GPIO_OUTPUT</div><div class="ttdef"><b>Definition</b> <a href="gpio__mcu_8h_source.html#l00044">gpio_mcu.h:44</a></div></div>
+<div class="ttc" id="agroup___g_i_o_p_html_ggaf65604147d0244c9b13cfdc865ad5393a0e8bab7ea873c22eb90aa81116208917"><div class="ttname"><a href="group___g_i_o_p.html#ggaf65604147d0244c9b13cfdc865ad5393a0e8bab7ea873c22eb90aa81116208917">GPIO_18</a></div><div class="ttdeci">@ GPIO_18</div><div class="ttdef"><b>Definition</b> <a href="gpio__mcu_8h_source.html#l00070">gpio_mcu.h:70</a></div></div>
+<div class="ttc" id="agroup___g_i_o_p_html_ggaf65604147d0244c9b13cfdc865ad5393a8bdaec9182fb8ab2106d5c67f3eabd2d"><div class="ttname"><a href="group___g_i_o_p.html#ggaf65604147d0244c9b13cfdc865ad5393a8bdaec9182fb8ab2106d5c67f3eabd2d">GPIO_9</a></div><div class="ttdeci">@ GPIO_9</div><div class="ttdef"><b>Definition</b> <a href="gpio__mcu_8h_source.html#l00061">gpio_mcu.h:61</a></div></div>
+<div class="ttc" id="agroup___g_i_o_p_html_ggaf65604147d0244c9b13cfdc865ad5393aa2918c94bcf473e7ff31138b6333f847"><div class="ttname"><a href="group___g_i_o_p.html#ggaf65604147d0244c9b13cfdc865ad5393aa2918c94bcf473e7ff31138b6333f847">GPIO_19</a></div><div class="ttdeci">@ GPIO_19</div><div class="ttdef"><b>Definition</b> <a href="gpio__mcu_8h_source.html#l00071">gpio_mcu.h:71</a></div></div>
+</div><!-- fragment -->
+<p>Mapea cada digito a su GPIO activador correspondiente. </p>
+
+<p class="definition">Definición en la línea <a class="el" href="_guia1___e6_8c_source.html#l00068">68</a> del archivo <a class="el" href="_guia1___e6_8c_source.html">Guia1_E6.c</a>.</p>
+
+<p class="reference">Referenciado por <a class="el" href="_guia1___e6_8c_source.html#l00202">app_main()</a> y <a class="el" href="_guia1___e6_8c_source.html#l00153">mostrarNumero()</a>.</p>
+
+</div>
+</div>
+<a id="afef936ad9a26c95e7ce8163207dbf996" name="afef936ad9a26c95e7ce8163207dbf996"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afef936ad9a26c95e7ce8163207dbf996">&#9670;&#160;</a></span>lcd_mapping</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const <a class="el" href="structgpio_conf__t.html">gpioConf_t</a> lcd_mapping[4]</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<b>Valor inicial:</b><div class="fragment"><div class="line">= {</div>
+<div class="line">    {<a class="code hl_enumvalue" href="group___g_i_o_p.html#ggaf65604147d0244c9b13cfdc865ad5393a081be372da926e3ca6f612b267854e95">GPIO_20</a>, <a class="code hl_enumvalue" href="group___g_i_o_p.html#gga423620ef7d69894833f70cfc395caaa9aa248e73c1faee9c6f072fd91569cf516">GPIO_OUTPUT</a>},  </div>
+<div class="line">    {<a class="code hl_enumvalue" href="group___g_i_o_p.html#ggaf65604147d0244c9b13cfdc865ad5393a32ff7e9a2f00d396ff2b2b62af571d7c">GPIO_21</a>, <a class="code hl_enumvalue" href="group___g_i_o_p.html#gga423620ef7d69894833f70cfc395caaa9aa248e73c1faee9c6f072fd91569cf516">GPIO_OUTPUT</a>},  </div>
+<div class="line">    {<a class="code hl_enumvalue" href="group___g_i_o_p.html#ggaf65604147d0244c9b13cfdc865ad5393aca7c5f2acf755d61b35d05ea921c79eb">GPIO_22</a>, <a class="code hl_enumvalue" href="group___g_i_o_p.html#gga423620ef7d69894833f70cfc395caaa9aa248e73c1faee9c6f072fd91569cf516">GPIO_OUTPUT</a>},  </div>
+<div class="line">    {<a class="code hl_enumvalue" href="group___g_i_o_p.html#ggaf65604147d0244c9b13cfdc865ad5393a4f3bac8a4733f9e96aa952fb1d9b0a7f">GPIO_23</a>, <a class="code hl_enumvalue" href="group___g_i_o_p.html#gga423620ef7d69894833f70cfc395caaa9aa248e73c1faee9c6f072fd91569cf516">GPIO_OUTPUT</a>}   </div>
+<div class="line">}</div>
+<div class="ttc" id="agroup___g_i_o_p_html_ggaf65604147d0244c9b13cfdc865ad5393a081be372da926e3ca6f612b267854e95"><div class="ttname"><a href="group___g_i_o_p.html#ggaf65604147d0244c9b13cfdc865ad5393a081be372da926e3ca6f612b267854e95">GPIO_20</a></div><div class="ttdeci">@ GPIO_20</div><div class="ttdef"><b>Definition</b> <a href="gpio__mcu_8h_source.html#l00072">gpio_mcu.h:72</a></div></div>
+<div class="ttc" id="agroup___g_i_o_p_html_ggaf65604147d0244c9b13cfdc865ad5393a32ff7e9a2f00d396ff2b2b62af571d7c"><div class="ttname"><a href="group___g_i_o_p.html#ggaf65604147d0244c9b13cfdc865ad5393a32ff7e9a2f00d396ff2b2b62af571d7c">GPIO_21</a></div><div class="ttdeci">@ GPIO_21</div><div class="ttdef"><b>Definition</b> <a href="gpio__mcu_8h_source.html#l00073">gpio_mcu.h:73</a></div></div>
+<div class="ttc" id="agroup___g_i_o_p_html_ggaf65604147d0244c9b13cfdc865ad5393a4f3bac8a4733f9e96aa952fb1d9b0a7f"><div class="ttname"><a href="group___g_i_o_p.html#ggaf65604147d0244c9b13cfdc865ad5393a4f3bac8a4733f9e96aa952fb1d9b0a7f">GPIO_23</a></div><div class="ttdeci">@ GPIO_23</div><div class="ttdef"><b>Definition</b> <a href="gpio__mcu_8h_source.html#l00075">gpio_mcu.h:75</a></div></div>
+<div class="ttc" id="agroup___g_i_o_p_html_ggaf65604147d0244c9b13cfdc865ad5393aca7c5f2acf755d61b35d05ea921c79eb"><div class="ttname"><a href="group___g_i_o_p.html#ggaf65604147d0244c9b13cfdc865ad5393aca7c5f2acf755d61b35d05ea921c79eb">GPIO_22</a></div><div class="ttdeci">@ GPIO_22</div><div class="ttdef"><b>Definition</b> <a href="gpio__mcu_8h_source.html#l00074">gpio_mcu.h:74</a></div></div>
+</div><!-- fragment -->
+<p>Mapea los bits para representar un digito BCD sus correspondientes pines GPIO. </p>
+<p>Cada pin GPIO se asigna a un bit específico del número BCD. Los pines GPIO_20, GPIO_21, GPIO_22 y GPIO_23 se utilizan para controlar los segmentos del display LCD. </p>
+
+<p class="definition">Definición en la línea <a class="el" href="_guia1___e6_8c_source.html#l00080">80</a> del archivo <a class="el" href="_guia1___e6_8c_source.html">Guia1_E6.c</a>.</p>
+
+<p class="reference">Referenciado por <a class="el" href="_guia1___e6_8c_source.html#l00202">app_main()</a>.</p>
+
+</div>
+</div>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_d9edf6c004b4a7ff14fe9ae7a92214ee.html">firmware</a></li><li class="navelem"><a class="el" href="dir_429d80758da54da73083af4edd40d0b3.html">projects</a></li><li class="navelem"><a class="el" href="dir_275bfeeec4a372598902f6a0692cc6b6.html">Guia1_E6</a></li><li class="navelem"><a class="el" href="dir_e44dcd1974535970bb1bd9d631428d99.html">main</a></li><li class="navelem"><a class="el" href="_guia1___e6_8c.html">Guia1_E6.c</a></li>
+    <li class="footer">Generado por <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.13.2 </li>
+  </ul>
+</div>
+</body>
+</html>
