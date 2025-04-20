@@ -4,7 +4,7 @@
  *
  * This section describes how the program works.
  *
- * <a href="https://drive.google.com/...">Operation Example</a>
+ * <a href=" ">Operation Example</a>
  *
  * @section hardConn Hardware Connection
  *
@@ -17,7 +17,7 @@
  *
  * |   Date	    | Description                                    |
  * |:----------:|:-----------------------------------------------|
- * | 12/09/2023 | Document creation		                         |
+ * | XX/0X/2025 | Document creation		                         |
  *
  * @author Felipe M. Petracchi (felipe.petracchi@ingenieria.uner.edu.ar)
  *
