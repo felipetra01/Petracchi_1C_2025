@@ -1,18 +1,19 @@
-/*! @mainpage Template
+/*! @mainpage Guia 2 Actividad 1 - Petracchi, F. M.
  *
  * @section genDesc General Description
  *
  * Se diseñó el firmware de manera que cumple con las siguientes funcionalidades:
- * 
- * 1) Mostrar distancia medida utilizando los leds de la siguiente manera:
- * Si la distancia es menor a 10 cm, apagar todos los LEDs.
- * Si la distancia está entre 10 y 20 cm, encender el LED_1.
- * Si la distancia está entre 20 y 30 cm, encender el LED_2 y LED_1.
- * Si la distancia es mayor a 30 cm, encender el LED_3, LED_2 y LED_1.
- * 2) Mostrar el valor de distancia en cm utilizando el display LCD.
- * 3) Usar TEC1 para activar y detener la medición.
- * 4) Usar TEC2 para mantener el resultado (“HOLD”): sin pausar la medición.
- * 5) Refresco de medición: 1 s
+ * <ol>
+ * 		<li>Mostrar distancia medida utilizando los leds de la siguiente manera: </li>
+ * - Si la distancia es menor a 10 cm, apagar todos los LEDs.
+ * - Si la distancia está entre 10 y 20 cm, encender el LED_1.
+ * - Si la distancia está entre 20 y 30 cm, encender el LED_2 y LED_1.
+ * - Si la distancia es mayor a 30 cm, encender el LED_3, LED_2 y LED_1.
+ * 		<li>Mostrar el valor de distancia en cm utilizando el display LCD. </li>
+ * 		<li>Usar TEC1 para activar y detener la medición. </li>
+ * 		<li>Usar TEC2 para mantener el resultado (“HOLD”): sin pausar la medición. </li>
+ * 		<li>Refresco de medición: 1 s (1000 ms). </li>
+ * <\ol>
  * 
  * Notas.
  * - El cambiar el estado de los LEDs forma parte de , no de la medición
@@ -22,8 +23,12 @@
  * provistos por la cátedra implementar la aplicación correspondiente. Se ha subido al repositorio el código.
  * Se incluyó en la documentación, realizada con doxygen, el diagrama de flujo. 
  *
- * <a href="https://drive.google.com/...">Operation Example</a>
+ * <a href="https://drive.google.com/file/d/1yIPn12GYl-s8fiDQC3_fr2C4CjTvfixg/view">Ejemplo de operación dado por la cátedra</a>
  *
+ * @section diagrama Diagrama de flujo
+ * 
+ * <img alt="Guia2E1-Diagrama de flujo" src="../Guia2E1-Diagrama.png" width=95%/>
+ * 
  * @section hardConn Hardware Connection
  *
  * |    Peripheral  | 	ESP32-C6	|
@@ -168,7 +173,6 @@ static void medirMostrarTask(void *pvParameter){
 			printf("\tHOLD: %d\n", HOLD); // Print the state of HOLD
 			printf("\tSwitches: %d\n",SwitchesRead());
 			#endif
-			
 		}
 		if (HOLD == false) {
 			encenderLedsSegunDistancia(distancia);
@@ -197,7 +201,10 @@ static void teclasTask(void *pvParameter){
 	while (true) {
 		if (SwitchesRead() == TEC1) {
 			MEDIR = !MEDIR;
-			LcdItsE0803Off();
+			if (MEDIR == false)	{
+				LcdItsE0803Off();	// Apagar el LCD
+				encenderLedsSegunDistancia(1);	// Apagar todos los LEDs
+			}
 		}
 		if (SwitchesRead() == TEC2 && MEDIR == 1) {
 			HOLD = !HOLD;
