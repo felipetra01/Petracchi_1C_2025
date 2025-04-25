@@ -41,7 +41,6 @@
  * | 	LED_2	 	| 	GPIO_10		|
  * | 	LED_3	 	| 	GPIO_5		|
  *
- *
  * @section changelog Changelog
  *
  * |   Date	    | Description                                    |
@@ -116,7 +115,8 @@ bool HOLD = false;
 void initComponentes(void) {
 	LedsInit();
 	SwitchesInit();
-	HcSr04Init(GPIO_3, GPIO_2); // Initialize HC-SR04 with GPIO_3 as Echo and GPIO_2 as Trigger
+	HcSr04Init(GPIO_3, GPIO_2);
+	LcdItsE0803Init();
 }
 
 /**
@@ -167,29 +167,21 @@ static void medirMostrarTask(void *pvParameter){
 			//distancia = 1 + rand() % 39; // Simulate a distance between 1 and 40 cm
 			distancia = HcSr04ReadDistanceInCentimeters();
 			#if DEBUG_MODE
-			printf("Distancia: %u cm\n", distancia); // Print the measured distance
-			printf("Estado... \n");
-			printf("\tMEDIR: %d\n", MEDIR); // Print the state of MEDIR
-			printf("\tHOLD: %d\n", HOLD); // Print the state of HOLD
-			printf("\tSwitches: %d\n",SwitchesRead());
+				printf("Distancia: %u cm\n", distancia); // Print the measured distance
+				// printf("Estado... \n");
+				// printf("\tMEDIR: %d\n", MEDIR); // Print the state of MEDIR
+				// printf("\tHOLD: %d\n", HOLD); // Print the state of HOLD
 			#endif
 		}
-		if (HOLD == false) {
+		if (HOLD == false && MEDIR == true) {
 			encenderLedsSegunDistancia(distancia);
 			LcdItsE0803Write(distancia);
 			#if DEBUG_MODE
 			printf("LCD: %u cm\n", distancia);
 			#endif
 		}
-		#if DEBUG_MODE
-		printf("Fin medicion\n"); // Print end of measurement message
-		#endif
 
-		vTaskDelay(DELAY_MEDICION / portTICK_PERIOD_MS); // Delay for 1 second
-		
-		#if DEBUG_MODE
-		printf("Fin delay de 1 segundo\n"); // Print delay message
-		#endif
+		vTaskDelay(DELAY_MEDICION / portTICK_PERIOD_MS); // Delay for 1 second		
 	}
 }
 
@@ -202,12 +194,18 @@ static void teclasTask(void *pvParameter){
 		if (SwitchesRead() == TEC1) {
 			MEDIR = !MEDIR;
 			if (MEDIR == false)	{
-				LcdItsE0803Off();	// Apagar el LCD
+				LcdItsE0803Off();				// Apagar el LCD
 				encenderLedsSegunDistancia(1);	// Apagar todos los LEDs
 			}
+			#if DEBUG_MODE
+				printf("\nToggled MEDIR from: %d --> %d\n", !MEDIR, MEDIR);
+			#endif
 		}
 		if (SwitchesRead() == TEC2 && MEDIR == 1) {
 			HOLD = !HOLD;
+			#if DEBUG_MODE
+				printf("\nToggled HOLD from: %d --> %d\n", !MEDIR, MEDIR);
+			#endif
 		}
 		vTaskDelay(DELAY_TASK / portTICK_PERIOD_MS); // Delay for 100 ms
 	}
@@ -215,7 +213,12 @@ static void teclasTask(void *pvParameter){
 /*==================[external functions definition]==========================*/
 void app_main(void){
 	initComponentes();
-	xTaskCreate(&medirMostrarTask, "MEDIRMOSTRAR", 1024, NULL, 5, &medirMostrarTask_handle);
-	xTaskCreate(&teclasTask, "TECLAS", 512, NULL, 5, &teclasTask_handle);
+
+	uint32_t stack_size = 1024;
+	#if DEBUG_MODE
+		stack_size = 2048; // Increase stack size por los printf()s de depuración
+	#endif
+	xTaskCreate(&medirMostrarTask, "MEDIRMOSTRAR", stack_size, NULL, 5, &medirMostrarTask_handle);
+	xTaskCreate(&teclasTask, "TECLAS", stack_size, NULL, 5, &teclasTask_handle);
 }
 /*==================[end of file]============================================*/
