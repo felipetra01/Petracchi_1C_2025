@@ -35,6 +35,9 @@
         },
         {
             "path": "projects/Guia2_E1_NeoPixel"
+        },
+        {
+            "path": "projects/Guia2_E2"
         }
     ],
     "settings": {

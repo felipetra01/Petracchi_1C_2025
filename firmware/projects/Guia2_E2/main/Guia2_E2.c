@@ -21,7 +21,10 @@
  * 
  * Se conectó a la EDU-ESP un sensor de ultrasonido HC-SR04 y una pantalla LCD y utilizando los drivers
  * provistos por la cátedra implementar la aplicación correspondiente. Se ha subido al repositorio el código.
- * Se incluyó en la documentación, realizada con doxygen, el diagrama de flujo. 
+ * Se incluyó en la documentación, realizada con doxygen, el diagrama de flujo.
+ * 
+ * Es un nuevo proyecto en el que modifique la actividad del punto 1 de manera de utilizar interrupciones para
+ * el control de las teclas y el control de tiempos (Timers). 
  *
  * <a href="https://drive.google.com/file/d/1yIPn12GYl-s8fiDQC3_fr2C4CjTvfixg/view">Ejemplo de operación dado por la cátedra</a>
  *
@@ -61,20 +64,21 @@
 #include "switch.h"
 #include "hc_sr04.h"
 #include "lcditse0803.h"
+#include "timer_mcu.h"
 
 /*==================[macros and definitions]=================================*/
 /**
- * @def DELAY_TASK
- * @brief Delay por defecto que marca la tasa de refresco de una tareas.
- * @details 100 ms
+ * @def DEBUG_MODE
+ * @brief Modo de depuración
+ * @details 1 para habilitar "printf()"s de depuración, 0 para deshabilitar.
  */
-#define DELAY_TASK 100
+#define DEBUG_MODE 0
 /**
  * @def DELAY_MEDICION
  * @brief Delay que marca la tasa de refresco de la tarea de medición y muestra.
  * @details 1000 ms
  */
-#define DELAY_MEDICION 1000
+#define DELAY_MEASURE 300
 /**
  * @def LED_1
  * @brief Variable que routea la tecla numerada como "1" con su GPIO correspondiente.
@@ -85,22 +89,12 @@
  * @brief Variable que routea la tecla numerada como "2" con su GPIO correspondiente.
  */
 #define TEC2 SWITCH_2
-/**
- * @def DEBUG_MODE
- * @brief Modo de depuración
- * @details 1 para habilitar "printf()"s de depuración, 0 para deshabilitar.
- */
-#define DEBUG_MODE 1
 
 /*==================[internal data definition]===============================*/
 /**
  * @brief identificador de tipo TaskHandle_t de la tarea "medirMostrar".
  * @details Se utiliza para la creación de la tarea y para su control. */
-TaskHandle_t medirMostrarTask_handle = NULL;
-/**
- * @brief identificador de tipo TaskHandle_t de la tarea "teclas".
- * @details Se utiliza para la creación de la tarea y para su control. */
-TaskHandle_t teclasTask_handle = NULL;
+TaskHandle_t measureAndShow_task_handle = NULL;
 
 /**
  * @brief Variable que indica si se debe medir o no.
@@ -110,6 +104,7 @@ bool MEDIR = true;
  * @brief Variable que indica si se debe mantener mostrando un resultado o no.
  * @details Se utiliza para habilitar o deshabilitar la modificación de los LEDs y valores mostrados en el LCD. */
 bool HOLD = false;
+
 /*==================[internal functions declaration]=========================*/
 /** @brief Inicializa los componentes del sistema. */
 void initComponentes(void) {
@@ -130,38 +125,44 @@ void encenderLedsSegunDistancia(uint16_t distancia) {
 		LedOff(LED_2);
 		LedOff(LED_3);
 		#if DEBUG_MODE
-		printf("Estado LEDs: 0 0 0\n"); // Print LEDs status
+			printf("Estado LEDs: 0 0 0\n"); // Print LEDs status
 		#endif
 	} else if (distancia < 20) {
 		LedOn(LED_1);
 		LedOff(LED_2);
 		LedOff(LED_3);
 		#if DEBUG_MODE
-		printf("Estado LEDs: 1 0 0\n"); // Print LEDs status
+			printf("Estado LEDs: 1 0 0\n"); // Print LEDs status
 		#endif
 	} else if (distancia < 30) {
 		LedOn(LED_1);
 		LedOn(LED_2);
 		LedOff(LED_3);
 		#if DEBUG_MODE
-		printf("Estado LEDs: 1 1 0\n"); // Print LEDs status
+			printf("Estado LEDs: 1 1 0\n"); // Print LEDs status
 		#endif
 	} else {
 		LedOn(LED_1);
 		LedOn(LED_2);
 		LedOn(LED_3);
 		#if DEBUG_MODE
-		printf("Estado LEDs: 1 1 1\n"); // Print LEDs status
+			printf("Estado LEDs: 1 1 1\n"); // Print LEDs status
 		#endif
 	}
+}
+
+void measureAndShow(void *param) {
+	vTaskNotifyGiveFromISR(measureAndShow_task_handle, pdFALSE);
 }
 
 /**
  * @brief Tarea que mide la distancia, muestra el resultado en el LCD y enciende los LEDs.
 */
-static void medirMostrarTask(void *pvParameter){
+static void measureAndShowTask(void *pvParameter){
 	while (true)
 	{
+		ulTaskNotifyTake(pdTRUE, portMAX_DELAY);
+
 		uint16_t distancia = 0;
 		if (MEDIR == true) {
 			//distancia = 1 + rand() % 39; // Simulate a distance between 1 and 40 cm
@@ -180,40 +181,51 @@ static void medirMostrarTask(void *pvParameter){
 			printf("LCD: %u cm\n", distancia);
 			#endif
 		}
-
-		vTaskDelay(DELAY_MEDICION / portTICK_PERIOD_MS); // Delay for 1 second		
 	}
 }
 
-/**
- * @brief Tarea que lee las teclas y cambia el estado de MEDIR y HOLD.
- * @details Cambia el estado de MEDIR y HOLD según la tecla presionada.
- */
-static void teclasTask(void *pvParameter){
-	while (true) {
-		if (SwitchesRead() == TEC1) {
-			MEDIR = !MEDIR;
-			if (MEDIR == false)	{
-				LcdItsE0803Off();				// Apagar el LCD
-				encenderLedsSegunDistancia(1);	// Apagar todos los LEDs
-			}
-			#if DEBUG_MODE
-				printf("\nToggled MEDIR from: %d --> %d\n", !MEDIR, MEDIR);
-			#endif
-		}
-		if (SwitchesRead() == TEC2 && MEDIR == 1) {
-			HOLD = !HOLD;
-			#if DEBUG_MODE
-				printf("\nToggled HOLD from: %d --> %d\n", !MEDIR, MEDIR);
-			#endif
-		}
-		vTaskDelay(DELAY_TASK / portTICK_PERIOD_MS); // Delay for 100 ms
+void if_TEC1_do(){
+	MEDIR = !MEDIR;
+	if (MEDIR == false)	{
+		LcdItsE0803Off();				// Apagar el LCD
+		encenderLedsSegunDistancia(1);	// Apagar todos los LEDs
+	}
+	#if DEBUG_MODE
+		printf("\nToggled MEDIR from: %d --> %d\n", !MEDIR, MEDIR);
+	#endif
+}
+
+void if_TEC2_do(){
+	if (MEDIR) {
+		HOLD = !HOLD;
+		#if DEBUG_MODE
+			printf("\nToggled HOLD from: %d --> %d\n", !MEDIR, MEDIR);
+		#endif
 	}
 }
+
 /*==================[external functions definition]==========================*/
 void app_main(void){
 	initComponentes();
-	xTaskCreate(&medirMostrarTask, "MEDIRMOSTRAR", 2048, NULL, 5, &medirMostrarTask_handle);
-	xTaskCreate(&teclasTask, "TECLAS", 2048, NULL, 5, &teclasTask_handle);
+
+    /* Inicialización de timers */
+    timer_config_t timer_measure = {
+        .timer = TIMER_A,
+        .period = DELAY_MEASURE * 1000,
+        .func_p = measureAndShow,
+        .param_p = NULL
+    };
+	TimerInit(&timer_measure);
+
+	uint32_t stack_size = 1024;
+	#if DEBUG_MODE
+		stack_size = 8184; // Increase stack size por los printf()s de depuración
+	#endif
+	
+	SwitchActivInt(SWITCH_1, if_TEC1_do, NULL);
+	SwitchActivInt(SWITCH_2, if_TEC2_do, NULL);
+	
+	xTaskCreate(&measureAndShowTask, "MEASUREANDSHOW", stack_size, NULL, 5, &measureAndShow_task_handle);
+	TimerStart(timer_measure.timer);
 }
 /*==================[end of file]============================================*/

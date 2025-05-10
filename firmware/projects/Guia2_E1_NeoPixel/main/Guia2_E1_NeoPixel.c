@@ -92,7 +92,7 @@
  * @brief Modo de depuración
  * @details 1 para habilitar "printf()"s de depuración, 0 para deshabilitar.
  */
-#define DEBUG_MODE 1
+#define DEBUG_MODE 0
 
 /*==================[internal data definition]===============================*/
 /**
@@ -116,10 +116,10 @@ bool HOLD = false;
 /** @brief Inicializa los componentes del sistema. */
 void initComponentes(void) {
 	static neopixel_color_t color;
-	NeoPixelInit(BUILT_IN_RGB_LED_PIN, BUILT_IN_RGB_LED_LENGTH, &color);
-    NeoPixelAllOff();
 	SwitchesInit();
 	HcSr04Init(GPIO_3, GPIO_2); // Initialize HC-SR04 with GPIO_3 as Echo and GPIO_2 as Trigger
+	NeoPixelInit(BUILT_IN_RGB_LED_PIN, BUILT_IN_RGB_LED_LENGTH, &color);
+    NeoPixelAllOff();
 }
 
 /**
@@ -219,7 +219,7 @@ void app_main(void){
 	initComponentes();
 	uint32_t stack_size = 1024;
 	#if DEBUG_MODE
-		stack_size = 2048; // Increase stack size por los printf()s de depuración
+		stack_size = 4096; // Increase stack size por los printf()s de depuración
 	#endif
 	xTaskCreate(&medirMostrarTask, "MEDIRMOSTRAR", stack_size, NULL, 5, &medirMostrarTask_handle);
 	xTaskCreate(&teclasTask, "TECLAS", stack_size, NULL, 5, &teclasTask_handle);
