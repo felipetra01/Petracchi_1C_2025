@@ -117,6 +117,7 @@ bool HOLD = false;
 void initComponentes(void) {
 	static neopixel_color_t color;
 	SwitchesInit();
+	LcdItsE0803Init(); // Initialize LCD
 	HcSr04Init(GPIO_3, GPIO_2); // Initialize HC-SR04 with GPIO_3 as Echo and GPIO_2 as Trigger
 	NeoPixelInit(BUILT_IN_RGB_LED_PIN, BUILT_IN_RGB_LED_LENGTH, &color);
     NeoPixelAllOff();
