@@ -47,6 +47,12 @@
         },
         {
             "path": "projects/Guia2_E4"
+        },
+        {
+            "path": "projects/ProyectoIntegrador"
+        },
+        {
+            "path": "examples/ej_bluetooth_ledrgb"
         }
     ],
     "settings": {
@@ -111,7 +117,10 @@
             "stacktrace": "c",
             "regex": "c",
             "valarray": "c",
-            "ratio": "c"
+            "ratio": "c",
+            "ble_mcu.h": "c",
+            "esp_bt.h": "c",
+            "esp_gap_ble_api.h": "c"
         },
     },
     "tasks": {

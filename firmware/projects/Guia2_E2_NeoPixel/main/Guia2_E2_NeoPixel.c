@@ -1,4 +1,4 @@
-/*! @mainpage Guia 2 Actividad 1 - Petracchi, F. M.
+/*! @mainpage Guia 2 Actividad 2 con NeoPixel - Petracchi, F. M.
  *
  * @section genDesc General Description
  *

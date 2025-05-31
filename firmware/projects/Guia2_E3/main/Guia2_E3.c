@@ -1,4 +1,4 @@
-/*! @mainpage Guia 2 Actividad 1 - Petracchi, F. M.
+/*! @mainpage Guia 2 Actividad 3 - Petracchi, F. M.
  *
  * @section genDesc General Description
  *
@@ -16,7 +16,7 @@
  * <\ol>
  * 
  * Notas.
- * - El cambiar el estado de los LEDs forma parte de , no de la medición
+ * - El cambiar el estado de los LEDs forma parte de la graficacion, no de la medición
  * - Se utilizó un delay en cada tarea de 100ms
  * 
  * Se conectó a la EDU-ESP un sensor de ultrasonido HC-SR04 y una pantalla LCD y utilizando los drivers
@@ -28,20 +28,18 @@
  * 
  * Se creó un nuevo proyecto en el que modificó la actividad del punto 2 agregando ahora el puerto serie. Envíe los datos de las mediciones
  * para poder observarlos en un terminal en la PC, siguiendo el siguiente formato:
- *  - 3 dígitos ascii + 1 carácter espacio + dos caracteres para la unidad (cm) + cambio de línea “ \r\n”
+ *  - 3 dígitos ascii + 1 carácter espacio + dos caracteres para la unidad (cm) + cambio de línea “\ r \ n”
+ * 
  * Además debe ser posible controlar la EDU-ESP de la siguiente manera:
- *  - Con las teclas “O” y “H”, replicar la funcionalidad de las teclas 1 y 2 de la EDU-ESP
- *  + Usar “I” para cambiar la unidad de trabajo de “cm” a “pulgadas"
- *  + Usar “M” para implementar la visualización del máximo
- *  + Usar “F” para aumentar la velocidad de lectura, reduciendo de a 100 milisegundos el tiempo de lectura
- *  + Usar “S” para disminuir la velocidad de lectura, aumentando de a 100 milisegundos el tiempo de lectura
+ *  - Con las teclas “O” y “H”, replicar la funcionalidad de las teclas 1 y 2 de la EDU-ESP.
+ *  - Usar “I” para cambiar la unidad de trabajo de "cm" a "pulgadas".
+ *  - Usar “M” para implementar la visualización del máximo.
+ *  - Usar “F” para aumentar la velocidad de lectura, reduciendo de a 100 milisegundos el tiempo de lectura.
+ *  - Usar “S” para disminuir la velocidad de lectura, aumentando de a 100 milisegundos el tiempo de lectura.
  * 
  * <a href="https://drive.google.com/file/d/1yIPn12GYl-s8fiDQC3_fr2C4CjTvfixg/view">Ejemplo de operación dado por la cátedra</a>
- *
- * @section diagrama Diagrama de flujo
  * 
- * <img alt="Guia2E1-Diagrama de flujo" src="../Guia2E1-Diagrama.png" width=95%/>
- * 
+ *  
  * @section hardConn Hardware Connection
  *
  * |    Peripheral  | 	ESP32-C6	|

@@ -1,21 +1,18 @@
-/*! @mainpage Template
+/*! @mainpage Guia 2 Actividad 4 - Petracchi, F. M.
  *
  * @section genDesc General Description
  *
- * Diseñar e implementar una aplicación, basada en el driver analog io mcu.y el driver de transmisión serie uart mcu.h, que digitalice una señal
- * analógica y la transmita a un graficador de puerto serie de la PC. Se debe tomar la entrada CH1 del conversor AD y la transmisión se debe
- * realizar por la UART conectada al puerto serie de la PC, en un formato compatible con un graficador por puerto serie. 
- * Sugerencias:
- *  - Disparar la conversión AD a través de una interrupción periódica de timer.
- *  - Utilice una frecuencia de muestreo de 500Hz.
- *  - Obtener los datos en una variable que le permita almacenar todos los bits del conversor.
- *  - Transmitir los datos por la UART en formato ASCII a una velocidad de transmisión suficiente para realizar conversiones a la frecuencia requerida.
+ * Se diseñó e implementó una aplicación, basada en el driver analog_io_mcu.h y el driver de transmisión serie uart_mcu.h, que digitaliza una señal
+ * analógica y la transmite a un graficador de puerto serie de la PC. Se toma la entrada CH1 del conversor AD y la transmisión se
+ * realizó por la UART conectada al puerto serie de la PC, en un formato compatible con un graficador por puerto serie. 
+ * Anotaciones:
+ *  - Se dispara la conversión AD a través de una interrupción periódica de timer.
+ *  - Se utilizó una frecuencia de muestreo de 100Hz, en lugar de 500 Hz.
+ *  - Se obtienen los datos en una variable que le permita almacenar todos los bits del conversor.
  *
- * Convierta una señal digital de un ECG (provista por la cátedra) en una señal analógica y visualice esta señal utilizando el osciloscopio
- * que acaba de implementar. Se sugiere utilizar el potenciómetro para conectar la salida del DAC a la entrada CH1 del AD.
- *
- * <a href=" ">Operation Example</a>
- *
+ * Se convierte una señal digital de un ECG (provista por la cátedra) en una señal analógica y se puede visualizar esta señal utilizando el osciloscopio
+ * implementado. Se sugiere utilizar el potenciómetro para conectar la salida del DAC a la entrada CH1 del AD.
+ * 
  * @section hardConn Hardware Connection
  *
  * |    Peripheral  |   ESP32   	|   Description                 |
@@ -28,7 +25,7 @@
  *
  * |   Date	    | Description                                    |
  * |:----------:|:-----------------------------------------------|
- * | XX/0X/2025 | Document creation		                         |
+ * | 9/05/2025 | Document creation		                         |
  *
  * @author Felipe M. Petracchi (felipe.petracchi@ingenieria.uner.edu.ar)
  *

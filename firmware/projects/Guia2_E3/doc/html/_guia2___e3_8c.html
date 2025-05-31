@@ -1,0 +1,762 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="es">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.13.2"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Guia2_E3: Referencia del archivo C:/Repositorios/Petracchi_1C_2025/firmware/projects/Guia2_E3/main/Guia2_E3.c</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+  $(function() { init_search(); });
+/* @license-end */
+</script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectlogo"><img alt="Logo" src="fiuner_small.png"/></td>
+  <td id="projectalign">
+   <div id="projectname">Guia2_E3<span id="projectnumber">&#160;1.0</span>
+   </div>
+   <div id="projectbrief">Actividad 3 del Proyecto 2 de Electrónica Programable</div>
+  </td>
+    <td>        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <span id="MSearchSelect"                onmouseover="return searchBox.OnSearchSelectShow()"                onmouseout="return searchBox.OnSearchSelectHide()">&#160;</span>
+          <input type="text" id="MSearchField" value="" placeholder="Buscar" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.svg" alt=""/></a>
+          </span>
+        </div>
+</td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Generado por Doxygen 1.13.2 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() { codefold.init(0); });
+/* @license-end */
+</script>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function(){initNavTree('_guia2___e3_8c.html',''); initResizable(true); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Cargando...</div>
+<div class="SRStatus" id="Searching">Buscando...</div>
+<div class="SRStatus" id="NoMatches">Nada coincide</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="summary">
+<a href="#define-members">defines</a> &#124;
+<a href="#enum-members">Enumeraciones</a> &#124;
+<a href="#func-members">Funciones</a> &#124;
+<a href="#var-members">Variables</a>  </div>
+  <div class="headertitle"><div class="title">Referencia del archivo Guia2_E3.c</div></div>
+</div><!--header-->
+<div class="contents">
+<div class="textblock"><code>#include &lt;stdio.h&gt;</code><br />
+<code>#include &lt;stdint.h&gt;</code><br />
+<code>#include &lt;stdbool.h&gt;</code><br />
+<code>#include &quot;freertos/FreeRTOS.h&quot;</code><br />
+<code>#include &quot;freertos/task.h&quot;</code><br />
+<code>#include &quot;led.h&quot;</code><br />
+<code>#include &quot;switch.h&quot;</code><br />
+<code>#include &quot;hc_sr04.h&quot;</code><br />
+<code>#include &quot;lcditse0803.h&quot;</code><br />
+<code>#include &quot;timer_mcu.h&quot;</code><br />
+<code>#include &quot;uart_mcu.h&quot;</code><br />
+<code>#include &quot;neopixel_stripe.h&quot;</code><br />
+</div>
+<p><a href="_guia2___e3_8c_source.html">Ir al código fuente de este archivo.</a></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="define-members" name="define-members"></a>
+defines</h2></td></tr>
+<tr class="memitem:ac80a3592e72fd96b772ee47a7d8e0d0a" id="r_ac80a3592e72fd96b772ee47a7d8e0d0a"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac80a3592e72fd96b772ee47a7d8e0d0a">DEBUG_MODE</a>&#160;&#160;&#160;1</td></tr>
+<tr class="memdesc:ac80a3592e72fd96b772ee47a7d8e0d0a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Modo de depuración.  <br /></td></tr>
+<tr class="separator:ac80a3592e72fd96b772ee47a7d8e0d0a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a567525d543a5785a5af15320d3ddf946" id="r_a567525d543a5785a5af15320d3ddf946"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a567525d543a5785a5af15320d3ddf946">SHOW_PRINTFS_ON</a>&#160;&#160;&#160;0</td></tr>
+<tr class="separator:a567525d543a5785a5af15320d3ddf946"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad7dd71ba4b66b31263f026cb6f663453" id="r_ad7dd71ba4b66b31263f026cb6f663453"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad7dd71ba4b66b31263f026cb6f663453">TOGGLE_PRINTFS_ON</a>&#160;&#160;&#160;0</td></tr>
+<tr class="separator:ad7dd71ba4b66b31263f026cb6f663453"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aacf21b0ba59bdec45a04a37cf139e49a" id="r_aacf21b0ba59bdec45a04a37cf139e49a"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aacf21b0ba59bdec45a04a37cf139e49a">DELAY_MEASURE</a>&#160;&#160;&#160;1000		*1000</td></tr>
+<tr class="separator:aacf21b0ba59bdec45a04a37cf139e49a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abd57fa1236ef2f059192b1c1d73c80fa" id="r_abd57fa1236ef2f059192b1c1d73c80fa"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#abd57fa1236ef2f059192b1c1d73c80fa">DELAY_MEASURE_STEP</a>&#160;&#160;&#160;200	*1000</td></tr>
+<tr class="separator:abd57fa1236ef2f059192b1c1d73c80fa"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a56f4175082f472cec265658e2d49eea2" id="r_a56f4175082f472cec265658e2d49eea2"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a56f4175082f472cec265658e2d49eea2">DELAY_MEASURE_MAX</a>&#160;&#160;&#160;2000	*1000</td></tr>
+<tr class="separator:a56f4175082f472cec265658e2d49eea2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a12bd664dc27be8389a870cf7aae48efd" id="r_a12bd664dc27be8389a870cf7aae48efd"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a12bd664dc27be8389a870cf7aae48efd">DELAY_MEASURE_MIN</a>&#160;&#160;&#160;100   *1000</td></tr>
+<tr class="separator:a12bd664dc27be8389a870cf7aae48efd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3d8b2ae4e54843f51291b29e7f40bfcd" id="r_a3d8b2ae4e54843f51291b29e7f40bfcd"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a3d8b2ae4e54843f51291b29e7f40bfcd">TEC1</a>&#160;&#160;&#160;SWITCH_1</td></tr>
+<tr class="separator:a3d8b2ae4e54843f51291b29e7f40bfcd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2b2ddacd7bab088e973e97020b1ae3c0" id="r_a2b2ddacd7bab088e973e97020b1ae3c0"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a2b2ddacd7bab088e973e97020b1ae3c0">TEC2</a>&#160;&#160;&#160;SWITCH_2</td></tr>
+<tr class="separator:a2b2ddacd7bab088e973e97020b1ae3c0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="enum-members" name="enum-members"></a>
+Enumeraciones</h2></td></tr>
+<tr class="memitem:a90eefa0aff365b7e99d05b03cf76d29b" id="r_a90eefa0aff365b7e99d05b03cf76d29b"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a90eefa0aff365b7e99d05b03cf76d29b">distance_units</a> { <a class="el" href="#a90eefa0aff365b7e99d05b03cf76d29bae256357c69514a4c50b9a9c857dbe7f4">CM</a> = 0
+, <a class="el" href="#a90eefa0aff365b7e99d05b03cf76d29baaf7dff166f02668437cbbf1f7007745a">INCHES</a> = 1
+ }</td></tr>
+<tr class="separator:a90eefa0aff365b7e99d05b03cf76d29b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
+Funciones</h2></td></tr>
+<tr class="memitem:a76efd24653b844729013369b2d74b26b" id="r_a76efd24653b844729013369b2d74b26b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a76efd24653b844729013369b2d74b26b">measureAndShow</a> (void *param)</td></tr>
+<tr class="separator:a76efd24653b844729013369b2d74b26b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4bffc0786345a93ec2a2a42d8990bcba" id="r_a4bffc0786345a93ec2a2a42d8990bcba"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a4bffc0786345a93ec2a2a42d8990bcba">initComponentes</a> (void)</td></tr>
+<tr class="memdesc:a4bffc0786345a93ec2a2a42d8990bcba"><td class="mdescLeft">&#160;</td><td class="mdescRight">Inicializa los componentes del sistema.  <br /></td></tr>
+<tr class="separator:a4bffc0786345a93ec2a2a42d8990bcba"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a93575dd20743dd04e541b982fe48d854" id="r_a93575dd20743dd04e541b982fe48d854"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a93575dd20743dd04e541b982fe48d854">encenderLedsSegunDistancia</a> (uint16_t <a class="el" href="#ac3498e35b62924f5eb79dd0e1f50e031">distancia</a>)</td></tr>
+<tr class="separator:a93575dd20743dd04e541b982fe48d854"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a31ffdadd83cff4e326af072208019040" id="r_a31ffdadd83cff4e326af072208019040"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a31ffdadd83cff4e326af072208019040">UartSendDistance</a> (uint32_t value)</td></tr>
+<tr class="separator:a31ffdadd83cff4e326af072208019040"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3f3cdddf96cd6a1a338fb3a66219c016" id="r_a3f3cdddf96cd6a1a338fb3a66219c016"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a3f3cdddf96cd6a1a338fb3a66219c016">uartListen</a> (void *pvParameter)</td></tr>
+<tr class="separator:a3f3cdddf96cd6a1a338fb3a66219c016"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afdb2cb7e50de6bf7db3937a2a7c0a3b0" id="r_afdb2cb7e50de6bf7db3937a2a7c0a3b0"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#afdb2cb7e50de6bf7db3937a2a7c0a3b0">if_TEC1_do</a> (void)</td></tr>
+<tr class="separator:afdb2cb7e50de6bf7db3937a2a7c0a3b0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae037d07ca2e7f1b6f77934f1b01ee966" id="r_ae037d07ca2e7f1b6f77934f1b01ee966"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae037d07ca2e7f1b6f77934f1b01ee966">if_TEC2_do</a> (void)</td></tr>
+<tr class="separator:ae037d07ca2e7f1b6f77934f1b01ee966"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a630544a7f0a2cc40d8a7fefab7e2fe70" id="r_a630544a7f0a2cc40d8a7fefab7e2fe70"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a630544a7f0a2cc40d8a7fefab7e2fe70">app_main</a> (void)</td></tr>
+<tr class="separator:a630544a7f0a2cc40d8a7fefab7e2fe70"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="var-members" name="var-members"></a>
+Variables</h2></td></tr>
+<tr class="memitem:a1de2fbaf9babae6011af601f45ed320a" id="r_a1de2fbaf9babae6011af601f45ed320a"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a1de2fbaf9babae6011af601f45ed320a">MEDIR</a> = true</td></tr>
+<tr class="memdesc:a1de2fbaf9babae6011af601f45ed320a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Variable que indica si se debe medir o no.  <br /></td></tr>
+<tr class="separator:a1de2fbaf9babae6011af601f45ed320a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afc247b5bf8f971ed6ea450caf1c76e37" id="r_afc247b5bf8f971ed6ea450caf1c76e37"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#afc247b5bf8f971ed6ea450caf1c76e37">HOLD</a> = false</td></tr>
+<tr class="memdesc:afc247b5bf8f971ed6ea450caf1c76e37"><td class="mdescLeft">&#160;</td><td class="mdescRight">Variable que indica si se debe mantener mostrando un resultado o no.  <br /></td></tr>
+<tr class="separator:afc247b5bf8f971ed6ea450caf1c76e37"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a172a4b772be433acb3153ef75b4b2b7f" id="r_a172a4b772be433acb3153ef75b4b2b7f"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a172a4b772be433acb3153ef75b4b2b7f">SHOW_MAX</a> = false</td></tr>
+<tr class="separator:a172a4b772be433acb3153ef75b4b2b7f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4cc058870c16a5681e4ed8d765c32fca" id="r_a4cc058870c16a5681e4ed8d765c32fca"><td class="memItemLeft" align="right" valign="top">u_short&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a4cc058870c16a5681e4ed8d765c32fca">UNIT</a> = 0</td></tr>
+<tr class="separator:a4cc058870c16a5681e4ed8d765c32fca"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae0d723dbc85c5c437f8a11cb7636e456" id="r_ae0d723dbc85c5c437f8a11cb7636e456"><td class="memItemLeft" align="right" valign="top">TaskHandle_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae0d723dbc85c5c437f8a11cb7636e456">measureAndShow_task_handle</a> = NULL</td></tr>
+<tr class="memdesc:ae0d723dbc85c5c437f8a11cb7636e456"><td class="mdescLeft">&#160;</td><td class="mdescRight">identificador de tipo TaskHandle_t de la tarea "medirMostrar".  <br /></td></tr>
+<tr class="separator:ae0d723dbc85c5c437f8a11cb7636e456"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a79b63a28e2fd332b2bf1750d2b67967c" id="r_a79b63a28e2fd332b2bf1750d2b67967c"><td class="memItemLeft" align="right" valign="top">timer_config_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a79b63a28e2fd332b2bf1750d2b67967c">timer_measure_config</a></td></tr>
+<tr class="separator:a79b63a28e2fd332b2bf1750d2b67967c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5fd92779fb6cd884bbdaeea1cf8cb5f6" id="r_a5fd92779fb6cd884bbdaeea1cf8cb5f6"><td class="memItemLeft" align="right" valign="top">serial_config_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a5fd92779fb6cd884bbdaeea1cf8cb5f6">uart_config</a></td></tr>
+<tr class="memdesc:a5fd92779fb6cd884bbdaeea1cf8cb5f6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Estructura de configuración del UART.  <br /></td></tr>
+<tr class="separator:a5fd92779fb6cd884bbdaeea1cf8cb5f6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac3498e35b62924f5eb79dd0e1f50e031" id="r_ac3498e35b62924f5eb79dd0e1f50e031"><td class="memItemLeft" align="right" valign="top">uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac3498e35b62924f5eb79dd0e1f50e031">distancia</a> = 0</td></tr>
+<tr class="memdesc:ac3498e35b62924f5eb79dd0e1f50e031"><td class="mdescLeft">&#160;</td><td class="mdescRight">Variable que almacena la distancia medida.  <br /></td></tr>
+<tr class="separator:ac3498e35b62924f5eb79dd0e1f50e031"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adff807dc7d02d037f848a85bae4d5d48" id="r_adff807dc7d02d037f848a85bae4d5d48"><td class="memItemLeft" align="right" valign="top">uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#adff807dc7d02d037f848a85bae4d5d48">distance_to_send</a> = 0</td></tr>
+<tr class="memdesc:adff807dc7d02d037f848a85bae4d5d48"><td class="mdescLeft">&#160;</td><td class="mdescRight">Variable que almacena la distancia a enviar.  <br /></td></tr>
+<tr class="separator:adff807dc7d02d037f848a85bae4d5d48"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<h2 class="groupheader">Documentación de «define»</h2>
+<a id="ac80a3592e72fd96b772ee47a7d8e0d0a" name="ac80a3592e72fd96b772ee47a7d8e0d0a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac80a3592e72fd96b772ee47a7d8e0d0a">&#9670;&#160;</a></span>DEBUG_MODE</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define DEBUG_MODE&#160;&#160;&#160;1</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Modo de depuración. </p>
+<p>1 para habilitar "printf()"s de depuración, 0 para deshabilitar. </p>
+
+<p class="definition">Definición en la línea <a class="el" href="_guia2___e3_8c_source.html#l00085">85</a> del archivo <a class="el" href="_guia2___e3_8c_source.html">Guia2_E3.c</a>.</p>
+
+</div>
+</div>
+<a id="aacf21b0ba59bdec45a04a37cf139e49a" name="aacf21b0ba59bdec45a04a37cf139e49a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aacf21b0ba59bdec45a04a37cf139e49a">&#9670;&#160;</a></span>DELAY_MEASURE</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define DELAY_MEASURE&#160;&#160;&#160;1000		*1000</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definición en la línea <a class="el" href="_guia2___e3_8c_source.html#l00095">95</a> del archivo <a class="el" href="_guia2___e3_8c_source.html">Guia2_E3.c</a>.</p>
+
+</div>
+</div>
+<a id="a56f4175082f472cec265658e2d49eea2" name="a56f4175082f472cec265658e2d49eea2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a56f4175082f472cec265658e2d49eea2">&#9670;&#160;</a></span>DELAY_MEASURE_MAX</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define DELAY_MEASURE_MAX&#160;&#160;&#160;2000	*1000</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definición en la línea <a class="el" href="_guia2___e3_8c_source.html#l00097">97</a> del archivo <a class="el" href="_guia2___e3_8c_source.html">Guia2_E3.c</a>.</p>
+
+<p class="reference">Referenciado por <a class="el" href="_guia2___e3_8c_source.html#l00293">uartListen()</a>.</p>
+
+</div>
+</div>
+<a id="a12bd664dc27be8389a870cf7aae48efd" name="a12bd664dc27be8389a870cf7aae48efd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a12bd664dc27be8389a870cf7aae48efd">&#9670;&#160;</a></span>DELAY_MEASURE_MIN</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define DELAY_MEASURE_MIN&#160;&#160;&#160;100   *1000</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definición en la línea <a class="el" href="_guia2___e3_8c_source.html#l00098">98</a> del archivo <a class="el" href="_guia2___e3_8c_source.html">Guia2_E3.c</a>.</p>
+
+<p class="reference">Referenciado por <a class="el" href="_guia2___e3_8c_source.html#l00293">uartListen()</a>.</p>
+
+</div>
+</div>
+<a id="abd57fa1236ef2f059192b1c1d73c80fa" name="abd57fa1236ef2f059192b1c1d73c80fa"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abd57fa1236ef2f059192b1c1d73c80fa">&#9670;&#160;</a></span>DELAY_MEASURE_STEP</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define DELAY_MEASURE_STEP&#160;&#160;&#160;200	*1000</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definición en la línea <a class="el" href="_guia2___e3_8c_source.html#l00096">96</a> del archivo <a class="el" href="_guia2___e3_8c_source.html">Guia2_E3.c</a>.</p>
+
+<p class="reference">Referenciado por <a class="el" href="_guia2___e3_8c_source.html#l00293">uartListen()</a>.</p>
+
+</div>
+</div>
+<a id="a567525d543a5785a5af15320d3ddf946" name="a567525d543a5785a5af15320d3ddf946"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a567525d543a5785a5af15320d3ddf946">&#9670;&#160;</a></span>SHOW_PRINTFS_ON</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define SHOW_PRINTFS_ON&#160;&#160;&#160;0</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definición en la línea <a class="el" href="_guia2___e3_8c_source.html#l00087">87</a> del archivo <a class="el" href="_guia2___e3_8c_source.html">Guia2_E3.c</a>.</p>
+
+</div>
+</div>
+<a id="a3d8b2ae4e54843f51291b29e7f40bfcd" name="a3d8b2ae4e54843f51291b29e7f40bfcd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3d8b2ae4e54843f51291b29e7f40bfcd">&#9670;&#160;</a></span>TEC1</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define TEC1&#160;&#160;&#160;SWITCH_1</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definición en la línea <a class="el" href="_guia2___e3_8c_source.html#l00103">103</a> del archivo <a class="el" href="_guia2___e3_8c_source.html">Guia2_E3.c</a>.</p>
+
+</div>
+</div>
+<a id="a2b2ddacd7bab088e973e97020b1ae3c0" name="a2b2ddacd7bab088e973e97020b1ae3c0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2b2ddacd7bab088e973e97020b1ae3c0">&#9670;&#160;</a></span>TEC2</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define TEC2&#160;&#160;&#160;SWITCH_2</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definición en la línea <a class="el" href="_guia2___e3_8c_source.html#l00108">108</a> del archivo <a class="el" href="_guia2___e3_8c_source.html">Guia2_E3.c</a>.</p>
+
+</div>
+</div>
+<a id="ad7dd71ba4b66b31263f026cb6f663453" name="ad7dd71ba4b66b31263f026cb6f663453"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad7dd71ba4b66b31263f026cb6f663453">&#9670;&#160;</a></span>TOGGLE_PRINTFS_ON</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define TOGGLE_PRINTFS_ON&#160;&#160;&#160;0</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definición en la línea <a class="el" href="_guia2___e3_8c_source.html#l00089">89</a> del archivo <a class="el" href="_guia2___e3_8c_source.html">Guia2_E3.c</a>.</p>
+
+</div>
+</div>
+<h2 class="groupheader">Documentación de enumeraciones</h2>
+<a id="a90eefa0aff365b7e99d05b03cf76d29b" name="a90eefa0aff365b7e99d05b03cf76d29b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a90eefa0aff365b7e99d05b03cf76d29b">&#9670;&#160;</a></span>distance_units</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum <a class="el" href="#a90eefa0aff365b7e99d05b03cf76d29b">distance_units</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<table class="fieldtable">
+<tr><th colspan="2">Valores de enumeraciones</th></tr><tr><td class="fieldname"><a id="a90eefa0aff365b7e99d05b03cf76d29bae256357c69514a4c50b9a9c857dbe7f4" name="a90eefa0aff365b7e99d05b03cf76d29bae256357c69514a4c50b9a9c857dbe7f4"></a>CM&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a90eefa0aff365b7e99d05b03cf76d29baaf7dff166f02668437cbbf1f7007745a" name="a90eefa0aff365b7e99d05b03cf76d29baaf7dff166f02668437cbbf1f7007745a"></a>INCHES&#160;</td><td class="fielddoc"></td></tr>
+</table>
+
+<p class="definition">Definición en la línea <a class="el" href="_guia2___e3_8c_source.html#l00110">110</a> del archivo <a class="el" href="_guia2___e3_8c_source.html">Guia2_E3.c</a>.</p>
+
+</div>
+</div>
+<h2 class="groupheader">Documentación de funciones</h2>
+<a id="a630544a7f0a2cc40d8a7fefab7e2fe70" name="a630544a7f0a2cc40d8a7fefab7e2fe70"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a630544a7f0a2cc40d8a7fefab7e2fe70">&#9670;&#160;</a></span>app_main()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void app_main </td>
+          <td>(</td>
+          <td class="paramtype">void</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definición en la línea <a class="el" href="_guia2___e3_8c_source.html#l00339">339</a> del archivo <a class="el" href="_guia2___e3_8c_source.html">Guia2_E3.c</a>.</p>
+
+<p class="reference">Hace referencia a <a class="el" href="_guia2___e3_8c_source.html#l00273">if_TEC1_do()</a>, <a class="el" href="_guia2___e3_8c_source.html#l00284">if_TEC2_do()</a>, <a class="el" href="_guia2___e3_8c_source.html#l00177">initComponentes()</a>, <a class="el" href="_guia2___e3_8c_source.html#l00131">measureAndShow_task_handle</a> y <a class="el" href="_guia2___e3_8c_source.html#l00135">timer_measure_config</a>.</p>
+
+</div>
+</div>
+<a id="a93575dd20743dd04e541b982fe48d854" name="a93575dd20743dd04e541b982fe48d854"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a93575dd20743dd04e541b982fe48d854">&#9670;&#160;</a></span>encenderLedsSegunDistancia()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void encenderLedsSegunDistancia </td>
+          <td>(</td>
+          <td class="paramtype">uint16_t</td>          <td class="paramname"><span class="paramname"><em>distancia</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definición en la línea <a class="el" href="_guia2___e3_8c_source.html#l00191">191</a> del archivo <a class="el" href="_guia2___e3_8c_source.html">Guia2_E3.c</a>.</p>
+
+<p class="reference">Hace referencia a <a class="el" href="_guia2___e3_8c_source.html#l00168">distancia</a>.</p>
+
+<p class="reference">Referenciado por <a class="el" href="_guia2___e3_8c_source.html#l00273">if_TEC1_do()</a>.</p>
+
+</div>
+</div>
+<a id="afdb2cb7e50de6bf7db3937a2a7c0a3b0" name="afdb2cb7e50de6bf7db3937a2a7c0a3b0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afdb2cb7e50de6bf7db3937a2a7c0a3b0">&#9670;&#160;</a></span>if_TEC1_do()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void if_TEC1_do </td>
+          <td>(</td>
+          <td class="paramtype">void</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definición en la línea <a class="el" href="_guia2___e3_8c_source.html#l00273">273</a> del archivo <a class="el" href="_guia2___e3_8c_source.html">Guia2_E3.c</a>.</p>
+
+<p class="reference">Hace referencia a <a class="el" href="_guia2___e3_8c_source.html#l00191">encenderLedsSegunDistancia()</a> y <a class="el" href="_guia2___e3_8c_source.html#l00117">MEDIR</a>.</p>
+
+<p class="reference">Referenciado por <a class="el" href="_guia2___e3_8c_source.html#l00339">app_main()</a> y <a class="el" href="_guia2___e3_8c_source.html#l00293">uartListen()</a>.</p>
+
+</div>
+</div>
+<a id="ae037d07ca2e7f1b6f77934f1b01ee966" name="ae037d07ca2e7f1b6f77934f1b01ee966"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae037d07ca2e7f1b6f77934f1b01ee966">&#9670;&#160;</a></span>if_TEC2_do()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void if_TEC2_do </td>
+          <td>(</td>
+          <td class="paramtype">void</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definición en la línea <a class="el" href="_guia2___e3_8c_source.html#l00284">284</a> del archivo <a class="el" href="_guia2___e3_8c_source.html">Guia2_E3.c</a>.</p>
+
+<p class="reference">Hace referencia a <a class="el" href="_guia2___e3_8c_source.html#l00122">HOLD</a> y <a class="el" href="_guia2___e3_8c_source.html#l00117">MEDIR</a>.</p>
+
+<p class="reference">Referenciado por <a class="el" href="_guia2___e3_8c_source.html#l00339">app_main()</a> y <a class="el" href="_guia2___e3_8c_source.html#l00293">uartListen()</a>.</p>
+
+</div>
+</div>
+<a id="a4bffc0786345a93ec2a2a42d8990bcba" name="a4bffc0786345a93ec2a2a42d8990bcba"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4bffc0786345a93ec2a2a42d8990bcba">&#9670;&#160;</a></span>initComponentes()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void initComponentes </td>
+          <td>(</td>
+          <td class="paramtype">void</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Inicializa los componentes del sistema. </p>
+
+<p class="definition">Definición en la línea <a class="el" href="_guia2___e3_8c_source.html#l00177">177</a> del archivo <a class="el" href="_guia2___e3_8c_source.html">Guia2_E3.c</a>.</p>
+
+<p class="reference">Hace referencia a <a class="el" href="_guia2___e3_8c_source.html#l00135">timer_measure_config</a> y <a class="el" href="_guia2___e3_8c_source.html#l00158">uart_config</a>.</p>
+
+<p class="reference">Referenciado por <a class="el" href="_guia2___e3_8c_source.html#l00339">app_main()</a>.</p>
+
+</div>
+</div>
+<a id="a76efd24653b844729013369b2d74b26b" name="a76efd24653b844729013369b2d74b26b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a76efd24653b844729013369b2d74b26b">&#9670;&#160;</a></span>measureAndShow()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void measureAndShow </td>
+          <td>(</td>
+          <td class="paramtype">void *</td>          <td class="paramname"><span class="paramname"><em>param</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definición en la línea <a class="el" href="_guia2___e3_8c_source.html#l00228">228</a> del archivo <a class="el" href="_guia2___e3_8c_source.html">Guia2_E3.c</a>.</p>
+
+<p class="reference">Hace referencia a <a class="el" href="_guia2___e3_8c_source.html#l00131">measureAndShow_task_handle</a>.</p>
+
+</div>
+</div>
+<a id="a3f3cdddf96cd6a1a338fb3a66219c016" name="a3f3cdddf96cd6a1a338fb3a66219c016"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3f3cdddf96cd6a1a338fb3a66219c016">&#9670;&#160;</a></span>uartListen()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void uartListen </td>
+          <td>(</td>
+          <td class="paramtype">void *</td>          <td class="paramname"><span class="paramname"><em>pvParameter</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definición en la línea <a class="el" href="_guia2___e3_8c_source.html#l00293">293</a> del archivo <a class="el" href="_guia2___e3_8c_source.html">Guia2_E3.c</a>.</p>
+
+<p class="reference">Hace referencia a <a class="el" href="_guia2___e3_8c_source.html#l00110">CM</a>, <a class="el" href="_guia2___e3_8c_source.html#l00097">DELAY_MEASURE_MAX</a>, <a class="el" href="_guia2___e3_8c_source.html#l00098">DELAY_MEASURE_MIN</a>, <a class="el" href="_guia2___e3_8c_source.html#l00096">DELAY_MEASURE_STEP</a>, <a class="el" href="_guia2___e3_8c_source.html#l00273">if_TEC1_do()</a>, <a class="el" href="_guia2___e3_8c_source.html#l00284">if_TEC2_do()</a>, <a class="el" href="_guia2___e3_8c_source.html#l00110">INCHES</a>, <a class="el" href="_guia2___e3_8c_source.html#l00124">SHOW_MAX</a>, <a class="el" href="_guia2___e3_8c_source.html#l00135">timer_measure_config</a> y <a class="el" href="_guia2___e3_8c_source.html#l00126">UNIT</a>.</p>
+
+</div>
+</div>
+<a id="a31ffdadd83cff4e326af072208019040" name="a31ffdadd83cff4e326af072208019040"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a31ffdadd83cff4e326af072208019040">&#9670;&#160;</a></span>UartSendDistance()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void UartSendDistance </td>
+          <td>(</td>
+          <td class="paramtype">uint32_t</td>          <td class="paramname"><span class="paramname"><em>value</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definición en la línea <a class="el" href="_guia2___e3_8c_source.html#l00260">260</a> del archivo <a class="el" href="_guia2___e3_8c_source.html">Guia2_E3.c</a>.</p>
+
+<p class="reference">Hace referencia a <a class="el" href="_guia2___e3_8c_source.html#l00110">INCHES</a>, <a class="el" href="_guia2___e3_8c_source.html#l00158">uart_config</a> y <a class="el" href="_guia2___e3_8c_source.html#l00126">UNIT</a>.</p>
+
+</div>
+</div>
+<h2 class="groupheader">Documentación de variables</h2>
+<a id="adff807dc7d02d037f848a85bae4d5d48" name="adff807dc7d02d037f848a85bae4d5d48"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adff807dc7d02d037f848a85bae4d5d48">&#9670;&#160;</a></span>distance_to_send</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint32_t distance_to_send = 0</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Variable que almacena la distancia a enviar. </p>
+
+<p class="definition">Definición en la línea <a class="el" href="_guia2___e3_8c_source.html#l00172">172</a> del archivo <a class="el" href="_guia2___e3_8c_source.html">Guia2_E3.c</a>.</p>
+
+</div>
+</div>
+<a id="ac3498e35b62924f5eb79dd0e1f50e031" name="ac3498e35b62924f5eb79dd0e1f50e031"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac3498e35b62924f5eb79dd0e1f50e031">&#9670;&#160;</a></span>distancia</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint32_t distancia = 0</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Variable que almacena la distancia medida. </p>
+
+<p class="definition">Definición en la línea <a class="el" href="_guia2___e3_8c_source.html#l00168">168</a> del archivo <a class="el" href="_guia2___e3_8c_source.html">Guia2_E3.c</a>.</p>
+
+<p class="reference">Referenciado por <a class="el" href="_guia2___e3_8c_source.html#l00191">encenderLedsSegunDistancia()</a>.</p>
+
+</div>
+</div>
+<a id="afc247b5bf8f971ed6ea450caf1c76e37" name="afc247b5bf8f971ed6ea450caf1c76e37"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afc247b5bf8f971ed6ea450caf1c76e37">&#9670;&#160;</a></span>HOLD</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool HOLD = false</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Variable que indica si se debe mantener mostrando un resultado o no. </p>
+<p>Se utiliza para habilitar o deshabilitar la modificación de los LEDs y valores mostrados en el LCD. </p>
+
+<p class="definition">Definición en la línea <a class="el" href="_guia2___e3_8c_source.html#l00122">122</a> del archivo <a class="el" href="_guia2___e3_8c_source.html">Guia2_E3.c</a>.</p>
+
+<p class="reference">Referenciado por <a class="el" href="_guia2___e3_8c_source.html#l00284">if_TEC2_do()</a>.</p>
+
+</div>
+</div>
+<a id="ae0d723dbc85c5c437f8a11cb7636e456" name="ae0d723dbc85c5c437f8a11cb7636e456"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae0d723dbc85c5c437f8a11cb7636e456">&#9670;&#160;</a></span>measureAndShow_task_handle</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">TaskHandle_t measureAndShow_task_handle = NULL</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>identificador de tipo TaskHandle_t de la tarea "medirMostrar". </p>
+<p>Se utiliza para la creación de la tarea y para su control. </p>
+
+<p class="definition">Definición en la línea <a class="el" href="_guia2___e3_8c_source.html#l00131">131</a> del archivo <a class="el" href="_guia2___e3_8c_source.html">Guia2_E3.c</a>.</p>
+
+<p class="reference">Referenciado por <a class="el" href="_guia2___e3_8c_source.html#l00339">app_main()</a> y <a class="el" href="_guia2___e3_8c_source.html#l00228">measureAndShow()</a>.</p>
+
+</div>
+</div>
+<a id="a1de2fbaf9babae6011af601f45ed320a" name="a1de2fbaf9babae6011af601f45ed320a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1de2fbaf9babae6011af601f45ed320a">&#9670;&#160;</a></span>MEDIR</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool MEDIR = true</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Variable que indica si se debe medir o no. </p>
+<p>Se utiliza para habilitar o deshabilitar la medición. </p>
+
+<p class="definition">Definición en la línea <a class="el" href="_guia2___e3_8c_source.html#l00117">117</a> del archivo <a class="el" href="_guia2___e3_8c_source.html">Guia2_E3.c</a>.</p>
+
+<p class="reference">Referenciado por <a class="el" href="_guia2___e3_8c_source.html#l00273">if_TEC1_do()</a> y <a class="el" href="_guia2___e3_8c_source.html#l00284">if_TEC2_do()</a>.</p>
+
+</div>
+</div>
+<a id="a172a4b772be433acb3153ef75b4b2b7f" name="a172a4b772be433acb3153ef75b4b2b7f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a172a4b772be433acb3153ef75b4b2b7f">&#9670;&#160;</a></span>SHOW_MAX</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool SHOW_MAX = false</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definición en la línea <a class="el" href="_guia2___e3_8c_source.html#l00124">124</a> del archivo <a class="el" href="_guia2___e3_8c_source.html">Guia2_E3.c</a>.</p>
+
+<p class="reference">Referenciado por <a class="el" href="_guia2___e3_8c_source.html#l00293">uartListen()</a>.</p>
+
+</div>
+</div>
+<a id="a79b63a28e2fd332b2bf1750d2b67967c" name="a79b63a28e2fd332b2bf1750d2b67967c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a79b63a28e2fd332b2bf1750d2b67967c">&#9670;&#160;</a></span>timer_measure_config</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">timer_config_t timer_measure_config</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<b>Valor inicial:</b><div class="fragment"><div class="line">= {</div>
+<div class="line">    .timer = TIMER_A,</div>
+<div class="line">    .period = <a class="code hl_define" href="#aacf21b0ba59bdec45a04a37cf139e49a">DELAY_MEASURE</a>,</div>
+<div class="line">    .func_p = <a class="code hl_function" href="#a76efd24653b844729013369b2d74b26b">measureAndShow</a>,</div>
+<div class="line">    .param_p = NULL,</div>
+<div class="line">}</div>
+<div class="ttc" id="a_guia2___e3_8c_html_a76efd24653b844729013369b2d74b26b"><div class="ttname"><a href="#a76efd24653b844729013369b2d74b26b">measureAndShow</a></div><div class="ttdeci">void measureAndShow(void *param)</div><div class="ttdef"><b>Definition</b> <a href="_guia2___e3_8c_source.html#l00228">Guia2_E3.c:228</a></div></div>
+<div class="ttc" id="a_guia2___e3_8c_html_aacf21b0ba59bdec45a04a37cf139e49a"><div class="ttname"><a href="#aacf21b0ba59bdec45a04a37cf139e49a">DELAY_MEASURE</a></div><div class="ttdeci">#define DELAY_MEASURE</div><div class="ttdef"><b>Definition</b> <a href="_guia2___e3_8c_source.html#l00095">Guia2_E3.c:95</a></div></div>
+</div><!-- fragment -->
+<p class="definition">Definición en la línea <a class="el" href="_guia2___e3_8c_source.html#l00135">135</a> del archivo <a class="el" href="_guia2___e3_8c_source.html">Guia2_E3.c</a>.</p>
+
+<p class="reference">Referenciado por <a class="el" href="_guia2___e3_8c_source.html#l00339">app_main()</a>, <a class="el" href="_guia2___e3_8c_source.html#l00177">initComponentes()</a> y <a class="el" href="_guia2___e3_8c_source.html#l00293">uartListen()</a>.</p>
+
+</div>
+</div>
+<a id="a5fd92779fb6cd884bbdaeea1cf8cb5f6" name="a5fd92779fb6cd884bbdaeea1cf8cb5f6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5fd92779fb6cd884bbdaeea1cf8cb5f6">&#9670;&#160;</a></span>uart_config</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">serial_config_t uart_config</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<b>Valor inicial:</b><div class="fragment"><div class="line">= {</div>
+<div class="line">    .port = UART_PC,</div>
+<div class="line">    .baud_rate = 19200,</div>
+<div class="line">    .func_p = <a class="code hl_function" href="#a3f3cdddf96cd6a1a338fb3a66219c016">uartListen</a>,</div>
+<div class="line">    .param_p = NULL,</div>
+<div class="line">}</div>
+<div class="ttc" id="a_guia2___e3_8c_html_a3f3cdddf96cd6a1a338fb3a66219c016"><div class="ttname"><a href="#a3f3cdddf96cd6a1a338fb3a66219c016">uartListen</a></div><div class="ttdeci">void uartListen(void *pvParameter)</div><div class="ttdef"><b>Definition</b> <a href="_guia2___e3_8c_source.html#l00293">Guia2_E3.c:293</a></div></div>
+</div><!-- fragment -->
+<p>Estructura de configuración del UART. </p>
+<p>Se define de forma global para ser utlizado en las funciones internas además de en el main </p>
+
+<p class="definition">Definición en la línea <a class="el" href="_guia2___e3_8c_source.html#l00158">158</a> del archivo <a class="el" href="_guia2___e3_8c_source.html">Guia2_E3.c</a>.</p>
+
+<p class="reference">Referenciado por <a class="el" href="_guia2___e3_8c_source.html#l00177">initComponentes()</a> y <a class="el" href="_guia2___e3_8c_source.html#l00260">UartSendDistance()</a>.</p>
+
+</div>
+</div>
+<a id="a4cc058870c16a5681e4ed8d765c32fca" name="a4cc058870c16a5681e4ed8d765c32fca"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4cc058870c16a5681e4ed8d765c32fca">&#9670;&#160;</a></span>UNIT</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">u_short UNIT = 0</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definición en la línea <a class="el" href="_guia2___e3_8c_source.html#l00126">126</a> del archivo <a class="el" href="_guia2___e3_8c_source.html">Guia2_E3.c</a>.</p>
+
+<p class="reference">Referenciado por <a class="el" href="_guia2___e3_8c_source.html#l00293">uartListen()</a> y <a class="el" href="_guia2___e3_8c_source.html#l00260">UartSendDistance()</a>.</p>
+
+</div>
+</div>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_5c982d53a68cdbcd421152b4020263a9.html">main</a></li><li class="navelem"><a class="el" href="_guia2___e3_8c.html">Guia2_E3.c</a></li>
+    <li class="footer">Generado por <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.13.2 </li>
+  </ul>
+</div>
+</body>
+</html>

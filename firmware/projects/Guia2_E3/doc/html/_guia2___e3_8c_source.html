@@ -1,0 +1,412 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="es">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.13.2"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Guia2_E3: Archivo de código fuente C:/Repositorios/Petracchi_1C_2025/firmware/projects/Guia2_E3/main/Guia2_E3.c</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+  $(function() { init_search(); });
+/* @license-end */
+</script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectlogo"><img alt="Logo" src="fiuner_small.png"/></td>
+  <td id="projectalign">
+   <div id="projectname">Guia2_E3<span id="projectnumber">&#160;1.0</span>
+   </div>
+   <div id="projectbrief">Actividad 3 del Proyecto 2 de Electrónica Programable</div>
+  </td>
+    <td>        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <span id="MSearchSelect"                onmouseover="return searchBox.OnSearchSelectShow()"                onmouseout="return searchBox.OnSearchSelectHide()">&#160;</span>
+          <input type="text" id="MSearchField" value="" placeholder="Buscar" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.svg" alt=""/></a>
+          </span>
+        </div>
+</td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Generado por Doxygen 1.13.2 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() { codefold.init(0); });
+/* @license-end */
+</script>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function(){initNavTree('_guia2___e3_8c_source.html',''); initResizable(true); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Cargando...</div>
+<div class="SRStatus" id="Searching">Buscando...</div>
+<div class="SRStatus" id="NoMatches">Nada coincide</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">Guia2_E3.c</div></div>
+</div><!--header-->
+<div class="contents">
+<a href="_guia2___e3_8c.html">Ir a la documentación de este archivo.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span></div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span> </div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span><span class="comment">/*==================[inclusions]=============================================*/</span></div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span><span class="preprocessor">#include &lt;stdio.h&gt;</span></div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span><span class="preprocessor">#include &lt;stdint.h&gt;</span></div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span><span class="preprocessor">#include &lt;stdbool.h&gt;</span></div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span><span class="preprocessor">#include &quot;freertos/FreeRTOS.h&quot;</span></div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span><span class="preprocessor">#include &quot;freertos/task.h&quot;</span></div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span><span class="preprocessor">#include &quot;led.h&quot;</span></div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span><span class="preprocessor">#include &quot;switch.h&quot;</span></div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span><span class="preprocessor">#include &quot;hc_sr04.h&quot;</span></div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span><span class="preprocessor">#include &quot;lcditse0803.h&quot;</span></div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span><span class="preprocessor">#include &quot;timer_mcu.h&quot;</span></div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span><span class="preprocessor">#include &quot;uart_mcu.h&quot;</span></div>
+<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span><span class="preprocessor">#include &quot;neopixel_stripe.h&quot;</span></div>
+<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span> </div>
+<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span><span class="comment">/*==================[macros and definitions]=================================*/</span></div>
+<div class="line"><a id="l00085" name="l00085"></a><span class="lineno"><a class="line" href="_guia2___e3_8c.html#ac80a3592e72fd96b772ee47a7d8e0d0a">   85</a></span><span class="preprocessor">#define DEBUG_MODE 1</span></div>
+<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span> </div>
+<div class="line"><a id="l00087" name="l00087"></a><span class="lineno"><a class="line" href="_guia2___e3_8c.html#a567525d543a5785a5af15320d3ddf946">   87</a></span><span class="preprocessor">#define SHOW_PRINTFS_ON 0</span></div>
+<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span> </div>
+<div class="line"><a id="l00089" name="l00089"></a><span class="lineno"><a class="line" href="_guia2___e3_8c.html#ad7dd71ba4b66b31263f026cb6f663453">   89</a></span><span class="preprocessor">#define TOGGLE_PRINTFS_ON 0</span><span class="preprocessor"></span></div>
+<div class="line"><a id="l00095" name="l00095"></a><span class="lineno"><a class="line" href="_guia2___e3_8c.html#aacf21b0ba59bdec45a04a37cf139e49a">   95</a></span><span class="preprocessor">#define DELAY_MEASURE 1000      *1000</span></div>
+<div class="line"><a id="l00096" name="l00096"></a><span class="lineno"><a class="line" href="_guia2___e3_8c.html#abd57fa1236ef2f059192b1c1d73c80fa">   96</a></span><span class="preprocessor">#define DELAY_MEASURE_STEP 200  *1000</span></div>
+<div class="line"><a id="l00097" name="l00097"></a><span class="lineno"><a class="line" href="_guia2___e3_8c.html#a56f4175082f472cec265658e2d49eea2">   97</a></span><span class="preprocessor">#define DELAY_MEASURE_MAX 2000  *1000</span></div>
+<div class="line"><a id="l00098" name="l00098"></a><span class="lineno"><a class="line" href="_guia2___e3_8c.html#a12bd664dc27be8389a870cf7aae48efd">   98</a></span><span class="preprocessor">#define DELAY_MEASURE_MIN 100   *1000</span><span class="preprocessor"></span></div>
+<div class="line"><a id="l00103" name="l00103"></a><span class="lineno"><a class="line" href="_guia2___e3_8c.html#a3d8b2ae4e54843f51291b29e7f40bfcd">  103</a></span><span class="preprocessor">#define TEC1 SWITCH_1</span><span class="preprocessor"></span></div>
+<div class="line"><a id="l00108" name="l00108"></a><span class="lineno"><a class="line" href="_guia2___e3_8c.html#a2b2ddacd7bab088e973e97020b1ae3c0">  108</a></span><span class="preprocessor">#define TEC2 SWITCH_2</span></div>
+<div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span> </div>
+<div class="line"><a id="l00110" name="l00110"></a><span class="lineno"><a class="line" href="_guia2___e3_8c.html#a90eefa0aff365b7e99d05b03cf76d29bae256357c69514a4c50b9a9c857dbe7f4">  110</a></span><span class="keyword">typedef</span> <span class="keyword">enum</span> <a class="code hl_enumeration" href="_guia2___e3_8c.html#a90eefa0aff365b7e99d05b03cf76d29b">distance_units</a> { <a class="code hl_enumvalue" href="_guia2___e3_8c.html#a90eefa0aff365b7e99d05b03cf76d29bae256357c69514a4c50b9a9c857dbe7f4">CM</a> = 0, <a class="code hl_enumvalue" href="_guia2___e3_8c.html#a90eefa0aff365b7e99d05b03cf76d29baaf7dff166f02668437cbbf1f7007745a">INCHES</a> = 1};</div>
+<div class="line"><a id="l00111" name="l00111"></a><span class="lineno">  111</span> </div>
+<div class="line"><a id="l00112" name="l00112"></a><span class="lineno">  112</span><span class="comment">/*==================[internal data definition]===============================*/</span></div>
+<div class="line"><a id="l00117" name="l00117"></a><span class="lineno"><a class="line" href="_guia2___e3_8c.html#a1de2fbaf9babae6011af601f45ed320a">  117</a></span><span class="keywordtype">bool</span> <a class="code hl_variable" href="_guia2___e3_8c.html#a1de2fbaf9babae6011af601f45ed320a">MEDIR</a> = <span class="keyword">true</span>;</div>
+<div class="line"><a id="l00122" name="l00122"></a><span class="lineno"><a class="line" href="_guia2___e3_8c.html#afc247b5bf8f971ed6ea450caf1c76e37">  122</a></span><span class="keywordtype">bool</span> <a class="code hl_variable" href="_guia2___e3_8c.html#afc247b5bf8f971ed6ea450caf1c76e37">HOLD</a> = <span class="keyword">false</span>;</div>
+<div class="line"><a id="l00123" name="l00123"></a><span class="lineno">  123</span> </div>
+<div class="line"><a id="l00124" name="l00124"></a><span class="lineno"><a class="line" href="_guia2___e3_8c.html#a172a4b772be433acb3153ef75b4b2b7f">  124</a></span><span class="keywordtype">bool</span> <a class="code hl_variable" href="_guia2___e3_8c.html#a172a4b772be433acb3153ef75b4b2b7f">SHOW_MAX</a> = <span class="keyword">false</span>;</div>
+<div class="line"><a id="l00125" name="l00125"></a><span class="lineno">  125</span> </div>
+<div class="line"><a id="l00126" name="l00126"></a><span class="lineno"><a class="line" href="_guia2___e3_8c.html#a4cc058870c16a5681e4ed8d765c32fca">  126</a></span>u_short <a class="code hl_variable" href="_guia2___e3_8c.html#a4cc058870c16a5681e4ed8d765c32fca">UNIT</a> = 0;</div>
+<div class="line"><a id="l00131" name="l00131"></a><span class="lineno"><a class="line" href="_guia2___e3_8c.html#ae0d723dbc85c5c437f8a11cb7636e456">  131</a></span>TaskHandle_t <a class="code hl_variable" href="_guia2___e3_8c.html#ae0d723dbc85c5c437f8a11cb7636e456">measureAndShow_task_handle</a> = NULL;</div>
+<div class="line"><a id="l00132" name="l00132"></a><span class="lineno">  132</span> </div>
+<div class="line"><a id="l00133" name="l00133"></a><span class="lineno">  133</span><span class="keywordtype">void</span> <a class="code hl_function" href="_guia2___e3_8c.html#a76efd24653b844729013369b2d74b26b">measureAndShow</a>(<span class="keywordtype">void</span> *param);</div>
+<div class="line"><a id="l00134" name="l00134"></a><span class="lineno">  134</span> </div>
+<div class="foldopen" id="foldopen00135" data-start="{" data-end="};">
+<div class="line"><a id="l00135" name="l00135"></a><span class="lineno"><a class="line" href="_guia2___e3_8c.html#a79b63a28e2fd332b2bf1750d2b67967c">  135</a></span>timer_config_t <a class="code hl_variable" href="_guia2___e3_8c.html#a79b63a28e2fd332b2bf1750d2b67967c">timer_measure_config</a> = {</div>
+<div class="line"><a id="l00136" name="l00136"></a><span class="lineno">  136</span>    .timer = TIMER_A,</div>
+<div class="line"><a id="l00137" name="l00137"></a><span class="lineno">  137</span>    .period = <a class="code hl_define" href="_guia2___e3_8c.html#aacf21b0ba59bdec45a04a37cf139e49a">DELAY_MEASURE</a>,</div>
+<div class="line"><a id="l00138" name="l00138"></a><span class="lineno">  138</span>    .func_p = <a class="code hl_function" href="_guia2___e3_8c.html#a76efd24653b844729013369b2d74b26b">measureAndShow</a>,</div>
+<div class="line"><a id="l00139" name="l00139"></a><span class="lineno">  139</span>    .param_p = NULL,</div>
+<div class="line"><a id="l00140" name="l00140"></a><span class="lineno">  140</span>};</div>
+</div>
+<div class="line"><a id="l00141" name="l00141"></a><span class="lineno">  141</span> </div>
+<div class="line"><a id="l00142" name="l00142"></a><span class="lineno">  142</span><span class="keywordtype">void</span> <a class="code hl_function" href="_guia2___e3_8c.html#a4bffc0786345a93ec2a2a42d8990bcba">initComponentes</a>(<span class="keywordtype">void</span>);</div>
+<div class="line"><a id="l00143" name="l00143"></a><span class="lineno">  143</span><span class="keywordtype">void</span> <a class="code hl_function" href="_guia2___e3_8c.html#a93575dd20743dd04e541b982fe48d854">encenderLedsSegunDistancia</a>(uint16_t <a class="code hl_variable" href="_guia2___e3_8c.html#ac3498e35b62924f5eb79dd0e1f50e031">distancia</a>);</div>
+<div class="line"><a id="l00144" name="l00144"></a><span class="lineno">  144</span><span class="keywordtype">void</span> <a class="code hl_function" href="_guia2___e3_8c.html#a76efd24653b844729013369b2d74b26b">measureAndShow</a>(<span class="keywordtype">void</span> *param);</div>
+<div class="line"><a id="l00148" name="l00148"></a><span class="lineno">  148</span><span class="keyword">static</span> <span class="keywordtype">void</span> measureAndShowTask(<span class="keywordtype">void</span> *pvParameter);</div>
+<div class="line"><a id="l00149" name="l00149"></a><span class="lineno">  149</span><span class="keywordtype">void</span> <a class="code hl_function" href="_guia2___e3_8c.html#a31ffdadd83cff4e326af072208019040">UartSendDistance</a>(uint32_t value);</div>
+<div class="line"><a id="l00150" name="l00150"></a><span class="lineno">  150</span><span class="keywordtype">void</span> <a class="code hl_function" href="_guia2___e3_8c.html#a3f3cdddf96cd6a1a338fb3a66219c016">uartListen</a>(<span class="keywordtype">void</span> *pvParameter);</div>
+<div class="line"><a id="l00151" name="l00151"></a><span class="lineno">  151</span><span class="keywordtype">void</span> <a class="code hl_function" href="_guia2___e3_8c.html#afdb2cb7e50de6bf7db3937a2a7c0a3b0">if_TEC1_do</a>(<span class="keywordtype">void</span>);</div>
+<div class="line"><a id="l00152" name="l00152"></a><span class="lineno">  152</span><span class="keywordtype">void</span> <a class="code hl_function" href="_guia2___e3_8c.html#ae037d07ca2e7f1b6f77934f1b01ee966">if_TEC2_do</a>(<span class="keywordtype">void</span>);</div>
+<div class="line"><a id="l00153" name="l00153"></a><span class="lineno">  153</span></div>
+<div class="foldopen" id="foldopen00158" data-start="{" data-end="};">
+<div class="line"><a id="l00158" name="l00158"></a><span class="lineno"><a class="line" href="_guia2___e3_8c.html#a5fd92779fb6cd884bbdaeea1cf8cb5f6">  158</a></span>serial_config_t <a class="code hl_variable" href="_guia2___e3_8c.html#a5fd92779fb6cd884bbdaeea1cf8cb5f6">uart_config</a> = {</div>
+<div class="line"><a id="l00159" name="l00159"></a><span class="lineno">  159</span>    .port = UART_PC,</div>
+<div class="line"><a id="l00160" name="l00160"></a><span class="lineno">  160</span>    .baud_rate = 19200,</div>
+<div class="line"><a id="l00161" name="l00161"></a><span class="lineno">  161</span>    .func_p = <a class="code hl_function" href="_guia2___e3_8c.html#a3f3cdddf96cd6a1a338fb3a66219c016">uartListen</a>,</div>
+<div class="line"><a id="l00162" name="l00162"></a><span class="lineno">  162</span>    .param_p = NULL,</div>
+<div class="line"><a id="l00163" name="l00163"></a><span class="lineno">  163</span>};</div>
+</div>
+<div class="line"><a id="l00164" name="l00164"></a><span class="lineno">  164</span></div>
+<div class="line"><a id="l00168" name="l00168"></a><span class="lineno"><a class="line" href="_guia2___e3_8c.html#ac3498e35b62924f5eb79dd0e1f50e031">  168</a></span>uint32_t <a class="code hl_variable" href="_guia2___e3_8c.html#ac3498e35b62924f5eb79dd0e1f50e031">distancia</a> = 0;</div>
+<div class="line"><a id="l00172" name="l00172"></a><span class="lineno"><a class="line" href="_guia2___e3_8c.html#adff807dc7d02d037f848a85bae4d5d48">  172</a></span>uint32_t <a class="code hl_variable" href="_guia2___e3_8c.html#adff807dc7d02d037f848a85bae4d5d48">distance_to_send</a> = 0;</div>
+<div class="line"><a id="l00173" name="l00173"></a><span class="lineno">  173</span> </div>
+<div class="line"><a id="l00174" name="l00174"></a><span class="lineno">  174</span><span class="comment">/*==================[internal functions declaration]=========================*/</span></div>
+<div class="line"><a id="l00175" name="l00175"></a><span class="lineno">  175</span></div>
+<div class="foldopen" id="foldopen00177" data-start="{" data-end="}">
+<div class="line"><a id="l00177" name="l00177"></a><span class="lineno"><a class="line" href="_guia2___e3_8c.html#a4bffc0786345a93ec2a2a42d8990bcba">  177</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="_guia2___e3_8c.html#a4bffc0786345a93ec2a2a42d8990bcba">initComponentes</a>(<span class="keywordtype">void</span>) {</div>
+<div class="line"><a id="l00178" name="l00178"></a><span class="lineno">  178</span>    LedsInit();</div>
+<div class="line"><a id="l00179" name="l00179"></a><span class="lineno">  179</span>    SwitchesInit();</div>
+<div class="line"><a id="l00180" name="l00180"></a><span class="lineno">  180</span>    HcSr04Init(GPIO_3, GPIO_2);</div>
+<div class="line"><a id="l00181" name="l00181"></a><span class="lineno">  181</span>    LcdItsE0803Init();</div>
+<div class="line"><a id="l00182" name="l00182"></a><span class="lineno">  182</span> </div>
+<div class="line"><a id="l00183" name="l00183"></a><span class="lineno">  183</span>    TimerInit(&amp;<a class="code hl_variable" href="_guia2___e3_8c.html#a79b63a28e2fd332b2bf1750d2b67967c">timer_measure_config</a>);</div>
+<div class="line"><a id="l00184" name="l00184"></a><span class="lineno">  184</span>    UartInit(&amp;<a class="code hl_variable" href="_guia2___e3_8c.html#a5fd92779fb6cd884bbdaeea1cf8cb5f6">uart_config</a>);</div>
+<div class="line"><a id="l00185" name="l00185"></a><span class="lineno">  185</span> </div>
+<div class="line"><a id="l00186" name="l00186"></a><span class="lineno">  186</span>    <span class="keyword">static</span> neopixel_color_t color;</div>
+<div class="line"><a id="l00187" name="l00187"></a><span class="lineno">  187</span>    NeoPixelInit(BUILT_IN_RGB_LED_PIN, BUILT_IN_RGB_LED_LENGTH, &amp;color);</div>
+<div class="line"><a id="l00188" name="l00188"></a><span class="lineno">  188</span>    NeoPixelAllOff();</div>
+<div class="line"><a id="l00189" name="l00189"></a><span class="lineno">  189</span>}</div>
+</div>
+<div class="line"><a id="l00190" name="l00190"></a><span class="lineno">  190</span> </div>
+<div class="foldopen" id="foldopen00191" data-start="{" data-end="}">
+<div class="line"><a id="l00191" name="l00191"></a><span class="lineno"><a class="line" href="_guia2___e3_8c.html#a93575dd20743dd04e541b982fe48d854">  191</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="_guia2___e3_8c.html#a93575dd20743dd04e541b982fe48d854">encenderLedsSegunDistancia</a>(uint16_t <a class="code hl_variable" href="_guia2___e3_8c.html#ac3498e35b62924f5eb79dd0e1f50e031">distancia</a>) {</div>
+<div class="line"><a id="l00192" name="l00192"></a><span class="lineno">  192</span>    <span class="comment">// encender o apagar LEDs segun distancia.</span></div>
+<div class="line"><a id="l00193" name="l00193"></a><span class="lineno">  193</span>    <span class="keywordflow">if</span> (<a class="code hl_variable" href="_guia2___e3_8c.html#ac3498e35b62924f5eb79dd0e1f50e031">distancia</a> &lt; 10) {</div>
+<div class="line"><a id="l00194" name="l00194"></a><span class="lineno">  194</span>        LedOff(LED_1);</div>
+<div class="line"><a id="l00195" name="l00195"></a><span class="lineno">  195</span>        LedOff(LED_2);</div>
+<div class="line"><a id="l00196" name="l00196"></a><span class="lineno">  196</span>        LedOff(LED_3);</div>
+<div class="line"><a id="l00197" name="l00197"></a><span class="lineno">  197</span>        NeoPixelAllOff();</div>
+<div class="line"><a id="l00198" name="l00198"></a><span class="lineno">  198</span><span class="preprocessor">        #if DEBUG_MODE &amp;&amp; SHOW_PRINTFS_ON</span></div>
+<div class="line"><a id="l00199" name="l00199"></a><span class="lineno">  199</span>            printf(<span class="stringliteral">&quot;Estado LEDs: 0 0 0\n&quot;</span>); <span class="comment">// Print LEDs status</span></div>
+<div class="line"><a id="l00200" name="l00200"></a><span class="lineno">  200</span><span class="preprocessor">        #endif</span></div>
+<div class="line"><a id="l00201" name="l00201"></a><span class="lineno">  201</span>    } <span class="keywordflow">else</span> <span class="keywordflow">if</span> (<a class="code hl_variable" href="_guia2___e3_8c.html#ac3498e35b62924f5eb79dd0e1f50e031">distancia</a> &lt; 20) {</div>
+<div class="line"><a id="l00202" name="l00202"></a><span class="lineno">  202</span>        LedOn(LED_1);</div>
+<div class="line"><a id="l00203" name="l00203"></a><span class="lineno">  203</span>        LedOff(LED_2);</div>
+<div class="line"><a id="l00204" name="l00204"></a><span class="lineno">  204</span>        LedOff(LED_3);</div>
+<div class="line"><a id="l00205" name="l00205"></a><span class="lineno">  205</span>        NeoPixelAllColor(NEOPIXEL_COLOR_GREEN);</div>
+<div class="line"><a id="l00206" name="l00206"></a><span class="lineno">  206</span><span class="preprocessor">        #if DEBUG_MODE  &amp;&amp; SHOW_PRINTFS_ON</span></div>
+<div class="line"><a id="l00207" name="l00207"></a><span class="lineno">  207</span>            printf(<span class="stringliteral">&quot;Estado LEDs: 1 0 0\n&quot;</span>); <span class="comment">// Print LEDs status</span></div>
+<div class="line"><a id="l00208" name="l00208"></a><span class="lineno">  208</span><span class="preprocessor">        #endif</span></div>
+<div class="line"><a id="l00209" name="l00209"></a><span class="lineno">  209</span>    } <span class="keywordflow">else</span> <span class="keywordflow">if</span> (<a class="code hl_variable" href="_guia2___e3_8c.html#ac3498e35b62924f5eb79dd0e1f50e031">distancia</a> &lt; 30) {</div>
+<div class="line"><a id="l00210" name="l00210"></a><span class="lineno">  210</span>        LedOn(LED_1);</div>
+<div class="line"><a id="l00211" name="l00211"></a><span class="lineno">  211</span>        LedOn(LED_2);</div>
+<div class="line"><a id="l00212" name="l00212"></a><span class="lineno">  212</span>        LedOff(LED_3);</div>
+<div class="line"><a id="l00213" name="l00213"></a><span class="lineno">  213</span>        NeoPixelAllColor(NEOPIXEL_COLOR_YELLOW);</div>
+<div class="line"><a id="l00214" name="l00214"></a><span class="lineno">  214</span><span class="preprocessor">        #if DEBUG_MODE &amp;&amp; SHOW_PRINTFS_ON</span></div>
+<div class="line"><a id="l00215" name="l00215"></a><span class="lineno">  215</span>            printf(<span class="stringliteral">&quot;Estado LEDs: 1 1 0\n&quot;</span>); <span class="comment">// Print LEDs status</span></div>
+<div class="line"><a id="l00216" name="l00216"></a><span class="lineno">  216</span><span class="preprocessor">        #endif</span></div>
+<div class="line"><a id="l00217" name="l00217"></a><span class="lineno">  217</span>    } <span class="keywordflow">else</span> {</div>
+<div class="line"><a id="l00218" name="l00218"></a><span class="lineno">  218</span>        LedOn(LED_1);</div>
+<div class="line"><a id="l00219" name="l00219"></a><span class="lineno">  219</span>        LedOn(LED_2);</div>
+<div class="line"><a id="l00220" name="l00220"></a><span class="lineno">  220</span>        LedOn(LED_3);</div>
+<div class="line"><a id="l00221" name="l00221"></a><span class="lineno">  221</span>        NeoPixelAllColor(NEOPIXEL_COLOR_RED);</div>
+<div class="line"><a id="l00222" name="l00222"></a><span class="lineno">  222</span><span class="preprocessor">        #if DEBUG_MODE &amp;&amp; SHOW_PRINTFS_ON</span></div>
+<div class="line"><a id="l00223" name="l00223"></a><span class="lineno">  223</span>            printf(<span class="stringliteral">&quot;Estado LEDs: 1 1 1\n&quot;</span>); <span class="comment">// Print LEDs status</span></div>
+<div class="line"><a id="l00224" name="l00224"></a><span class="lineno">  224</span><span class="preprocessor">        #endif</span></div>
+<div class="line"><a id="l00225" name="l00225"></a><span class="lineno">  225</span>    }</div>
+<div class="line"><a id="l00226" name="l00226"></a><span class="lineno">  226</span>}</div>
+</div>
+<div class="line"><a id="l00227" name="l00227"></a><span class="lineno">  227</span> </div>
+<div class="foldopen" id="foldopen00228" data-start="{" data-end="}">
+<div class="line"><a id="l00228" name="l00228"></a><span class="lineno"><a class="line" href="_guia2___e3_8c.html#a76efd24653b844729013369b2d74b26b">  228</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="_guia2___e3_8c.html#a76efd24653b844729013369b2d74b26b">measureAndShow</a>(<span class="keywordtype">void</span> *param) {</div>
+<div class="line"><a id="l00229" name="l00229"></a><span class="lineno">  229</span>    vTaskNotifyGiveFromISR(<a class="code hl_variable" href="_guia2___e3_8c.html#ae0d723dbc85c5c437f8a11cb7636e456">measureAndShow_task_handle</a>, pdFALSE);</div>
+<div class="line"><a id="l00230" name="l00230"></a><span class="lineno">  230</span>}</div>
+</div>
+<div class="line"><a id="l00231" name="l00231"></a><span class="lineno">  231</span> </div>
+<div class="line"><a id="l00232" name="l00232"></a><span class="lineno">  232</span><span class="keyword">static</span> <span class="keywordtype">void</span> measureAndShowTask(<span class="keywordtype">void</span> *pvParameter){</div>
+<div class="line"><a id="l00233" name="l00233"></a><span class="lineno">  233</span>    <span class="keywordflow">while</span> (<span class="keyword">true</span>)</div>
+<div class="line"><a id="l00234" name="l00234"></a><span class="lineno">  234</span>    {</div>
+<div class="line"><a id="l00235" name="l00235"></a><span class="lineno">  235</span>        ulTaskNotifyTake(pdTRUE, portMAX_DELAY);</div>
+<div class="line"><a id="l00236" name="l00236"></a><span class="lineno">  236</span> </div>
+<div class="line"><a id="l00237" name="l00237"></a><span class="lineno">  237</span>        <span class="keywordflow">if</span> (<a class="code hl_variable" href="_guia2___e3_8c.html#a1de2fbaf9babae6011af601f45ed320a">MEDIR</a> == <span class="keyword">true</span>) {</div>
+<div class="line"><a id="l00238" name="l00238"></a><span class="lineno">  238</span>            <a class="code hl_variable" href="_guia2___e3_8c.html#ac3498e35b62924f5eb79dd0e1f50e031">distancia</a> = HcSr04ReadDistanceInCentimeters();</div>
+<div class="line"><a id="l00239" name="l00239"></a><span class="lineno">  239</span>            <span class="comment">// distancia = 1 + rand() % 39; // Simulate a distance between 1 and 40 cm</span></div>
+<div class="line"><a id="l00240" name="l00240"></a><span class="lineno">  240</span>            <span class="comment">// distancia = 16;                  // Simulate a specific distance</span></div>
+<div class="line"><a id="l00241" name="l00241"></a><span class="lineno">  241</span><span class="preprocessor">            #if DEBUG_MODE &amp;&amp; SHOW_PRINTFS_ON</span></div>
+<div class="line"><a id="l00242" name="l00242"></a><span class="lineno">  242</span>                printf(<span class="stringliteral">&quot;Distancia: %lu cm\n&quot;</span>, <a class="code hl_variable" href="_guia2___e3_8c.html#ac3498e35b62924f5eb79dd0e1f50e031">distancia</a>); <span class="comment">// Print the measured distance</span></div>
+<div class="line"><a id="l00243" name="l00243"></a><span class="lineno">  243</span><span class="preprocessor">            #endif</span></div>
+<div class="line"><a id="l00244" name="l00244"></a><span class="lineno">  244</span> </div>
+<div class="line"><a id="l00245" name="l00245"></a><span class="lineno">  245</span>            <span class="keywordflow">if</span> (<a class="code hl_variable" href="_guia2___e3_8c.html#afc247b5bf8f971ed6ea450caf1c76e37">HOLD</a> == <span class="keyword">false</span>) {</div>
+<div class="line"><a id="l00246" name="l00246"></a><span class="lineno">  246</span>                <span class="keywordflow">if</span> ((<a class="code hl_variable" href="_guia2___e3_8c.html#a172a4b772be433acb3153ef75b4b2b7f">SHOW_MAX</a> &amp;&amp; (<a class="code hl_variable" href="_guia2___e3_8c.html#ac3498e35b62924f5eb79dd0e1f50e031">distancia</a> &gt; <a class="code hl_variable" href="_guia2___e3_8c.html#adff807dc7d02d037f848a85bae4d5d48">distance_to_send</a>)) || !<a class="code hl_variable" href="_guia2___e3_8c.html#a172a4b772be433acb3153ef75b4b2b7f">SHOW_MAX</a>) {</div>
+<div class="line"><a id="l00247" name="l00247"></a><span class="lineno">  247</span>                    <a class="code hl_variable" href="_guia2___e3_8c.html#adff807dc7d02d037f848a85bae4d5d48">distance_to_send</a> = <a class="code hl_variable" href="_guia2___e3_8c.html#ac3498e35b62924f5eb79dd0e1f50e031">distancia</a>;</div>
+<div class="line"><a id="l00248" name="l00248"></a><span class="lineno">  248</span>                }</div>
+<div class="line"><a id="l00249" name="l00249"></a><span class="lineno">  249</span>                <a class="code hl_function" href="_guia2___e3_8c.html#a93575dd20743dd04e541b982fe48d854">encenderLedsSegunDistancia</a>(<a class="code hl_variable" href="_guia2___e3_8c.html#adff807dc7d02d037f848a85bae4d5d48">distance_to_send</a>);</div>
+<div class="line"><a id="l00250" name="l00250"></a><span class="lineno">  250</span>                LcdItsE0803Write(<a class="code hl_variable" href="_guia2___e3_8c.html#adff807dc7d02d037f848a85bae4d5d48">distance_to_send</a>);</div>
+<div class="line"><a id="l00251" name="l00251"></a><span class="lineno">  251</span><span class="preprocessor">                #if DEBUG_MODE  &amp;&amp; SHOW_PRINTFS_ON</span></div>
+<div class="line"><a id="l00252" name="l00252"></a><span class="lineno">  252</span>                    printf(<span class="stringliteral">&quot;LCD: %lu cm\n&quot;</span>, <a class="code hl_variable" href="_guia2___e3_8c.html#ac3498e35b62924f5eb79dd0e1f50e031">distancia</a>);</div>
+<div class="line"><a id="l00253" name="l00253"></a><span class="lineno">  253</span><span class="preprocessor">                #endif</span></div>
+<div class="line"><a id="l00254" name="l00254"></a><span class="lineno">  254</span>            }</div>
+<div class="line"><a id="l00255" name="l00255"></a><span class="lineno">  255</span>            <a class="code hl_function" href="_guia2___e3_8c.html#a31ffdadd83cff4e326af072208019040">UartSendDistance</a>(<a class="code hl_variable" href="_guia2___e3_8c.html#adff807dc7d02d037f848a85bae4d5d48">distance_to_send</a>); <span class="comment">// Send the distance via UART</span></div>
+<div class="line"><a id="l00256" name="l00256"></a><span class="lineno">  256</span>        }</div>
+<div class="line"><a id="l00257" name="l00257"></a><span class="lineno">  257</span>    }</div>
+<div class="line"><a id="l00258" name="l00258"></a><span class="lineno">  258</span>}</div>
+<div class="line"><a id="l00259" name="l00259"></a><span class="lineno">  259</span> </div>
+<div class="foldopen" id="foldopen00260" data-start="{" data-end="}">
+<div class="line"><a id="l00260" name="l00260"></a><span class="lineno"><a class="line" href="_guia2___e3_8c.html#a31ffdadd83cff4e326af072208019040">  260</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="_guia2___e3_8c.html#a31ffdadd83cff4e326af072208019040">UartSendDistance</a>(uint32_t value) {</div>
+<div class="line"><a id="l00261" name="l00261"></a><span class="lineno">  261</span>    <span class="keywordflow">if</span> (<a class="code hl_variable" href="_guia2___e3_8c.html#a4cc058870c16a5681e4ed8d765c32fca">UNIT</a> == <a class="code hl_enumvalue" href="_guia2___e3_8c.html#a90eefa0aff365b7e99d05b03cf76d29baaf7dff166f02668437cbbf1f7007745a">INCHES</a>) {</div>
+<div class="line"><a id="l00262" name="l00262"></a><span class="lineno">  262</span>        <span class="keywordtype">char</span> str[10];</div>
+<div class="line"><a id="l00263" name="l00263"></a><span class="lineno">  263</span>        <span class="keywordtype">float</span> inches = value / 2.54f;</div>
+<div class="line"><a id="l00264" name="l00264"></a><span class="lineno">  264</span>        sprintf(str, <span class="stringliteral">&quot;%.2f&quot;</span>, inches);</div>
+<div class="line"><a id="l00265" name="l00265"></a><span class="lineno">  265</span>        UartSendString(<a class="code hl_variable" href="_guia2___e3_8c.html#a5fd92779fb6cd884bbdaeea1cf8cb5f6">uart_config</a>.port, str);</div>
+<div class="line"><a id="l00266" name="l00266"></a><span class="lineno">  266</span>        UartSendString(<a class="code hl_variable" href="_guia2___e3_8c.html#a5fd92779fb6cd884bbdaeea1cf8cb5f6">uart_config</a>.port, <span class="stringliteral">&quot; in\r\n&quot;</span>);</div>
+<div class="line"><a id="l00267" name="l00267"></a><span class="lineno">  267</span>    } <span class="keywordflow">else</span> {        </div>
+<div class="line"><a id="l00268" name="l00268"></a><span class="lineno">  268</span>        UartSendString(<a class="code hl_variable" href="_guia2___e3_8c.html#a5fd92779fb6cd884bbdaeea1cf8cb5f6">uart_config</a>.port, (<span class="keywordtype">char</span> *)UartItoa(value, 10));</div>
+<div class="line"><a id="l00269" name="l00269"></a><span class="lineno">  269</span>        UartSendString(<a class="code hl_variable" href="_guia2___e3_8c.html#a5fd92779fb6cd884bbdaeea1cf8cb5f6">uart_config</a>.port, <span class="stringliteral">&quot; cm\r\n&quot;</span>);</div>
+<div class="line"><a id="l00270" name="l00270"></a><span class="lineno">  270</span>    }</div>
+<div class="line"><a id="l00271" name="l00271"></a><span class="lineno">  271</span>}</div>
+</div>
+<div class="line"><a id="l00272" name="l00272"></a><span class="lineno">  272</span> </div>
+<div class="foldopen" id="foldopen00273" data-start="{" data-end="}">
+<div class="line"><a id="l00273" name="l00273"></a><span class="lineno"><a class="line" href="_guia2___e3_8c.html#afdb2cb7e50de6bf7db3937a2a7c0a3b0">  273</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="_guia2___e3_8c.html#afdb2cb7e50de6bf7db3937a2a7c0a3b0">if_TEC1_do</a>(){</div>
+<div class="line"><a id="l00274" name="l00274"></a><span class="lineno">  274</span>    <a class="code hl_variable" href="_guia2___e3_8c.html#a1de2fbaf9babae6011af601f45ed320a">MEDIR</a> = !<a class="code hl_variable" href="_guia2___e3_8c.html#a1de2fbaf9babae6011af601f45ed320a">MEDIR</a>;</div>
+<div class="line"><a id="l00275" name="l00275"></a><span class="lineno">  275</span>    <span class="keywordflow">if</span> (<a class="code hl_variable" href="_guia2___e3_8c.html#a1de2fbaf9babae6011af601f45ed320a">MEDIR</a> == <span class="keyword">false</span>)    {</div>
+<div class="line"><a id="l00276" name="l00276"></a><span class="lineno">  276</span>        LcdItsE0803Off();               <span class="comment">// Apagar el LCD</span></div>
+<div class="line"><a id="l00277" name="l00277"></a><span class="lineno">  277</span>        <a class="code hl_function" href="_guia2___e3_8c.html#a93575dd20743dd04e541b982fe48d854">encenderLedsSegunDistancia</a>(1);    <span class="comment">// Apagar todos los LEDs</span></div>
+<div class="line"><a id="l00278" name="l00278"></a><span class="lineno">  278</span>    }</div>
+<div class="line"><a id="l00279" name="l00279"></a><span class="lineno">  279</span><span class="preprocessor">    #if DEBUG_MODE  &amp;&amp; TOGGLE_PRINTFS_ON</span></div>
+<div class="line"><a id="l00280" name="l00280"></a><span class="lineno">  280</span>        printf(<span class="stringliteral">&quot;\nToggled MEDIR from: %d --&gt; %d\n&quot;</span>, !<a class="code hl_variable" href="_guia2___e3_8c.html#a1de2fbaf9babae6011af601f45ed320a">MEDIR</a>, <a class="code hl_variable" href="_guia2___e3_8c.html#a1de2fbaf9babae6011af601f45ed320a">MEDIR</a>);</div>
+<div class="line"><a id="l00281" name="l00281"></a><span class="lineno">  281</span><span class="preprocessor">    #endif</span></div>
+<div class="line"><a id="l00282" name="l00282"></a><span class="lineno">  282</span>}</div>
+</div>
+<div class="line"><a id="l00283" name="l00283"></a><span class="lineno">  283</span> </div>
+<div class="foldopen" id="foldopen00284" data-start="{" data-end="}">
+<div class="line"><a id="l00284" name="l00284"></a><span class="lineno"><a class="line" href="_guia2___e3_8c.html#ae037d07ca2e7f1b6f77934f1b01ee966">  284</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="_guia2___e3_8c.html#ae037d07ca2e7f1b6f77934f1b01ee966">if_TEC2_do</a>(){</div>
+<div class="line"><a id="l00285" name="l00285"></a><span class="lineno">  285</span>    <span class="keywordflow">if</span> (<a class="code hl_variable" href="_guia2___e3_8c.html#a1de2fbaf9babae6011af601f45ed320a">MEDIR</a>) {</div>
+<div class="line"><a id="l00286" name="l00286"></a><span class="lineno">  286</span>        <a class="code hl_variable" href="_guia2___e3_8c.html#afc247b5bf8f971ed6ea450caf1c76e37">HOLD</a> = !<a class="code hl_variable" href="_guia2___e3_8c.html#afc247b5bf8f971ed6ea450caf1c76e37">HOLD</a>;</div>
+<div class="line"><a id="l00287" name="l00287"></a><span class="lineno">  287</span><span class="preprocessor">        #if DEBUG_MODE  &amp;&amp; TOGGLE_PRINTFS_ON</span></div>
+<div class="line"><a id="l00288" name="l00288"></a><span class="lineno">  288</span>            printf(<span class="stringliteral">&quot;\nToggled HOLD from: %d --&gt; %d\n&quot;</span>, !<a class="code hl_variable" href="_guia2___e3_8c.html#a1de2fbaf9babae6011af601f45ed320a">MEDIR</a>, <a class="code hl_variable" href="_guia2___e3_8c.html#a1de2fbaf9babae6011af601f45ed320a">MEDIR</a>);</div>
+<div class="line"><a id="l00289" name="l00289"></a><span class="lineno">  289</span><span class="preprocessor">        #endif</span></div>
+<div class="line"><a id="l00290" name="l00290"></a><span class="lineno">  290</span>    }</div>
+<div class="line"><a id="l00291" name="l00291"></a><span class="lineno">  291</span>}</div>
+</div>
+<div class="line"><a id="l00292" name="l00292"></a><span class="lineno">  292</span> </div>
+<div class="foldopen" id="foldopen00293" data-start="{" data-end="}">
+<div class="line"><a id="l00293" name="l00293"></a><span class="lineno"><a class="line" href="_guia2___e3_8c.html#a3f3cdddf96cd6a1a338fb3a66219c016">  293</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="_guia2___e3_8c.html#a3f3cdddf96cd6a1a338fb3a66219c016">uartListen</a>(<span class="keywordtype">void</span> *pvParameter) {</div>
+<div class="line"><a id="l00294" name="l00294"></a><span class="lineno">  294</span>    uint8_t data;</div>
+<div class="line"><a id="l00295" name="l00295"></a><span class="lineno">  295</span>    UartReadByte(UART_PC, &amp;data);</div>
+<div class="line"><a id="l00296" name="l00296"></a><span class="lineno">  296</span>    <span class="keywordflow">switch</span> (data) {</div>
+<div class="line"><a id="l00297" name="l00297"></a><span class="lineno">  297</span>        <span class="keywordflow">case</span> <span class="charliteral">&#39;O&#39;</span>:</div>
+<div class="line"><a id="l00298" name="l00298"></a><span class="lineno">  298</span>            <a class="code hl_function" href="_guia2___e3_8c.html#afdb2cb7e50de6bf7db3937a2a7c0a3b0">if_TEC1_do</a>();</div>
+<div class="line"><a id="l00299" name="l00299"></a><span class="lineno">  299</span>            <span class="keywordflow">break</span>;</div>
+<div class="line"><a id="l00300" name="l00300"></a><span class="lineno">  300</span>        <span class="keywordflow">case</span> <span class="charliteral">&#39;H&#39;</span>:</div>
+<div class="line"><a id="l00301" name="l00301"></a><span class="lineno">  301</span>            <a class="code hl_function" href="_guia2___e3_8c.html#ae037d07ca2e7f1b6f77934f1b01ee966">if_TEC2_do</a>();</div>
+<div class="line"><a id="l00302" name="l00302"></a><span class="lineno">  302</span>            <span class="keywordflow">break</span>;</div>
+<div class="line"><a id="l00303" name="l00303"></a><span class="lineno">  303</span>        <span class="keywordflow">case</span> <span class="charliteral">&#39;I&#39;</span>:</div>
+<div class="line"><a id="l00304" name="l00304"></a><span class="lineno">  304</span>            <span class="keywordflow">if</span> (<a class="code hl_variable" href="_guia2___e3_8c.html#a4cc058870c16a5681e4ed8d765c32fca">UNIT</a> == <a class="code hl_enumvalue" href="_guia2___e3_8c.html#a90eefa0aff365b7e99d05b03cf76d29bae256357c69514a4c50b9a9c857dbe7f4">CM</a>)</div>
+<div class="line"><a id="l00305" name="l00305"></a><span class="lineno">  305</span>            { <a class="code hl_variable" href="_guia2___e3_8c.html#a4cc058870c16a5681e4ed8d765c32fca">UNIT</a> = <a class="code hl_enumvalue" href="_guia2___e3_8c.html#a90eefa0aff365b7e99d05b03cf76d29baaf7dff166f02668437cbbf1f7007745a">INCHES</a>; }</div>
+<div class="line"><a id="l00306" name="l00306"></a><span class="lineno">  306</span>            <span class="keywordflow">else</span></div>
+<div class="line"><a id="l00307" name="l00307"></a><span class="lineno">  307</span>            { <a class="code hl_variable" href="_guia2___e3_8c.html#a4cc058870c16a5681e4ed8d765c32fca">UNIT</a> = <a class="code hl_enumvalue" href="_guia2___e3_8c.html#a90eefa0aff365b7e99d05b03cf76d29bae256357c69514a4c50b9a9c857dbe7f4">CM</a>; }</div>
+<div class="line"><a id="l00308" name="l00308"></a><span class="lineno">  308</span>            <span class="keywordflow">break</span>;</div>
+<div class="line"><a id="l00309" name="l00309"></a><span class="lineno">  309</span>        <span class="keywordflow">case</span> <span class="charliteral">&#39;M&#39;</span>:</div>
+<div class="line"><a id="l00310" name="l00310"></a><span class="lineno">  310</span>            <a class="code hl_variable" href="_guia2___e3_8c.html#a172a4b772be433acb3153ef75b4b2b7f">SHOW_MAX</a> = !<a class="code hl_variable" href="_guia2___e3_8c.html#a172a4b772be433acb3153ef75b4b2b7f">SHOW_MAX</a>;</div>
+<div class="line"><a id="l00311" name="l00311"></a><span class="lineno">  311</span><span class="preprocessor">            #if DEBUG_MODE  &amp;&amp; TOGGLE_PRINTFS_ON</span></div>
+<div class="line"><a id="l00312" name="l00312"></a><span class="lineno">  312</span>                printf(<span class="stringliteral">&quot;\nToggled MAX from: %d --&gt; %d\n&quot;</span>, !<a class="code hl_variable" href="_guia2___e3_8c.html#a172a4b772be433acb3153ef75b4b2b7f">SHOW_MAX</a>, <a class="code hl_variable" href="_guia2___e3_8c.html#a172a4b772be433acb3153ef75b4b2b7f">SHOW_MAX</a>);</div>
+<div class="line"><a id="l00313" name="l00313"></a><span class="lineno">  313</span><span class="preprocessor">            #endif</span></div>
+<div class="line"><a id="l00314" name="l00314"></a><span class="lineno">  314</span>            <span class="keywordflow">break</span>;</div>
+<div class="line"><a id="l00315" name="l00315"></a><span class="lineno">  315</span>        <span class="keywordflow">case</span> <span class="charliteral">&#39;F&#39;</span>:</div>
+<div class="line"><a id="l00316" name="l00316"></a><span class="lineno">  316</span>            <span class="keywordflow">if</span> (<a class="code hl_variable" href="_guia2___e3_8c.html#a79b63a28e2fd332b2bf1750d2b67967c">timer_measure_config</a>.period &gt; <a class="code hl_define" href="_guia2___e3_8c.html#a12bd664dc27be8389a870cf7aae48efd">DELAY_MEASURE_MIN</a>) {</div>
+<div class="line"><a id="l00317" name="l00317"></a><span class="lineno">  317</span>                <a class="code hl_variable" href="_guia2___e3_8c.html#a79b63a28e2fd332b2bf1750d2b67967c">timer_measure_config</a>.period -= <a class="code hl_define" href="_guia2___e3_8c.html#abd57fa1236ef2f059192b1c1d73c80fa">DELAY_MEASURE_STEP</a>;</div>
+<div class="line"><a id="l00318" name="l00318"></a><span class="lineno">  318</span>                TimerUpdatePeriod(<a class="code hl_variable" href="_guia2___e3_8c.html#a79b63a28e2fd332b2bf1750d2b67967c">timer_measure_config</a>.timer, <a class="code hl_variable" href="_guia2___e3_8c.html#a79b63a28e2fd332b2bf1750d2b67967c">timer_measure_config</a>.period);</div>
+<div class="line"><a id="l00319" name="l00319"></a><span class="lineno">  319</span>            }</div>
+<div class="line"><a id="l00320" name="l00320"></a><span class="lineno">  320</span><span class="preprocessor">            #if DEBUG_MODE  &amp;&amp; TOGGLE_PRINTFS_ON</span></div>
+<div class="line"><a id="l00321" name="l00321"></a><span class="lineno">  321</span>                printf(<span class="stringliteral">&quot;\nToggled DELAY from: %lu ms --&gt; %lu ms\n&quot;</span>, (<a class="code hl_variable" href="_guia2___e3_8c.html#a79b63a28e2fd332b2bf1750d2b67967c">timer_measure_config</a>.period + <a class="code hl_define" href="_guia2___e3_8c.html#abd57fa1236ef2f059192b1c1d73c80fa">DELAY_MEASURE_STEP</a>)/1000, <a class="code hl_variable" href="_guia2___e3_8c.html#a79b63a28e2fd332b2bf1750d2b67967c">timer_measure_config</a>.period /1000);</div>
+<div class="line"><a id="l00322" name="l00322"></a><span class="lineno">  322</span><span class="preprocessor">            #endif</span></div>
+<div class="line"><a id="l00323" name="l00323"></a><span class="lineno">  323</span>            <span class="keywordflow">break</span>;</div>
+<div class="line"><a id="l00324" name="l00324"></a><span class="lineno">  324</span>        <span class="keywordflow">case</span> <span class="charliteral">&#39;S&#39;</span>:</div>
+<div class="line"><a id="l00325" name="l00325"></a><span class="lineno">  325</span>            <span class="keywordflow">if</span> (<a class="code hl_variable" href="_guia2___e3_8c.html#a79b63a28e2fd332b2bf1750d2b67967c">timer_measure_config</a>.period &lt; <a class="code hl_define" href="_guia2___e3_8c.html#a56f4175082f472cec265658e2d49eea2">DELAY_MEASURE_MAX</a>) {</div>
+<div class="line"><a id="l00326" name="l00326"></a><span class="lineno">  326</span>                <a class="code hl_variable" href="_guia2___e3_8c.html#a79b63a28e2fd332b2bf1750d2b67967c">timer_measure_config</a>.period += <a class="code hl_define" href="_guia2___e3_8c.html#abd57fa1236ef2f059192b1c1d73c80fa">DELAY_MEASURE_STEP</a>;</div>
+<div class="line"><a id="l00327" name="l00327"></a><span class="lineno">  327</span>                TimerUpdatePeriod(<a class="code hl_variable" href="_guia2___e3_8c.html#a79b63a28e2fd332b2bf1750d2b67967c">timer_measure_config</a>.timer, <a class="code hl_variable" href="_guia2___e3_8c.html#a79b63a28e2fd332b2bf1750d2b67967c">timer_measure_config</a>.period);</div>
+<div class="line"><a id="l00328" name="l00328"></a><span class="lineno">  328</span>            }</div>
+<div class="line"><a id="l00329" name="l00329"></a><span class="lineno">  329</span><span class="preprocessor">            #if DEBUG_MODE  &amp;&amp; TOGGLE_PRINTFS_ON</span></div>
+<div class="line"><a id="l00330" name="l00330"></a><span class="lineno">  330</span>                printf(<span class="stringliteral">&quot;\nToggled DELAY from: %lu ms --&gt; %lu ms\n&quot;</span>, (<a class="code hl_variable" href="_guia2___e3_8c.html#a79b63a28e2fd332b2bf1750d2b67967c">timer_measure_config</a>.period - <a class="code hl_define" href="_guia2___e3_8c.html#abd57fa1236ef2f059192b1c1d73c80fa">DELAY_MEASURE_STEP</a>)/1000, <a class="code hl_variable" href="_guia2___e3_8c.html#a79b63a28e2fd332b2bf1750d2b67967c">timer_measure_config</a>.period /1000);</div>
+<div class="line"><a id="l00331" name="l00331"></a><span class="lineno">  331</span><span class="preprocessor">            #endif</span></div>
+<div class="line"><a id="l00332" name="l00332"></a><span class="lineno">  332</span>            <span class="keywordflow">break</span>;</div>
+<div class="line"><a id="l00333" name="l00333"></a><span class="lineno">  333</span>        <span class="keywordflow">default</span>:</div>
+<div class="line"><a id="l00334" name="l00334"></a><span class="lineno">  334</span>            <span class="keywordflow">break</span>;</div>
+<div class="line"><a id="l00335" name="l00335"></a><span class="lineno">  335</span>    }</div>
+<div class="line"><a id="l00336" name="l00336"></a><span class="lineno">  336</span>}</div>
+</div>
+<div class="line"><a id="l00337" name="l00337"></a><span class="lineno">  337</span> </div>
+<div class="line"><a id="l00338" name="l00338"></a><span class="lineno">  338</span><span class="comment">/*==================[external functions definition]==========================*/</span></div>
+<div class="foldopen" id="foldopen00339" data-start="{" data-end="}">
+<div class="line"><a id="l00339" name="l00339"></a><span class="lineno"><a class="line" href="_guia2___e3_8c.html#a630544a7f0a2cc40d8a7fefab7e2fe70">  339</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="_guia2___e3_8c.html#a630544a7f0a2cc40d8a7fefab7e2fe70">app_main</a>(<span class="keywordtype">void</span>){</div>
+<div class="line"><a id="l00340" name="l00340"></a><span class="lineno">  340</span>    <a class="code hl_function" href="_guia2___e3_8c.html#a4bffc0786345a93ec2a2a42d8990bcba">initComponentes</a>();</div>
+<div class="line"><a id="l00341" name="l00341"></a><span class="lineno">  341</span> </div>
+<div class="line"><a id="l00342" name="l00342"></a><span class="lineno">  342</span>    uint32_t stack_size = 1024;</div>
+<div class="line"><a id="l00343" name="l00343"></a><span class="lineno">  343</span><span class="preprocessor">    #if DEBUG_MODE</span></div>
+<div class="line"><a id="l00344" name="l00344"></a><span class="lineno">  344</span>        stack_size = 16384; <span class="comment">// Increase stack size por los printf()s de depuración</span></div>
+<div class="line"><a id="l00345" name="l00345"></a><span class="lineno">  345</span><span class="preprocessor">    #endif</span></div>
+<div class="line"><a id="l00346" name="l00346"></a><span class="lineno">  346</span>    </div>
+<div class="line"><a id="l00347" name="l00347"></a><span class="lineno">  347</span>    SwitchActivInt(SWITCH_1, <a class="code hl_function" href="_guia2___e3_8c.html#afdb2cb7e50de6bf7db3937a2a7c0a3b0">if_TEC1_do</a>, NULL);</div>
+<div class="line"><a id="l00348" name="l00348"></a><span class="lineno">  348</span>    SwitchActivInt(SWITCH_2, <a class="code hl_function" href="_guia2___e3_8c.html#ae037d07ca2e7f1b6f77934f1b01ee966">if_TEC2_do</a>, NULL);</div>
+<div class="line"><a id="l00349" name="l00349"></a><span class="lineno">  349</span>    </div>
+<div class="line"><a id="l00350" name="l00350"></a><span class="lineno">  350</span>    xTaskCreate(&amp;measureAndShowTask, <span class="stringliteral">&quot;MEASUREANDSHOW&quot;</span>, stack_size, NULL, 5, &amp;<a class="code hl_variable" href="_guia2___e3_8c.html#ae0d723dbc85c5c437f8a11cb7636e456">measureAndShow_task_handle</a>);</div>
+<div class="line"><a id="l00351" name="l00351"></a><span class="lineno">  351</span> </div>
+<div class="line"><a id="l00352" name="l00352"></a><span class="lineno">  352</span>    TimerStart(<a class="code hl_variable" href="_guia2___e3_8c.html#a79b63a28e2fd332b2bf1750d2b67967c">timer_measure_config</a>.timer);</div>
+<div class="line"><a id="l00353" name="l00353"></a><span class="lineno">  353</span>}</div>
+</div>
+<div class="line"><a id="l00354" name="l00354"></a><span class="lineno">  354</span><span class="comment">/*==================[end of file]============================================*/</span></div>
+<div class="ttc" id="a_guia2___e3_8c_html_a12bd664dc27be8389a870cf7aae48efd"><div class="ttname"><a href="_guia2___e3_8c.html#a12bd664dc27be8389a870cf7aae48efd">DELAY_MEASURE_MIN</a></div><div class="ttdeci">#define DELAY_MEASURE_MIN</div><div class="ttdef"><b>Definition</b> <a href="#l00098">Guia2_E3.c:98</a></div></div>
+<div class="ttc" id="a_guia2___e3_8c_html_a172a4b772be433acb3153ef75b4b2b7f"><div class="ttname"><a href="_guia2___e3_8c.html#a172a4b772be433acb3153ef75b4b2b7f">SHOW_MAX</a></div><div class="ttdeci">bool SHOW_MAX</div><div class="ttdef"><b>Definition</b> <a href="#l00124">Guia2_E3.c:124</a></div></div>
+<div class="ttc" id="a_guia2___e3_8c_html_a1de2fbaf9babae6011af601f45ed320a"><div class="ttname"><a href="_guia2___e3_8c.html#a1de2fbaf9babae6011af601f45ed320a">MEDIR</a></div><div class="ttdeci">bool MEDIR</div><div class="ttdoc">Variable que indica si se debe medir o no.</div><div class="ttdef"><b>Definition</b> <a href="#l00117">Guia2_E3.c:117</a></div></div>
+<div class="ttc" id="a_guia2___e3_8c_html_a31ffdadd83cff4e326af072208019040"><div class="ttname"><a href="_guia2___e3_8c.html#a31ffdadd83cff4e326af072208019040">UartSendDistance</a></div><div class="ttdeci">void UartSendDistance(uint32_t value)</div><div class="ttdef"><b>Definition</b> <a href="#l00260">Guia2_E3.c:260</a></div></div>
+<div class="ttc" id="a_guia2___e3_8c_html_a3f3cdddf96cd6a1a338fb3a66219c016"><div class="ttname"><a href="_guia2___e3_8c.html#a3f3cdddf96cd6a1a338fb3a66219c016">uartListen</a></div><div class="ttdeci">void uartListen(void *pvParameter)</div><div class="ttdef"><b>Definition</b> <a href="#l00293">Guia2_E3.c:293</a></div></div>
+<div class="ttc" id="a_guia2___e3_8c_html_a4bffc0786345a93ec2a2a42d8990bcba"><div class="ttname"><a href="_guia2___e3_8c.html#a4bffc0786345a93ec2a2a42d8990bcba">initComponentes</a></div><div class="ttdeci">void initComponentes(void)</div><div class="ttdoc">Inicializa los componentes del sistema.</div><div class="ttdef"><b>Definition</b> <a href="#l00177">Guia2_E3.c:177</a></div></div>
+<div class="ttc" id="a_guia2___e3_8c_html_a4cc058870c16a5681e4ed8d765c32fca"><div class="ttname"><a href="_guia2___e3_8c.html#a4cc058870c16a5681e4ed8d765c32fca">UNIT</a></div><div class="ttdeci">u_short UNIT</div><div class="ttdef"><b>Definition</b> <a href="#l00126">Guia2_E3.c:126</a></div></div>
+<div class="ttc" id="a_guia2___e3_8c_html_a56f4175082f472cec265658e2d49eea2"><div class="ttname"><a href="_guia2___e3_8c.html#a56f4175082f472cec265658e2d49eea2">DELAY_MEASURE_MAX</a></div><div class="ttdeci">#define DELAY_MEASURE_MAX</div><div class="ttdef"><b>Definition</b> <a href="#l00097">Guia2_E3.c:97</a></div></div>
+<div class="ttc" id="a_guia2___e3_8c_html_a5fd92779fb6cd884bbdaeea1cf8cb5f6"><div class="ttname"><a href="_guia2___e3_8c.html#a5fd92779fb6cd884bbdaeea1cf8cb5f6">uart_config</a></div><div class="ttdeci">serial_config_t uart_config</div><div class="ttdoc">Estructura de configuración del UART.</div><div class="ttdef"><b>Definition</b> <a href="#l00158">Guia2_E3.c:158</a></div></div>
+<div class="ttc" id="a_guia2___e3_8c_html_a630544a7f0a2cc40d8a7fefab7e2fe70"><div class="ttname"><a href="_guia2___e3_8c.html#a630544a7f0a2cc40d8a7fefab7e2fe70">app_main</a></div><div class="ttdeci">void app_main(void)</div><div class="ttdef"><b>Definition</b> <a href="#l00339">Guia2_E3.c:339</a></div></div>
+<div class="ttc" id="a_guia2___e3_8c_html_a76efd24653b844729013369b2d74b26b"><div class="ttname"><a href="_guia2___e3_8c.html#a76efd24653b844729013369b2d74b26b">measureAndShow</a></div><div class="ttdeci">void measureAndShow(void *param)</div><div class="ttdef"><b>Definition</b> <a href="#l00228">Guia2_E3.c:228</a></div></div>
+<div class="ttc" id="a_guia2___e3_8c_html_a79b63a28e2fd332b2bf1750d2b67967c"><div class="ttname"><a href="_guia2___e3_8c.html#a79b63a28e2fd332b2bf1750d2b67967c">timer_measure_config</a></div><div class="ttdeci">timer_config_t timer_measure_config</div><div class="ttdef"><b>Definition</b> <a href="#l00135">Guia2_E3.c:135</a></div></div>
+<div class="ttc" id="a_guia2___e3_8c_html_a90eefa0aff365b7e99d05b03cf76d29b"><div class="ttname"><a href="_guia2___e3_8c.html#a90eefa0aff365b7e99d05b03cf76d29b">distance_units</a></div><div class="ttdeci">distance_units</div><div class="ttdef"><b>Definition</b> <a href="#l00110">Guia2_E3.c:110</a></div></div>
+<div class="ttc" id="a_guia2___e3_8c_html_a90eefa0aff365b7e99d05b03cf76d29baaf7dff166f02668437cbbf1f7007745a"><div class="ttname"><a href="_guia2___e3_8c.html#a90eefa0aff365b7e99d05b03cf76d29baaf7dff166f02668437cbbf1f7007745a">INCHES</a></div><div class="ttdeci">@ INCHES</div><div class="ttdef"><b>Definition</b> <a href="#l00110">Guia2_E3.c:110</a></div></div>
+<div class="ttc" id="a_guia2___e3_8c_html_a90eefa0aff365b7e99d05b03cf76d29bae256357c69514a4c50b9a9c857dbe7f4"><div class="ttname"><a href="_guia2___e3_8c.html#a90eefa0aff365b7e99d05b03cf76d29bae256357c69514a4c50b9a9c857dbe7f4">CM</a></div><div class="ttdeci">@ CM</div><div class="ttdef"><b>Definition</b> <a href="#l00110">Guia2_E3.c:110</a></div></div>
+<div class="ttc" id="a_guia2___e3_8c_html_a93575dd20743dd04e541b982fe48d854"><div class="ttname"><a href="_guia2___e3_8c.html#a93575dd20743dd04e541b982fe48d854">encenderLedsSegunDistancia</a></div><div class="ttdeci">void encenderLedsSegunDistancia(uint16_t distancia)</div><div class="ttdef"><b>Definition</b> <a href="#l00191">Guia2_E3.c:191</a></div></div>
+<div class="ttc" id="a_guia2___e3_8c_html_aacf21b0ba59bdec45a04a37cf139e49a"><div class="ttname"><a href="_guia2___e3_8c.html#aacf21b0ba59bdec45a04a37cf139e49a">DELAY_MEASURE</a></div><div class="ttdeci">#define DELAY_MEASURE</div><div class="ttdef"><b>Definition</b> <a href="#l00095">Guia2_E3.c:95</a></div></div>
+<div class="ttc" id="a_guia2___e3_8c_html_abd57fa1236ef2f059192b1c1d73c80fa"><div class="ttname"><a href="_guia2___e3_8c.html#abd57fa1236ef2f059192b1c1d73c80fa">DELAY_MEASURE_STEP</a></div><div class="ttdeci">#define DELAY_MEASURE_STEP</div><div class="ttdef"><b>Definition</b> <a href="#l00096">Guia2_E3.c:96</a></div></div>
+<div class="ttc" id="a_guia2___e3_8c_html_ac3498e35b62924f5eb79dd0e1f50e031"><div class="ttname"><a href="_guia2___e3_8c.html#ac3498e35b62924f5eb79dd0e1f50e031">distancia</a></div><div class="ttdeci">uint32_t distancia</div><div class="ttdoc">Variable que almacena la distancia medida.</div><div class="ttdef"><b>Definition</b> <a href="#l00168">Guia2_E3.c:168</a></div></div>
+<div class="ttc" id="a_guia2___e3_8c_html_adff807dc7d02d037f848a85bae4d5d48"><div class="ttname"><a href="_guia2___e3_8c.html#adff807dc7d02d037f848a85bae4d5d48">distance_to_send</a></div><div class="ttdeci">uint32_t distance_to_send</div><div class="ttdoc">Variable que almacena la distancia a enviar.</div><div class="ttdef"><b>Definition</b> <a href="#l00172">Guia2_E3.c:172</a></div></div>
+<div class="ttc" id="a_guia2___e3_8c_html_ae037d07ca2e7f1b6f77934f1b01ee966"><div class="ttname"><a href="_guia2___e3_8c.html#ae037d07ca2e7f1b6f77934f1b01ee966">if_TEC2_do</a></div><div class="ttdeci">void if_TEC2_do(void)</div><div class="ttdef"><b>Definition</b> <a href="#l00284">Guia2_E3.c:284</a></div></div>
+<div class="ttc" id="a_guia2___e3_8c_html_ae0d723dbc85c5c437f8a11cb7636e456"><div class="ttname"><a href="_guia2___e3_8c.html#ae0d723dbc85c5c437f8a11cb7636e456">measureAndShow_task_handle</a></div><div class="ttdeci">TaskHandle_t measureAndShow_task_handle</div><div class="ttdoc">identificador de tipo TaskHandle_t de la tarea &quot;medirMostrar&quot;.</div><div class="ttdef"><b>Definition</b> <a href="#l00131">Guia2_E3.c:131</a></div></div>
+<div class="ttc" id="a_guia2___e3_8c_html_afc247b5bf8f971ed6ea450caf1c76e37"><div class="ttname"><a href="_guia2___e3_8c.html#afc247b5bf8f971ed6ea450caf1c76e37">HOLD</a></div><div class="ttdeci">bool HOLD</div><div class="ttdoc">Variable que indica si se debe mantener mostrando un resultado o no.</div><div class="ttdef"><b>Definition</b> <a href="#l00122">Guia2_E3.c:122</a></div></div>
+<div class="ttc" id="a_guia2___e3_8c_html_afdb2cb7e50de6bf7db3937a2a7c0a3b0"><div class="ttname"><a href="_guia2___e3_8c.html#afdb2cb7e50de6bf7db3937a2a7c0a3b0">if_TEC1_do</a></div><div class="ttdeci">void if_TEC1_do(void)</div><div class="ttdef"><b>Definition</b> <a href="#l00273">Guia2_E3.c:273</a></div></div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_5c982d53a68cdbcd421152b4020263a9.html">main</a></li><li class="navelem"><a class="el" href="_guia2___e3_8c.html">Guia2_E3.c</a></li>
+    <li class="footer">Generado por <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.13.2 </li>
+  </ul>
+</div>
+</body>
+</html>
