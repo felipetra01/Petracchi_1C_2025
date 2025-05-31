@@ -24,7 +24,6 @@
  * | PWM DAC Output	| 	GPIO_00		|   DAC_CH0	(Signal generator)  |
  * 
  *
- *
  * @section changelog Changelog
  *
  * |   Date	    | Description                                    |
@@ -47,17 +46,39 @@
 #define ADC_CHANNEL CH1
 
 #define UART_PORT UART_PC
+
 #define UART_BAUDRATE 115200
 
-#define TIMER_PERIOD_US 20 * 1000
+#define TIMER_PERIOD_US 10 * 1000
 
 #define SIGNAL_SIZE 231
 
+#define DEBUG_MODE 0    // 1: Enable debug mode, 0: Disable debug mode
+
 /*==================[internal data definition]===============================*/
+/*
+* @brief Task handles para la tarea analogReadAndSena
+* @note These handles son usadas para gestionar las tareas en FreeRTOS.
+*/
 TaskHandle_t analogReadAndSendTask_handle = NULL;
+/*
+* @brief Task handles para la tarea analogWrite
+* @note These handles son usadas para gestionar las tareas en FreeRTOS.
+*/
 TaskHandle_t analogWriteTask_handle = NULL;
+/*
+* @brief Variable para almacenar el valor analógico leído del ADC
+*/
 uint16_t analog_value = 0;
+/*
+* @brief Variable para almacenar el valor de la señal analógica a enviar
+* @note Esta variable se usa para almacenar el valor de la señal analógica que se enviará al DAC.
+*/
 uint16_t signal_value = 0; // Variable to store the value of the ADC
+/*
+* @brief Variable para almacenar el índice de la muestra de la señal
+* @note Esta variable se usa para llevar un registro del índice de la muestra actual de la señal.
+*/
 uint16_t sample_index = 0;  // Index counter of Signal sample number
 
 const char test_signal[SIGNAL_SIZE] = {
@@ -109,10 +130,18 @@ const char otro_ecg[256] = {
 };    
 
 /*==================[internal functions declaration]=========================*/
+/*
+* @brief funcion que se ejecuta cuando el timer A genera una interrupción
+* @note Esta función se encarga de notificar a la tarea analogReadAndSendTask
+*/
 static void analogReadAndSend(void *param) {
     vTaskNotifyGiveFromISR(analogReadAndSendTask_handle, pdFALSE);
 }
 
+/*
+* @brief Tarea que lee el valor analógico del ADC y lo envía por UART
+* @note Esta tarea se ejecuta periódicamente y lee el valor analógico del ADC, luego lo envía por UART en un formato específico.
+*/
 static void analogReadAndSendTask(void *param){
     while (true)
     {
@@ -129,26 +158,38 @@ static void analogReadAndSendTask(void *param){
         UartSendString(UART_PORT, "\r\n");
     }
 }
-
+/*
+* @brief Función que muestrea la señal analógica
+* @note Esta función se encarga de muestrear la señal analógica y devolver el valor correspondiente.
+*/
 char sampleSignal(void) {
-    signal_value = ecg[sample_index];
-    if (sample_index < (sizeof(ecg)/sizeof(ecg[0])) ) {
+    signal_value = otro_ecg[sample_index];
+    #if DEBUG_MODE
+        printf("sample_signal [%d]: %d\n", sample_index, signal_value);
+    #endif
+    if (sample_index < (sizeof(otro_ecg)/sizeof(otro_ecg[0])) - 1) {
         sample_index++;
     } else {
         sample_index = 0;
     }
-    return (signal_value);
+    return ((uint16_t)signal_value);
 }
-
+/*
+ * @brief Función que se ejecuta cuando el timer B genera una interrupción
+ * @note Esta función se encarga de notificar a la tarea analogWriteTask
+ */
 static void analogWrite(void *param) {
     vTaskNotifyGiveFromISR(analogWriteTask_handle, pdFALSE);
 }
-
+/*
+ * @brief Tarea que escribe el valor analógico en el DAC
+ * @note Esta tarea se ejecuta periódicamente y escribe el valor analógico en el DAC.
+*/
 static void analogWriteTask(void *param) {
     while (true) {
         ulTaskNotifyTake(pdTRUE, portMAX_DELAY);
 
-        AnalogOutputWrite( sampleSignal() );
+        AnalogOutputWrite( sampleSignal() );  // sampleSignal()
     }
 }
 
