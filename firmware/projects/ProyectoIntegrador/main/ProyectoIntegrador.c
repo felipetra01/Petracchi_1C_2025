@@ -94,7 +94,26 @@ void bleStatusCheckTask(void *param){
 }
 /*==================[internal functions declaration]=========================*/
 void read_data(uint8_t * data, uint8_t length){
+	if (length >= 7 && length < 32) { // mínimo esperable: "1-A-1" (5), típico: "20-R-130" (8)
+        char buffer[32]; // buffer temporal para asegurar string terminada en null
+        memcpy(buffer, data, length);
+        buffer[length] = '\0'; // Agregar terminador nulo
 
+        int n = sscanf(buffer, "%hhu-%c-%hhu", &distGiro, &dirGiro, &distFinal);
+        if (n == 3) {
+            printf("distGiro: %d\n", distGiro);
+            printf("direccion: %c\n", dirGiro);
+            printf("distFinal: %d\n", distFinal);
+		}
+	} else {
+		#if DEBUG_PRINTS
+			printf("⚠️ Formato de mensaje inválido:");
+				for (uint8_t i = 0; i < length; i++) {
+					printf("%c", data[i]);
+				}
+			printf("\n");
+		#endif
+    }
 }
 /*==================[external functions definition]==========================*/
 void app_main(void){
