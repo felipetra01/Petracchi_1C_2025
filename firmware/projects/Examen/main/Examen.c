@@ -9,17 +9,24 @@
  * 2. Envío de los datos de temperatura y humedad por UART a un terminal en la PC.
  * 3. Medición periódica de radiación y envío de los datos por UART.
  * 4. Encendido de LEDs según las condiciones de riesgo.
+ * 5. Gestión de dos teclas (botones) para iniciar y detener las mediciones:
+ *   - Tecla 1 (TEC1): Inicia las mediciones de temperatura, humedad y radiación.
+ *   - Tecla 2 (TEC2): Detiene las mediciones y apaga los LEDs.
+ * 
  * 
  * <a href=" ">Operation Example</a>
  *
  * @section hardConn Hardware Connection
  *
- * |    Peripheral  |   ESP32   	|
- * |:--------------:|:--------------|
- * |  DHT11 Data	| 	GPIO_23		|
- * |  LED_3 (Rojo)	| 	GPIO_5		|
- * |LED_2 (Amarillo)| 	GPIO_10		|
- * |  LED_1 (Verde)	| 	GPIO_11		| 
+ * |    Peripheral    |     ESP32  			|
+ * |:----------------:|:--------------------|
+ * |  DHT11 Data	  | 	GPIO_23			|
+ * |  Sensor Rad.	  | 	GPIO_1 (CH_1) 	|
+ * |  LED_3 (Rojo)	  | 	GPIO_5			|
+ * |  LED_2 (Amarillo)| 	GPIO_10			|
+ * |  LED_1 (Verde)	  | 	GPIO_11			| 
+ * |  Switch 1 (TEC1) | 	GPIO_4			|
+ * |  Switch 2 (TEC2) | 	GPIO_15			|
  *
  *
  * @section changelog Changelog
@@ -41,13 +48,20 @@
 #include "uart_mcu.h"
 #include "string.h"
 #include "led.h"
+#include "switch.h"
+#include "analog_io_mcu.h"
 
 #include "dht11.h"
 /*==================[macros and definitions]=================================*/
 #define LED_ROJO LED_3
 #define LED_AMARILLO LED_2
 #define LED_VERDE LED_1
+#define ADC_CHANNEL CH1
+
+#define MEDIR_TYH_PERIOD_MS 1000 // Periodo de muestreo de temperatura y humedad
+#define MEDIR_RAD_PERIOD_MS 5000 // Periodo de muestreo de radiación
 #define BAUD_RATE 19200
+
 
 /*==================[internal data definition]===============================*/
 /*
@@ -61,8 +75,15 @@ TaskHandle_t medirEnviarTyHTask_handle = NULL;
 */
 TaskHandle_t medirEnviarRadTask_handle = NULL;
 
+/*
+ * @brief Task handle para la tarea teclasTask
+ * @note Esta tarea se encarga de gestionar las teclas y notificar a la tarea correspondiente.
+*/
+TaskHandle_t teclasTask_handle = NULL;
+
 float temperatura = 0.0f;
 float humedad = 0.0f;
+float radiacion = 0.0f;
 bool riesgoNevada = false;
 bool radiacionElevada = false;
 
@@ -74,6 +95,7 @@ bool radiacionElevada = false;
 void initComponentes(void) {
 	LedsInit();
 	dht11Init(GPIO_23);
+	switchesInit(); // Inicializa los switches (botones)
 }
 
 /*
@@ -99,10 +121,10 @@ void medirEnviarTyHTask(void *param) {
 				UartSendTyH(temperatura, humedad, "RIESGO DE NEVADA");
 			} else {
 				riesgoNevada = false;
+				UartSendTyH(temperatura, humedad, NULL); // Envía los datos por UART
 			}
 		}
 		encenderLeds();
-		UartSendTyH(temperatura, humedad, NULL); // Envía los datos por UART
 	}
 }
 
@@ -140,16 +162,19 @@ void medirEnviarRadTask(void *param) {
 	while (true) {
 		ulTaskNotifyTake(pdTRUE, portMAX_DELAY);
 
-		float radiacion = 30.0f; // Simula una lectura de radiación en mR/h
+		uint16_t analog_value = 0;
+        AnalogInputReadSingle(ADC_CHANNEL, &analog_value);
+
+		radiacion = (float)analog_value * (1/3345.0f) * 100.0f; // Convertir a mR/h
 
 		if (radiacion > 40.0f) {
 			radiacionElevada = true;
 			UartSendRad(radiacion, "RADIACIÓN ELEVADA");
 		} else {
 			radiacionElevada = false;
+			UartSendRad(radiacion, NULL);
 		}
 		encenderLeds();
-		UartSendRad(radiacion, NULL);
 	}
 }
 
@@ -191,6 +216,25 @@ void encenderLeds(void ) {
 	}
 }
 
+void teclasFunc(void) {
+	vTaskNotifyGiveFromISR(medirEnviarTyHTask_handle, pdFALSE);
+}
+void teclasTask(void *pvParameter) {
+	while (true) {
+		ulTaskNotifyTake(pdTRUE, portMAX_DELAY);
+		if(SwitchesRead() == SWITCH_1) {
+			if(TimerRead(TIMER_A) == 0 && TimerRead(TIMER_B) == 0) {
+				TimerStart(TIMER_A);	// Timer A de medirEnviarTyH
+				TimerStart(TIMER_B);	// Timer B de medirEnviarRad
+			}
+		}
+		else if(SwitchesRead() == SWITCH_2) {
+			TimerStop(TIMER_A);		// Timer A de medirEnviarTyH
+			TimerStop(TIMER_B);		// Timer B de medirEnviarRad
+			LedsOffAll();
+		}
+	}
+}
 /*==================[external functions definition]==========================*/
 void app_main(void){
 	initComponentes();
@@ -204,7 +248,7 @@ void app_main(void){
 
 	timer_config_t timer_medirEnviarTyH_config = {
 		.timer = TIMER_A,		// Timer A
-		.period = 1000 * 1000,	// 1 segundo en microsegundos
+		.period = MEDIR_TYH_PERIOD_MS * 1000,	// 1 segundo en microsegundos
 		.func_p = medirEnviarTyH,		// Función a ejecutar
 		.param_p = NULL			// Parámetro para la función
 	};
@@ -212,16 +256,26 @@ void app_main(void){
 
 	timer_config_t timerMedirEnviarRad_config = {
 		.timer = TIMER_B,		// Timer B
-		.period = 5000 * 1000,	// 5 segundos en microsegundos
+		.period = MEDIR_RAD_PERIOD_MS * 1000,	// 5 segundos en microsegundos
 		.func_p = medirEnviarRad,		// Función a ejecutar
 		.param_p = NULL			// Parámetro para la función
 	};
 	TimerInit(&timerMedirEnviarRad_config);
 
+	timer_config_t timer_teclas_config = {
+		.timer = TIMER_C,		// Timer C
+		.period = 20 * 1000,	// 20 ms en microsegundos
+		.func_p = teclasFunc,	// Función a ejecutar
+		.param_p = NULL			// Parámetro para la función
+	};
+	TimerInit(&timer_teclas_config);
+
 	xTaskCreate(&medirEnviarTyHTask, "MEDIRTYH", 1024, NULL, 5, &medirEnviarTyHTask_handle);
 	xTaskCreate(&medirEnviarRadTask, "MEDIRRAD", 1024, NULL, 5, &medirEnviarRadTask_handle);
-
-	TimerStart(timer_medirEnviarTyH_config.timer);
-	TimerStart(timerMedirEnviarRad_config.timer);
+	xTaskCreate(&teclasTask, "TECLAS", 1024, NULL, 5, &teclasTask_handle);
+	
+	// TimerStart(timer_medirEnviarTyH_config.timer);
+	// TimerStart(timerMedirEnviarRad_config.timer);
+	TimerStart(timer_teclas_config.timer);
 }
 /*==================[end of file]============================================*/
