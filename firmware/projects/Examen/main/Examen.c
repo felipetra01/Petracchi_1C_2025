@@ -4,17 +4,11 @@
  *
  * El sistema está compuesto por un sensor de humedad y temperatura DHT11 y un  sensor analógico de radiación.
  * 
- * Por un lado se debe detectar el riesgo de nevada, la cual se da si la húmedad se encuentra por encima del
- * 85%  y la temperatura entre 0 y 2ºC. Para esto se deben tomar muestras cada 1 segundo y se envían por UART
- * con el siguiente formato: “Temperatura: 10ºC - Húmedad: 70%”
- * Si se da la condición de riesgo de nevada se debe indicar el estado encendiendo el led Rojo de la placa,
- * además del envío de un mensaje por la UART : * “Temperatura: 1ºC - Húmedad: 90% - RIESGO DE NEVADA”
- * Además se debe monitorizar la radiación ambiente, para ello se cuenta con un sensor analógico que da una
- * salida de 0V para 0mR/h y 3.3V para una salida de 100 mR/h. Se deben tomar muestras de radiación cada 5
- * segundos, enviando el mensaje por UART : “Radiación 30mR/h”
- * Si se sobrepasan los 40mR/h se debe informar del riesgo por Radiación, encendiendo el led Amarillo de la
- * placa, y enviando en el mensaje: “Radiación 50mR/h - RADIACIÓN ELEVADA”
- * Si no hay riesgo de nevada ni radiación excesiva, se indicará con el led Verde esta situación.
+ * El firmware implementa las siguientes funcionalidades:
+ * 1. Medición periódica de temperatura y humedad utilizando el sensor DHT11.
+ * 2. Envío de los datos de temperatura y humedad por UART a un terminal en la PC.
+ * 3. Medición periódica de radiación y envío de los datos por UART.
+ * 4. Encendido de LEDs según las condiciones de riesgo.
  * 
  * <a href=" ">Operation Example</a>
  *
@@ -56,7 +50,15 @@
 #define BAUD_RATE 19200
 
 /*==================[internal data definition]===============================*/
+/*
+ * @brief Task handle para la tarea medirEnviarTyHTask
+ * @note Esta tarea se encarga de medir la temperatura y humedad, y enviar los datos por UART.
+*/
 TaskHandle_t medirEnviarTyHTask_handle = NULL;
+/*
+ * @brief Task handle para la tarea medirEnviarRadTask
+ * @note Esta tarea se encarga de medir la radiación y enviar los datos por UART.
+*/
 TaskHandle_t medirEnviarRadTask_handle = NULL;
 
 float temperatura = 0.0f;
@@ -65,15 +67,27 @@ bool riesgoNevada = false;
 bool radiacionElevada = false;
 
 /*==================[internal functions declaration]=========================*/
+/*
+ * @brief Inicializa los componentes del sistema.
+ * @details Configura los LEDs y el sensor DHT11.
+ */
 void initComponentes(void) {
 	LedsInit();
 	dht11Init(GPIO_23);
 }
 
+/*
+ * @brief Función que se ejecuta cuando el timer A genera una interrupción.
+ * @note Esta función se encarga de notificar a la tarea medirEnviarTyHTask.
+ */
 void medirEnviarTyH(void *param) {
 	vTaskNotifyGiveFromISR(medirEnviarTyHTask_handle, pdFALSE);
 }
 
+/*
+ * @brief Tarea que mide la temperatura y humedad, y envía los datos por UART.
+ * @note Esta tarea se ejecuta periódicamente y lee los valores del sensor DHT11.
+ */
 void medirEnviarTyHTask(void *param) {
 	while (true) {
 		ulTaskNotifyTake(pdTRUE, portMAX_DELAY);
@@ -92,6 +106,13 @@ void medirEnviarTyHTask(void *param) {
 	}
 }
 
+/*
+ * @brief Envía la temperatura y humedad por UART.
+ * @param temp Temperatura medida.
+ * @param hum Humedad medida.
+ * @param flag Indicador de riesgo (opcional).
+ * @note Si el flag es NULL, no se envía información adicional.
+*/
 void UartSendTyH(float temp, float hum, char* flag) {
 	char str[60];
 	sprintf(str, "Temperatura: %.1fºC - Húmedad: %.1f%%", temp, hum);
@@ -103,10 +124,18 @@ void UartSendTyH(float temp, float hum, char* flag) {
 	UartSendString(UART_PC, " in\r\n");
 }
 
+/*
+ * @brief Función que se ejecuta cuando el timer B genera una interrupción.
+ * @note Esta función se encarga de notificar a la tarea medirEnviarRadTask.
+*/
 void medirEnviarRad(void *param) {
 	vTaskNotifyGiveFromISR(medirEnviarRadTask_handle, pdFALSE);
 }
 
+/*
+ * @brief Tarea que mide la radiación y envía los datos por UART.
+ * @note Esta tarea se ejecuta periódicamente y simula una lectura de radiación.
+*/
 void medirEnviarRadTask(void *param) {
 	while (true) {
 		ulTaskNotifyTake(pdTRUE, portMAX_DELAY);
@@ -124,6 +153,12 @@ void medirEnviarRadTask(void *param) {
 	}
 }
 
+/*
+ * @brief Envía la radiación medida por UART.
+ * @param rad Radiación medida en mR/h.
+ * @param flag Indicador de riesgo (opcional).
+ * @note Si el flag es NULL, no se envía información adicional.
+*/
 void UartSendRad(float rad, char* flag) {
 	char str[60];
 	sprintf(str, "Radiación: %.1f mR/h", rad);
@@ -135,6 +170,11 @@ void UartSendRad(float rad, char* flag) {
 	UartSendString(UART_PC, " in\r\n");
 }
 
+/*
+ * @brief Enciende los LEDs según el estado de riesgo de nevada y radiación.
+ * @note Si hay riesgo de nevada, enciende el LED rojo; si hay radiación elevada, enciende el LED amarillo;
+ * de lo contrario, enciende el LED verde.
+*/
 void encenderLeds(void ) {
 	if (riesgoNevada) {
 		LedOn(LED_ROJO);
