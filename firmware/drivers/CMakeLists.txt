@@ -16,6 +16,7 @@ set(srcs
     "microcontroller/src/rtc_mcu.c"
     "devices/src/led.c"
     "devices/src/switch.c"
+    "devices/src/vibration_motor.c"
     "devices/src/lcditse0803.c"
     "devices/src/hc_sr04.c"
     "devices/src/ws2812b.c"
@@ -28,6 +29,7 @@ set(srcs
     "devices/src/mpu6050.c"
     "devices/src/buzzer.c"
     "devices/src/l293.c"
+    "devices/src/dht11.c"
     )
 
 # Always included headers
