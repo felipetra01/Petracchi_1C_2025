@@ -125,7 +125,8 @@
             "esp_bt.h": "c",
             "esp_gap_ble_api.h": "c",
             "servo_sg90.h": "c",
-            "dht11.h": "c"
+            "dht11.h": "c",
+            "string.h": "c"
         },
     },
     "tasks": {

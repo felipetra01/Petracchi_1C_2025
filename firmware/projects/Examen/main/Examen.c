@@ -264,7 +264,7 @@ void app_main(void){
 
 	timer_config_t timer_teclas_config = {
 		.timer = TIMER_C,		// Timer C
-		.period = 20 * 1000,	// 20 ms en microsegundos
+		.period = 100 * 1000,	// 20 ms en microsegundos
 		.func_p = teclasFunc,	// Función a ejecutar
 		.param_p = NULL			// Parámetro para la función
 	};

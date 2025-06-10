@@ -52,15 +52,33 @@ char dirGiro = '\0';
 uint8_t distFinal = 0;
 
 uint8_t motorNro = 0;	// [0, 2] --> Motor a controlar (0: Izq, 2: Adelante, 1: Der)
-enum {LEFT_MOTOR, RIGHT_MOTOR, FWD_MOTOR} motor;
+enum {
+	LEFT_MOTOR,
+	RIGHT_MOTOR,
+	FWD_MOTOR
+} motor;
 
 /*==================[internal data definition]===============================*/
 
 void hacerAviso(void *param){
 	cantPulsos = distancia / 10;
 	if (cantPulsos > 1) {
+		switch (dirGiro)
+		{
+		case 'L':
+			motorNro = LEFT_MOTOR;
+			break;
+		case 'R':
+			motorNro = RIGHT_MOTOR;
+			break;
+		default:
+			break;
+		}
+		vibrateNTimes(cantPulsos, motorNro);
 		// vibrateNTimes(cantPulsos, PWM_0);			// Esto, o
 		// vibrateNTimesLongEnd(cantPulsos);	// Para más de 10 pulsos vibrar largo al final
+
+
 	} else {
 		// vibrateLong();
 	}
