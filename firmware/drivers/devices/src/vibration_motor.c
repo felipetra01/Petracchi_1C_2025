@@ -1,11 +1,11 @@
 /**
- * @file pwm_mcu.c
- * @author Albano Peñalva (albano.penalva@uner.edu.ar)
+ * @file vibration_motor.c
+ * @author Felipe M.Petracchi (felipe.petracchi@ingenieria.uner.edu.ar)
  * @brief 
  * @version 0.1
- * @date 2024-01-23
+ * @date 2025-06-10
  * 
- * @copyright Copyright (c) 2023
+ * @copyright Copyright (c) 2025
  * 
  */
 
@@ -23,21 +23,24 @@
 /*==================[external data definition]===============================*/
 
 /*==================[internal functions definition]==========================*/
-uint8_t MotorInit(motor_out_t motor, gpio_t gpio) {
-	switch(motor){
-		case SERVO_0:
-			PWMInit(motor.pwm_out, gpio, MOTOR_FREQ);
-            PWMSetDutyCycle(motor.pwm_out, motor.duty_cycle);
+uint8_t MotorInit(motor_config_t *motor) {
+	switch(motor->pwm_out){
+		case PWM_0:
+			PWMInit(PWM_0, motor->gpio, MOTOR_FREQ);
+            PWMSetDutyCycle(PWM_0, motor->duty_cycle);
 			break;
-		case SERVO_1:
-			PWMInit(PWM_1, gpio, MOTOR_FREQ);
-			break;
-		case SERVO_2:
-			PWMInit(PWM_2, gpio, MOTOR_FREQ);
-			break;
-		case SERVO_3:
-			PWMInit(PWM_3, gpio, MOTOR_FREQ);
-			break;
+        case PWM_1:
+            PWMInit(PWM_1, motor->gpio, MOTOR_FREQ);
+            PWMSetDutyCycle(PWM_1, motor->duty_cycle);
+            break;
+        case PWM_2:
+            PWMInit(PWM_2, motor->gpio, MOTOR_FREQ);
+            PWMSetDutyCycle(PWM_2, motor->duty_cycle);
+            break;
+        case PWM_3:
+            PWMInit(PWM_3, motor->gpio, MOTOR_FREQ);
+            PWMSetDutyCycle(PWM_3, motor->duty_cycle);
+            break;
 	}
 	return 0;
 }
@@ -75,7 +78,13 @@ void MotorOff(motor_out_t motor) {
             break;
     }
 }
-void vibrateNTimes(motor_out_t motor, uint8_t N) {
 
+void vibrateNTimes(motor_out_t motor, uint8_t N) {
+    for (uint8_t i = 0; i < N; i++) {
+        PWMOn(motor);
+        vTaskDelay(pdMS_TO_TICKS(PULSE_WIDTH_MS));
+        PWMOff(motor);
+        vTaskDelay(pdMS_TO_TICKS(PAUSE_MS));
+    }
 }
 /*==================[external functions definition]==========================*/
