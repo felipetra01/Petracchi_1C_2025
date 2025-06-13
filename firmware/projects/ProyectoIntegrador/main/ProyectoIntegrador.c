@@ -28,8 +28,8 @@
 #include <stdint.h>
 #include <string.h>
 
-#include "freertos/FreeRTOS.h"
-#include "freertos/task.h"
+// #include "freertos/FreeRTOS.h"
+// #include "freertos/task.h"
 #include "timer_mcu.h"
 
 #include "neopixel_stripe.h"
@@ -50,7 +50,7 @@ uint8_t cantPulsos;		// [0, 100] --> Cantidad de veces a hacer PWMOn y PWMOff
 uint8_t durPulso;
 uint8_t durPausa;		
 uint8_t instensidad = 50;				// [0, 100] --> Duty cycle en %
-uint8_t intervaloAvisos_MS = 1000;	// Intervalo entre avisos en ms
+uint16_t intervaloAvisos_MS = 1000;	// Intervalo entre avisos en ms
 
 uint16_t distancia = 0;	// [0, 1000] --> Distancia en cm
 uint8_t distGiro = 0;
@@ -70,17 +70,14 @@ void bleStatusCheckTask(void *param){
 			case BLE_OFF:
 			NeoPixelAllColor(NeoPixelRgb2Color(255, 0, 0));
 				LedsOffAll();
-				LedOn(LED_3);
             break;
             case BLE_DISCONNECTED:
 				NeoPixelAllColor(NeoPixelRgb2Color(0, 0, 255));
 				LedsOffAll();
-				LedOn(LED_2);
             break;
             case BLE_CONNECTED:
 				NeoPixelAllColor(NeoPixelRgb2Color(0, 255, 0));
 				LedsOffAll();
-				LedOn(LED_1);
             break;
         }
 	}
@@ -94,9 +91,9 @@ void read_data(uint8_t * data, uint8_t length){
 
         int n = sscanf(buffer, "%hhu-%c-%hhu", &distGiro, &dirGiro, &distFinal);
         if (n == 3) {
-			printf("distGiro: %d\n", distGiro);
-            printf("direccion: %c\n", dirGiro);
-            printf("distFinal: %d\n", distFinal);
+			printf("Lectura - distGiro: %d\n", distGiro);
+            printf("Lectura - direccion: %c\n", dirGiro);
+            printf("Lectura - distFinal: %d\n", distFinal);
 		}
 	} else {
 		#if DEBUG_PRINTS
@@ -123,9 +120,13 @@ void hacerAvisoTask(void *param){
 			{
 			case 'L':
 				motorNro = LEFT_MOTOR;
+				LedsOffAll();
+				LedOn(LED_3);
 				break;
 			case 'R':
 				motorNro = RIGHT_MOTOR;
+				LedsOffAll();
+				LedOn(LED_1);
 				break;
 			default:
 				break;
@@ -133,10 +134,10 @@ void hacerAvisoTask(void *param){
 			vibrateNTimes(cantPulsos, motorNro);	// Esto, o
 			// vibrateNTimesLongEnd(cantPulsos);	// Para más de 10 pulsos vibrar largo al final
 		}
-		else
-		{
-			// vibrateOnceLong();
-		}
+		// else
+		// {
+		// 	// vibrateOnceLong();
+		// }
 	}
 }
 /*==================[external functions definition]==========================*/
@@ -170,13 +171,13 @@ void app_main(void){
 	// Inicializar motores de vibración
 	motor_config_t motorL_Config = {
 		.pwm_out = LEFT_MOTOR,
-		.gpio = GPIO_0,				// Cambiar según el pin utilizado
+		.gpio = GPIO_9,				// Cambiar según el pin utilizado
 		.duty_cycle = instensidad,	// 50% de duty cycle
 	};
 	MotorInit(&motorL_Config);
 	motor_config_t motorR_Config = {
 		.pwm_out = RIGHT_MOTOR,
-		.gpio = GPIO_1,				// Cambiar según el pin utilizado
+		.gpio = GPIO_12,				// Cambiar según el pin utilizado
 		.duty_cycle = instensidad,	// 50% de duty cycle
 	};
 	MotorInit(&motorR_Config);

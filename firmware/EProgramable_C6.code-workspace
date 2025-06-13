@@ -126,7 +126,8 @@
             "esp_gap_ble_api.h": "c",
             "servo_sg90.h": "c",
             "dht11.h": "c",
-            "string.h": "c"
+            "string.h": "c",
+            "vibration_motor.h": "c"
         },
     },
     "tasks": {

@@ -27,6 +27,8 @@
 #include "sdkconfig.h"
 #include "pwm_mcu.h"
 #include "gpio_mcu.h"
+#include "freertos/FreeRTOS.h"
+#include "freertos/task.h"
 
 /*==================[macros]=================================================*/
 /*

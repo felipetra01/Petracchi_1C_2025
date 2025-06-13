@@ -24,24 +24,32 @@
 
 /*==================[internal functions definition]==========================*/
 uint8_t MotorInit(motor_config_t *motor) {
-	switch(motor->pwm_out){
-		case PWM_0:
-			PWMInit(PWM_0, motor->gpio, MOTOR_FREQ);
-            PWMSetDutyCycle(PWM_0, motor->duty_cycle);
-			break;
+    switch(motor->pwm_out){
+        case PWM_0:
+        PWMInit(PWM_0, motor->gpio, MOTOR_FREQ);
+        PWMSetDutyCycle(PWM_0, motor->duty_cycle);
+        break;
         case PWM_1:
-            PWMInit(PWM_1, motor->gpio, MOTOR_FREQ);
-            PWMSetDutyCycle(PWM_1, motor->duty_cycle);
-            break;
+        PWMInit(PWM_1, motor->gpio, MOTOR_FREQ);
+        PWMSetDutyCycle(PWM_1, motor->duty_cycle);
+        break;
         case PWM_2:
-            PWMInit(PWM_2, motor->gpio, MOTOR_FREQ);
-            PWMSetDutyCycle(PWM_2, motor->duty_cycle);
-            break;
+        PWMInit(PWM_2, motor->gpio, MOTOR_FREQ);
+        PWMSetDutyCycle(PWM_2, motor->duty_cycle);
+        break;
         case PWM_3:
-            PWMInit(PWM_3, motor->gpio, MOTOR_FREQ);
-            PWMSetDutyCycle(PWM_3, motor->duty_cycle);
-            break;
+        PWMInit(PWM_3, motor->gpio, MOTOR_FREQ);
+        PWMSetDutyCycle(PWM_3, motor->duty_cycle);
+        break;
 	}
+    // Set the initial state of the motor to off
+    PWMOff(motor->pwm_out);
+    // timer_config_t timerPulsos = {
+    //     .timer = motor->pwm_out,
+    //     .period = (PULSE_WIDTH_MS + PAUSE_MS) * 1000,
+    //     .func_p = hacerPulso,
+    //     .param_p = NULL
+    // };
 	return 0;
 }
 
@@ -82,9 +90,9 @@ void MotorOff(motor_out_t motor) {
 void vibrateNTimes(motor_out_t motor, uint8_t N) {
     for (uint8_t i = 0; i < N; i++) {
         PWMOn(motor);
-        vTaskDelay(pdMS_TO_TICKS(PULSE_WIDTH_MS));
+        vTaskDelay(PULSE_WIDTH_MS / portTICK_PERIOD_MS);
         PWMOff(motor);
-        vTaskDelay(pdMS_TO_TICKS(PAUSE_MS));
+        vTaskDelay(PAUSE_MS / portTICK_PERIOD_MS);
     }
 }
 /*==================[external functions definition]==========================*/
