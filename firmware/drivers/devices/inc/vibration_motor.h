@@ -27,6 +27,8 @@
 #include "sdkconfig.h"
 #include "pwm_mcu.h"
 #include "gpio_mcu.h"
+#include <delay_mcu.h>
+
 #include "freertos/FreeRTOS.h"
 #include "freertos/task.h"
 
@@ -37,10 +39,9 @@
  * The default frequency is set to 1000 Hz, which is suitable for most vibration motors.
  * This can be adjusted based on the specific motor requirements.
 */
-#define MOTOR_FREQ 	   1000     // Default PWM frequency in Hz
-#define PULSE_WIDTH_MS 50       // Pulse width in milliseconds
-#define PAUSE_MS       50
-#define PERCENT   	   100.0
+#define MOTOR_FREQ_DEFAULT  2000    // Default PWM frequency in Hz
+#define PULSE_MS_DEFAULT    400     // Default pulse duration (width) in milliseconds
+#define PAUSE_MS_DEFAULT    400     // Default pause duration (width) in milliseconds
 /*==================[typedef]================================================*/
 typedef enum motor_out {
 	MOTOR_0 = PWM_0,    /**< Vibration motor 1 */
@@ -50,7 +51,7 @@ typedef enum motor_out {
 } motor_out_t;
 
 typedef struct {
-    motor_out_t pwm_out; /**< Motor to control */
+    motor_out_t motor_out; /**< Motor to control */
     gpio_t gpio;        /**< GPIO pin for the motor */
     uint8_t duty_cycle; /**< Duty cycle in percentage (0-100) */
 } motor_config_t;
@@ -59,8 +60,11 @@ typedef struct {
 /*==================[internal functions declaration]=========================*/
 
 /*==================[external functions declaration]=========================*/
-
 uint8_t MotorInit(motor_config_t *motor);
+
+void setMotorPulseDurationMS(uint16_t time_ms);
+
+void setMotorPauseDurationMS(uint16_t time_ms);
 
 void MotorOn(motor_out_t motor);
 
@@ -71,6 +75,6 @@ void vibrateNTimes(motor_out_t motor, uint8_t N);
 /** @} doxygen end group definition */
 /** @} doxygen end group definition */
 /** @} doxygen end group definition */
-#endif /* PWM_MCU_H_ */
+#endif /* VIBRATION_MOTOR_H_ */
 
 /*==================[end of file]============================================*/

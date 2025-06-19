@@ -15,7 +15,8 @@
 /*==================[macros and definitions]=================================*/
 
 /*==================[internal data declaration]==============================*/
-
+uint16_t pulse_ms = PULSE_MS_DEFAULT;
+uint16_t pause_ms = PAUSE_MS_DEFAULT;
 /*==================[internal functions declaration]=========================*/
 
 /*==================[internal data definition]===============================*/
@@ -24,33 +25,39 @@
 
 /*==================[internal functions definition]==========================*/
 uint8_t MotorInit(motor_config_t *motor) {
-    switch(motor->pwm_out){
+    switch(motor->motor_out){
         case PWM_0:
-        PWMInit(PWM_0, motor->gpio, MOTOR_FREQ);
+        PWMInit(PWM_0, motor->gpio, MOTOR_FREQ_DEFAULT);
         PWMSetDutyCycle(PWM_0, motor->duty_cycle);
         break;
         case PWM_1:
-        PWMInit(PWM_1, motor->gpio, MOTOR_FREQ);
+        PWMInit(PWM_1, motor->gpio, MOTOR_FREQ_DEFAULT);
         PWMSetDutyCycle(PWM_1, motor->duty_cycle);
         break;
         case PWM_2:
-        PWMInit(PWM_2, motor->gpio, MOTOR_FREQ);
+        PWMInit(PWM_2, motor->gpio, MOTOR_FREQ_DEFAULT);
         PWMSetDutyCycle(PWM_2, motor->duty_cycle);
         break;
         case PWM_3:
-        PWMInit(PWM_3, motor->gpio, MOTOR_FREQ);
+        PWMInit(PWM_3, motor->gpio, MOTOR_FREQ_DEFAULT);
         PWMSetDutyCycle(PWM_3, motor->duty_cycle);
         break;
 	}
     // Set the initial state of the motor to off
-    PWMOff(motor->pwm_out);
-    // timer_config_t timerPulsos = {
-    //     .timer = motor->pwm_out,
-    //     .period = (PULSE_WIDTH_MS + PAUSE_MS) * 1000,
-    //     .func_p = hacerPulso,
-    //     .param_p = NULL
-    // };
+    PWMOff(motor->motor_out);
 	return 0;
+}
+
+void setMotorPulseDurationMS(uint16_t time_ms) {
+    if (time_ms > 0) {
+        pulse_ms = time_ms;
+    }
+}
+
+void setMotorPauseDurationMS(uint16_t time_ms) {
+    if (time_ms > 0) {
+        pause_ms = time_ms;
+    }
 }
 
 void MotorOn(motor_out_t motor) {
@@ -90,9 +97,17 @@ void MotorOff(motor_out_t motor) {
 void vibrateNTimes(motor_out_t motor, uint8_t N) {
     for (uint8_t i = 0; i < N; i++) {
         PWMOn(motor);
-        vTaskDelay(PULSE_WIDTH_MS / portTICK_PERIOD_MS);
+
+        // DelayMs(pulse_ms);
+        // vTaskDelay(pulse_ms / portTICK_PERIOD_MS);
+        ulTaskNotifyTake(pdTRUE, pulse_ms / portTICK_PERIOD_MS);
+
         PWMOff(motor);
-        vTaskDelay(PAUSE_MS / portTICK_PERIOD_MS);
+
+        // DelayMs(pause_ms);
+        // vTaskDelay(pause_ms / portTICK_PERIOD_MS);
+        ulTaskNotifyTake(pdTRUE, pause_ms / portTICK_PERIOD_MS);
     }
+    PWMOff(motor);
 }
 /*==================[external functions definition]==========================*/
