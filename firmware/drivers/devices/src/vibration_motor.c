@@ -96,18 +96,33 @@ void MotorOff(motor_out_t motor) {
 
 void vibrateNTimes(motor_out_t motor, uint8_t N) {
     for (uint8_t i = 0; i < N; i++) {
+        // printf("Vib. motor %d, pulse %d/%d\n", motor, i + 1, N);
+        // PWMSetDutyCycle(motor, 100);
         PWMOn(motor);
 
         // DelayMs(pulse_ms);
         // vTaskDelay(pulse_ms / portTICK_PERIOD_MS);
         ulTaskNotifyTake(pdTRUE, pulse_ms / portTICK_PERIOD_MS);
 
+        // PWMSetDutyCycle(motor, 0);
         PWMOff(motor);
 
         // DelayMs(pause_ms);
         // vTaskDelay(pause_ms / portTICK_PERIOD_MS);
         ulTaskNotifyTake(pdTRUE, pause_ms / portTICK_PERIOD_MS);
     }
+    // GPIOOff(motor);
+}
+
+void vibrateOnceLong(motor_out_t motor) {
+    // PWMSetDutyCycle(motor, 100);
+    PWMOn(motor);
+    // DelayMs(LONG_PULSE_MS_DEFAULT);
+    // vTaskDelay(LONG_PULSE_MS_DEFAULT / portTICK_PERIOD_MS);
+    ulTaskNotifyTake(pdTRUE, LONG_PULSE_MS_DEFAULT / portTICK_PERIOD_MS);
+
+    // PWMSetDutyCycle(motor, 0);
     PWMOff(motor);
+    // GPIOOff(motor);
 }
 /*==================[external functions definition]==========================*/

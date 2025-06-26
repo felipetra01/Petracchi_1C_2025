@@ -41,7 +41,8 @@
 */
 #define MOTOR_FREQ_DEFAULT  2000    // Default PWM frequency in Hz
 #define PULSE_MS_DEFAULT    400     // Default pulse duration (width) in milliseconds
-#define PAUSE_MS_DEFAULT    400     // Default pause duration (width) in milliseconds
+#define PAUSE_MS_DEFAULT    400     // Default pause duration (width) in 
+#define LONG_PULSE_MS_DEFAULT  1000    // Default long pulse duration (width) in milliseconds
 /*==================[typedef]================================================*/
 typedef enum motor_out {
 	MOTOR_0 = PWM_0,    /**< Vibration motor 1 */
@@ -60,17 +61,55 @@ typedef struct {
 /*==================[internal functions declaration]=========================*/
 
 /*==================[external functions declaration]=========================*/
+/**
+ * @brief This function initializes the specified motor with the given configuration.
+ *
+ * @param motor Pointer to the motor configuration structure.
+ * @return uint8_t Returns 0 on success, non-zero on failure.
+ */
 uint8_t MotorInit(motor_config_t *motor);
 
+/**
+ * @brief Sets the duration of the motor pulse in milliseconds.
+ * 
+ * @param time_ms Duration in milliseconds.
+ */
 void setMotorPulseDurationMS(uint16_t time_ms);
 
+/**
+ * @brief Sets the pause duration between motor pulses in milliseconds.
+ *
+ * @param time_ms Duration in milliseconds.
+ */
 void setMotorPauseDurationMS(uint16_t time_ms);
 
+/*
+ * @brief Turns on the specified motor.
+ *
+ * @param motor The motor to turn on.
+ */
 void MotorOn(motor_out_t motor);
 
+/**
+ * @brief Turns off the specified motor.
+ *
+ * @param motor The motor to turn off.
+ */
 void MotorOff(motor_out_t motor);
 
+/**
+ * @brief Vibrates the specified motor for a single pulse.
+ *
+ * @param motor The motor to vibrate.
+ */
 void vibrateNTimes(motor_out_t motor, uint8_t N);
+
+/**
+ * @brief Vibrates the specified motor once with one long pulse.
+ *
+ * @param motor The motor to vibrate.
+ */
+void vibrateOnceLong(motor_out_t motor);
 
 /** @} doxygen end group definition */
 /** @} doxygen end group definition */
